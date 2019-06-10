@@ -15,7 +15,7 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:ig="http://schemas.infragistics.com/xaml"
 	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-	xmlns:dragAndDropWithXamTreeGrid="clr-namespace:DragAndDropWithXamTreeGrid">
+	xmlns:dragAndDropWithXamTreeGrid="clr-namespace:DotNetFramework">
 
 	<ResourceDictionary.MergedDictionaries>
 		<ResourceDictionary Source="DataPresenterGeneric_Brushes.xaml"/>
@@ -668,14 +668,33 @@
 							<!-- Record Content -->
 							<!-- SSP 5/6/08 - Record Separators - changed grid.row to 2 from 1 and grid.col to 2 from 1-->
                             <!-- MD 6/10/10 - ChildRecordsDisplayOrder feature - Shifted all columns and rows down and over by 1 and increased spans by 1-->
-							<ContentPresenter
+                            <ContentPresenter
 								x:Name="PART_RecordContentSite"
 								Grid.Row="3"
 								Grid.Column="3"
 								Content="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}}"
 								ContentTemplate="{TemplateBinding RecordContentAreaTemplate}"
 								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+								VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                <!--ドラッグアンドドロップの設定-->
+                                <ig:DragDropManager.DragSource>
+                                    <ig:DragSource 
+                                        IsDraggable="True"
+                                    >
+                                        <i:Interaction.Behaviors>
+                                            <!--ビヘイビアの設定-->
+                                            <dragAndDropWithXamTreeGrid:DragDropBehavior/>
+                                        </i:Interaction.Behaviors>
+                                    </ig:DragSource>
+                                </ig:DragDropManager.DragSource>
+
+                                <ig:DragDropManager.DropTarget>
+                                    <ig:DropTarget
+                                        IsDropTarget="True"/>
+                                </ig:DragDropManager.DropTarget>
+                                <!--ドラッグアンドドロップの設定-->
+
+                            </ContentPresenter>
 							<!-- Nested Content -->
 							<!-- SSP 5/6/08 - Record Separators - changed grid.row to 4 from 2 and grid.col to 2 from 1-->
 							<!-- AS 3/25/09 TFS15801 - Set RenderTransform for fixed fields -->

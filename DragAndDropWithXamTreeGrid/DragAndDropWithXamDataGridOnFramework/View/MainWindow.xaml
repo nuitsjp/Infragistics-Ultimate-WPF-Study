@@ -1,0 +1,256 @@
+﻿<Window x:Class="DragAndDropWithXamDataGridOnFramework.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DragAndDropWithXamDataGridOnFramework"
+        xmlns:behaviors="clr-namespace:DragAndDropWithXamDataGridOnFramework.Behavior"
+        xmlns:ig="http://schemas.infragistics.com/xaml"    
+        xmlns:igDP="http://infragistics.com/DataPresenter"
+        xmlns:Custom="http://infragistics.com/Windows"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:dataPresenter="http://infragistics.com/DataPresenter"
+        xmlns:viewModel="clr-namespace:DragAndDropWithXamDataGridOnFramework.ViewModel"
+        xmlns:behavior="clr-namespace:DragAndDropWithXamDataGridOnFramework.Behavior"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <viewModel:MainWindowViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <Style TargetType="{x:Type igDP:DataRecordPresenter}">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="HeaderAreaBackground" Value="{DynamicResource {ComponentResourceKey ResourceId=LabelBackground, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}"/>
+            <Setter Property="NestedContentBackground" Value="Transparent"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type igDP:DataRecordPresenter}">
+                        <Custom:CardPanel x:Name="baseGrid" Background="{TemplateBinding Background}" RenderTransform="{TemplateBinding FixedNearElementTransform}">
+                            <Border x:Name="addRowFooter" BorderBrush="DarkGray" BorderThickness="0,0,0,1" Background="{DynamicResource {ComponentResourceKey ResourceId=AddRowBackground, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" HorizontalAlignment="Stretch" Height="Auto" Visibility="Collapsed" VerticalAlignment="Stretch" Width="Auto"/>
+                            <Grid Margin="0" RenderTransform="{TemplateBinding ScrollableElementTransform}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Border x:Name="OrientationHorizontalSep" BorderBrush="#FFE7E7E7" BorderThickness="0,0,1,0" Background="#FFFAFAFA" Grid.ColumnSpan="6" Visibility="Collapsed"/>
+                                <Custom:ExpansionIndicator x:Name="ExpansionIndicator" Grid.Column="1" CommandParameter="{TemplateBinding Record}" Command="igDP:DataPresenterCommands.ToggleRecordIsExpanded" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Grid.Row="3" RenderTransform="{TemplateBinding FixedNearElementTransform}" ToggleMode="Manual" Visibility="{Binding ExpansionIndicatorVisibility, RelativeSource={RelativeSource TemplatedParent}}" Panel.ZIndex="1"/>
+                                <Custom:CardPanel x:Name="SpacerFill" Grid.ColumnSpan="6" Grid.Column="1" Grid.Row="1" RenderTransform="{TemplateBinding FixedNearElementTransform}" Visibility="Visible">
+                                    <Border x:Name="fill" BorderBrush="{DynamicResource {ComponentResourceKey ResourceId=LabelOuterBorder, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" BorderThickness="0,0,0,1" Background="{TemplateBinding HeaderAreaBackground}" Margin="0"/>
+                                </Custom:CardPanel>
+                                <ContentPresenter x:Name="PART_HeaderContentSite" Content="{TemplateBinding HeaderContent}" Grid.Column="3" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="1" Visibility="Visible" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                <Border x:Name="RecordSeparator" Grid.ColumnSpan="6" Grid.Column="1" Grid.Row="2" RenderTransform="{TemplateBinding FixedNearElementTransform}" Style="{DynamicResource {ComponentResourceKey ResourceId=RecordSeparatorStyle, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}" Visibility="Collapsed"/>
+                                <ContentPresenter x:Name="PART_RecordContentSite" ContentTemplate="{TemplateBinding RecordContentAreaTemplate}" Content="{Binding DataContext, RelativeSource={RelativeSource TemplatedParent}}" Grid.Column="3" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="3" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                    <!--ドラッグアンドドロップの設定-->
+                                    <ig:DragDropManager.DragSource>
+                                        <ig:DragSource 
+                                                IsDraggable="True"
+                                                >
+                                            <i:Interaction.Behaviors>
+                                                <!--ビヘイビアの設定-->
+                                                <behavior:DragDropBehavior/>
+                                            </i:Interaction.Behaviors>
+                                        </ig:DragSource>
+                                    </ig:DragDropManager.DragSource>
+
+                                    <ig:DragDropManager.DropTarget>
+                                        <ig:DropTarget
+                                                IsDropTarget="True"/>
+                                    </ig:DragDropManager.DropTarget>
+                                    <!--ドラッグアンドドロップの設定-->
+                                </ContentPresenter>
+                                <Border x:Name="PART_NestedContentSite" Background="{TemplateBinding NestedContentBackground}" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="5" RenderTransform="{TemplateBinding FixedNearElementTransform}" Visibility="Visible" VerticalAlignment="Top">
+                                    <ContentControl Content="{TemplateBinding NestedContent}" Margin="2,2,0,0" RenderTransform="{TemplateBinding ScrollableElementTransform}"/>
+                                </Border>
+                            </Grid>
+                        </Custom:CardPanel>
+                        <ControlTemplate.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding FieldLayout.AutoFitToWidth, RelativeSource={RelativeSource Self}}" Value="True"/>
+                                    <Condition Binding="{Binding Orientation, RelativeSource={RelativeSource Self}}" Value="Vertical"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Grid.ColumnSpan" TargetName="PART_HeaderContentSite" Value="3"/>
+                                <Setter Property="Grid.ColumnSpan" TargetName="PART_RecordContentSite" Value="3"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </MultiDataTrigger>
+                            <Trigger Property="Orientation" Value="Horizontal">
+                                <Setter Property="Grid.Row" TargetName="PART_HeaderContentSite" Value="3"/>
+                                <Setter Property="Grid.Column" TargetName="PART_HeaderContentSite" Value="1"/>
+                                <Setter Property="Grid.Row" TargetName="PART_NestedContentSite" Value="3"/>
+                                <Setter Property="Grid.Column" TargetName="PART_NestedContentSite" Value="5"/>
+                                <Setter Property="VerticalAlignment" TargetName="PART_RecordContentSite" Value="Top"/>
+                                <Setter Property="Grid.Row" TargetName="ExpansionIndicator" Value="1"/>
+                                <Setter Property="Margin" TargetName="ExpansionIndicator" Value="0,2"/>
+                                <Setter Property="Grid.Column" TargetName="ExpansionIndicator" Value="3"/>
+                                <Setter Property="Grid.ColumnSpan" TargetName="SpacerFill" Value="1"/>
+                                <Setter Property="Grid.RowSpan" TargetName="SpacerFill" Value="6"/>
+                                <Setter Property="Visibility" TargetName="OrientationHorizontalSep" Value="Visible"/>
+                                <Setter Property="Width" TargetName="RecordSeparator" Value="10"/>
+                                <Setter Property="Height" TargetName="RecordSeparator" Value="Auto"/>
+                                <Setter Property="BorderThickness" TargetName="RecordSeparator" Value="1,0"/>
+                            </Trigger>
+                            <Trigger Property="ShouldDisplayRecordContent" Value="False">
+                                <Setter Property="Visibility" TargetName="PART_RecordContentSite" Value="Collapsed"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="ShouldDisplayRecordContent" Value="False"/>
+                                    <Condition Property="IsHeaderRecord" Value="False"/>
+                                    <Condition Property="ExpansionIndicatorVisibility" Value="Visible"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Visibility" TargetName="ExpansionIndicator" Value="Hidden"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Orientation" Value="Horizontal"/>
+                                    <Condition Property="ShouldDisplayRecordContent" Value="False"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Grid.Column" TargetName="ExpansionIndicator" Value="5"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Orientation" Value="Vertical"/>
+                                    <Condition Property="ShouldDisplayRecordContent" Value="False"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Grid.Row" TargetName="ExpansionIndicator" Value="5"/>
+                            </MultiTrigger>
+                            <Trigger Property="IsHeaderRecord" Value="True">
+                                <Setter Property="Grid.Row" TargetName="ExpansionIndicator" Value="1"/>
+                                <Setter Property="Grid.Column" TargetName="ExpansionIndicator" Value="1"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsHeaderRecord" Value="True"/>
+                                    <Condition Property="ExpansionIndicatorVisibility" Value="Visible"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Visibility" TargetName="ExpansionIndicator" Value="Hidden"/>
+                            </MultiTrigger>
+                            <Trigger Property="HasHeaderContent" Value="False">
+                                <Setter Property="Visibility" TargetName="SpacerFill" Value="Collapsed"/>
+                                <Setter Property="Visibility" TargetName="PART_HeaderContentSite" Value="Collapsed"/>
+                            </Trigger>
+                            <Trigger Property="HasNestedContent" Value="True">
+                                <Setter Property="Visibility" TargetName="PART_NestedContentSite" Value="Visible"/>
+                                <Setter Property="Background" TargetName="baseGrid" Value="{Binding Background, RelativeSource={RelativeSource TemplatedParent}}"/>
+                            </Trigger>
+                            <Trigger Property="HasNestedContent" Value="False">
+                                <Setter Property="Visibility" TargetName="PART_NestedContentSite" Value="Collapsed"/>
+                            </Trigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsSpecialRecord}" Value="true"/>
+                                    <Condition Binding="{Binding IsFixedOnTop, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Visibility" TargetName="addRowFooter" Value="Visible"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsSpecialRecord}" Value="true"/>
+                                    <Condition Binding="{Binding IsFixedOnBottom, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Visibility" TargetName="addRowFooter" Value="Visible"/>
+                                <Setter Property="BorderThickness" TargetName="addRowFooter" Value="0,1,0,0"/>
+                            </MultiDataTrigger>
+                            <Trigger Property="HasSeparatorBefore" Value="True">
+                                <Setter Property="Visibility" TargetName="RecordSeparator" Value="Visible"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="HasSeparatorAfter" Value="True"/>
+                                    <Condition Property="Orientation" Value="Vertical"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Visibility" TargetName="RecordSeparator" Value="Visible"/>
+                                <Setter Property="Grid.Row" TargetName="RecordSeparator" Value="4"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="HasSeparatorAfter" Value="True"/>
+                                    <Condition Property="Orientation" Value="Horizontal"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Visibility" TargetName="RecordSeparator" Value="Visible"/>
+                                <Setter Property="Grid.Column" TargetName="RecordSeparator" Value="4"/>
+                                <Setter Property="Grid.ColumnSpan" TargetName="RecordSeparator" Value="1"/>
+                                <Setter Property="Grid.Row" TargetName="RecordSeparator" Value="1"/>
+                                <Setter Property="Grid.RowSpan" TargetName="RecordSeparator" Value="6"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="HasSeparatorBefore" Value="True"/>
+                                    <Condition Property="Orientation" Value="Horizontal"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Grid.Column" TargetName="RecordSeparator" Value="2"/>
+                                <Setter Property="Grid.ColumnSpan" TargetName="RecordSeparator" Value="1"/>
+                                <Setter Property="Grid.Row" TargetName="RecordSeparator" Value="1"/>
+                                <Setter Property="Grid.RowSpan" TargetName="RecordSeparator" Value="6"/>
+                            </MultiTrigger>
+                            <Trigger Property="IsOpacityReduced" Value="True">
+                                <Setter Property="Opacity" TargetName="PART_RecordContentSite" Value="0.35"/>
+                            </Trigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding FieldLayout.ChildRecordsDisplayOrderResolved}" Value="BeforeParent"/>
+                                    <Condition Binding="{Binding Orientation, RelativeSource={RelativeSource Self}}" Value="Vertical"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Grid.Row" TargetName="PART_NestedContentSite" Value="0"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding FieldLayout.ChildRecordsDisplayOrderResolved}" Value="BeforeParent"/>
+                                    <Condition Binding="{Binding Orientation, RelativeSource={RelativeSource Self}}" Value="Horizontal"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Grid.Column" TargetName="PART_NestedContentSite" Value="0"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding FieldLayout.ChildRecordsDisplayOrderResolved}" Value="BeforeParentHeadersAttached"/>
+                                    <Condition Binding="{Binding Orientation, RelativeSource={RelativeSource Self}}" Value="Vertical"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Grid.Row" TargetName="PART_NestedContentSite" Value="0"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding FieldLayout.ChildRecordsDisplayOrderResolved}" Value="BeforeParentHeadersAttached"/>
+                                    <Condition Binding="{Binding Orientation, RelativeSource={RelativeSource Self}}" Value="Horizontal"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Grid.Column" TargetName="PART_NestedContentSite" Value="0"/>
+                            </MultiDataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="TemplateCardView">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type igDP:DataRecordPresenter}">
+                        <Custom:CardPanel x:Name="baseGrid" Background="{TemplateBinding Background}">
+                            <Rectangle Fill="{DynamicResource {ComponentResourceKey ResourceId=CardBackground, TypeInTargetAssembly={x:Type igDP:XamDataGrid}}}"/>
+                            <ContentPresenter x:Name="PART_RecordContentSite" ContentTemplate="{TemplateBinding RecordContentAreaTemplate}" Content="{Binding DataContext, RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Custom:CardPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsInCard" Value="True">
+                                <Setter Property="VerticalContentAlignment" Value="Top"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <dataPresenter:XamDataGrid DataSource="{Binding Tasks}"/>
+    </Grid>
+</Window>
