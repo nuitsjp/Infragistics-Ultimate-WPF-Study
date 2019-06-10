@@ -932,7 +932,23 @@
 							ContentTemplate="{TemplateBinding RecordContentAreaTemplate}"
 							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
 							VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <!--ドラッグアンドドロップの設定-->
+                            <ig:DragDropManager.DragSource>
+                                <ig:DragSource 
+                                    IsDraggable="True"
+                                >
+                                    <i:Interaction.Behaviors>
+                                        <!--ビヘイビアの設定-->
+                                        <behaviors:DragDropBehavior/>
+                                    </i:Interaction.Behaviors>
+                                </ig:DragSource>
+                            </ig:DragDropManager.DragSource>
 
+                            <ig:DragDropManager.DropTarget>
+                                <ig:DropTarget
+                                    IsDropTarget="True"/>
+                            </ig:DragDropManager.DropTarget>
+                            <!--ドラッグアンドドロップの設定-->
                         </ContentPresenter>
 					</igWindows:CardPanel>
 					<ControlTemplate.Triggers>
