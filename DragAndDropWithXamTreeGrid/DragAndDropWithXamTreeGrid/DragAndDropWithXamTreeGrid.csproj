@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="DataPresenterGeneric_Express.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Infragistics.WPF.DataGrids" Version="19.1.84" />
+    <PackageReference Include="Infragistics.WPF.DragDrop" Version="19.1.84" />
+  </ItemGroup>
+
+</Project>
