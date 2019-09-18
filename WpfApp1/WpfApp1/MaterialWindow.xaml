@@ -7,11 +7,17 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:igDP="http://infragistics.com/DataPresenter"
         xmlns:themes="http://infragistics.com/Themes"
+        xmlns:igThemeOrangePeel="http://infragistics.com/Themes/OrangePeel"
         mc:Ignorable="d"
         Title="MaterialWindow" Height="450" Width="800">
     <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <igThemeOrangePeel:DataPresenter/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
         <!-- BG SELECTED/PRESSED/CHECKED  -->
-        <Style TargetType="{x:Type igDP:DataRecordCellArea}" BasedOn="{x:Static themes:DataPresenterGeneric.DataRecordCellArea}">
+        <!--<Style TargetType="{x:Type igDP:DataRecordCellArea}" BasedOn="{x:Static themes:DataPresenterGeneric.DataRecordCellArea}">
             <Setter Property="BackgroundAlternate" Value="#FF0000" />
             <Setter Property="BorderAlternateBrush" Value="#FF0000" />
             <Setter Property="BackgroundActive" Value="{DynamicResource PrimaryHueMidBrush}" />
@@ -21,7 +27,7 @@
         </Style>
         <Style TargetType="{x:Type igDP:CellValuePresenter}">
 
-        </Style>
+        </Style>-->
     </Window.Resources>
     <materialDesign:DialogHost Identifier="RootDialog" SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
         <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">

@@ -4,19 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{60D888EF-2AEB-4464-936D-8142CCC04654}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>WpfApp1</RootNamespace>
-    <AssemblyName>WpfApp1</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <ProjectGuid>{664C5178-062B-42A7-8FFC-D1B8B0E9016A}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>MyThemePack</RootNamespace>
+    <AssemblyName>MyThemePack</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -26,7 +24,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,32 +38,8 @@
     <Reference Include="InfragisticsWPF.DataPresenter, Version=19.1.20191.164, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <HintPath>..\packages\Infragistics.WPF.DataGrids.19.1.164\lib\net40\InfragisticsWPF.DataPresenter.dll</HintPath>
     </Reference>
-    <Reference Include="InfragisticsWPF.DockManager, Version=19.1.20191.164, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <HintPath>..\packages\Infragistics.WPF.DockManager.19.1.164\lib\net40\InfragisticsWPF.DockManager.dll</HintPath>
-    </Reference>
     <Reference Include="InfragisticsWPF.Editors, Version=19.1.20191.164, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <HintPath>..\packages\Infragistics.WPF.Editors.19.1.164\lib\net40\InfragisticsWPF.Editors.dll</HintPath>
-    </Reference>
-    <Reference Include="InfragisticsWPF.OutlookBar, Version=19.1.20191.164, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <HintPath>..\packages\Infragistics.WPF.OutlookBar.19.1.164\lib\net40\InfragisticsWPF.OutlookBar.dll</HintPath>
-    </Reference>
-    <Reference Include="InfragisticsWPF.Ribbon, Version=19.1.20191.164, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <HintPath>..\packages\Infragistics.WPF.Ribbon.19.1.164\lib\net40\InfragisticsWPF.Ribbon.dll</HintPath>
-    </Reference>
-    <Reference Include="InfragisticsWPF.Themes.Fall, Version=19.1.20191.164, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <HintPath>..\packages\Infragistics.WPF.Themes.Fall.19.1.164\lib\net40\InfragisticsWPF.Themes.Fall.dll</HintPath>
-    </Reference>
-    <Reference Include="InfragisticsWPF.Themes.ForestGreen, Version=19.1.20191.164, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <HintPath>..\packages\Infragistics.WPF.Themes.ForestGreen.19.1.164\lib\net40\InfragisticsWPF.Themes.ForestGreen.dll</HintPath>
-    </Reference>
-    <Reference Include="InfragisticsWPF.Themes.RoyalLight, Version=19.1.20191.164, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <HintPath>..\packages\Infragistics.WPF.Themes.RoyalLight.19.1.164\lib\net40\InfragisticsWPF.Themes.RoyalLight.dll</HintPath>
-    </Reference>
-    <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
-    </Reference>
-    <Reference Include="MaterialDesignThemes.Wpf, Version=2.6.0.325, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -84,31 +57,24 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="ResourceSets\DataPresenter\DataPresenter.xaml">
       <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceSets\DataPresenter\DataPresenterOrangePeel_Brushes.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="MaterialWindow.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="ResourceSets\DataPresenter\Editors.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ResourceSets\DataPresenter\Primitives.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MaterialWindow.xaml.cs">
-      <DependentUpon>MaterialWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -122,6 +88,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ResourceSets\DataPresenter\DataPresenter_ResourceSets.cs" />
+    <Compile Include="ThemesOrangePeelAssemblyResourceSetLoader.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -133,16 +101,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="SplashScreen.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MyThemePack\MyThemePack.csproj">
-      <Project>{664c5178-062b-42a7-8ffc-d1b8b0e9016a}</Project>
-      <Name>MyThemePack</Name>
-    </ProjectReference>
+    <Folder Include="ResourceSets\Editors\" />
+    <Folder Include="ResourceSets\Primitives\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
