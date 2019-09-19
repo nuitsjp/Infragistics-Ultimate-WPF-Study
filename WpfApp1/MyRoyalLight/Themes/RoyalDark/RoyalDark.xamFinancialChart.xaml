@@ -1,0 +1,1359 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="http://schemas.infragistics.com/xaml"
+                    xmlns:ig="http://schemas.infragistics.com/xaml"
+                    xmlns:igEditors="http://infragistics.com/Editors"
+                    xmlns:mscorlib="clr-namespace:System;assembly=mscorlib"
+                    xmlns:System="clr-namespace:System;assembly=mscorlib"
+                    xmlns:igPrim="http://schemas.infragistics.com/xaml/primitives">
+
+    <!--  *********************************  RESOURCES  *********************************  -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="RoyalDark.Styles.xaml" />
+        <ResourceDictionary Source="RoyalDark.xamDataChart.xaml" />
+        <ResourceDictionary Source="RoyalDark.xamZoomSlider.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--  *********************************  BRUSHES  *********************************  -->
+    <SolidColorBrush x:Key="ForegroundBrush" Color="{StaticResource Color_040}" />
+    <SolidColorBrush x:Key="ForegroundBrushHover" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="ForegroundBrushSelected" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="TransparentBrush" Color="Transparent" />
+
+    <SolidColorBrush x:Key="FinancialChartBackgroundBrush" Color="{StaticResource Color_018}" />
+    <SolidColorBrush x:Key="ToolbarBackgroundBrush" Color="{StaticResource Color_007}" />
+    <SolidColorBrush x:Key="ToolbarBorderBrush" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="ToolbarElementSeparatorBackgroundBrush" Color="{StaticResource Color_003}" />
+
+    <!--  Toolbar RadioButton Brushes  -->
+    <SolidColorBrush x:Key="ToolbarRadioButtonBackgroundBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="ToolbarRadioButtonBorderBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="ToolbarRadioButtonHoverBackgroundBrush" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="ToolbarRadioButtonHoverBorderBrush" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="ToolbarRadioButtonCheckedBackgroundBrush" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="ToolbarRadioButtonCheckedBorderBrush" Color="{StaticResource Color_011}" />
+
+    <!--  Toolbar Button Brushes  -->
+    <SolidColorBrush x:Key="ToolbarButtonBackgroundBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="ToolbarButtonBorderBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="ToolbarButtonHoverBackgroundBrush" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="ToolbarButtonHoverBorderBrush" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="ToolbarButtonPressedBackgroundBrush" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="ToolbarButtonPressedBorderBrush" Color="{StaticResource Color_011}" />
+
+    <!--  Positive Brushes - Used for: Chart Brushes, Chart Outlines, Indicator Brushes, Overlay Outlines  -->
+    <ig:BrushCollection x:Key="PositiveBrushes">
+        <SolidColorBrush Color="{StaticResource Color_020}" />
+        <SolidColorBrush Color="{StaticResource Color_021}" />
+        <SolidColorBrush Color="{StaticResource Color_023}" />
+        <SolidColorBrush Color="{StaticResource Color_026}" />
+        <SolidColorBrush Color="{StaticResource Color_027}" />
+        <SolidColorBrush Color="{StaticResource Color_029}" />
+    </ig:BrushCollection>
+
+    <!--  Overlay Brushes  -->
+    <ig:BrushCollection x:Key="OverlayBrushes">
+        <SolidColorBrush Color="{StaticResource Color_020}" Opacity="0.3" />
+        <SolidColorBrush Color="{StaticResource Color_021}" Opacity="0.3" />
+        <SolidColorBrush Color="{StaticResource Color_023}" Opacity="0.3" />
+        <SolidColorBrush Color="{StaticResource Color_026}" Opacity="0.3" />
+        <SolidColorBrush Color="{StaticResource Color_027}" Opacity="0.3" />
+        <SolidColorBrush Color="{StaticResource Color_029}" Opacity="0.3" />
+    </ig:BrushCollection>
+
+    <!--  Negative Brushes  -->
+    <ig:BrushCollection x:Key="NegativeBrushes">
+        <SolidColorBrush Color="{StaticResource Color_019}" />
+    </ig:BrushCollection>
+
+    <!--  Menu Item Brushes / Needed because of the custom template for the Indicator  -->
+    <SolidColorBrush x:Key="MenuItemMouseOver" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="MenuItemMouseOverBorder" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="MenuItemHighlighted" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="MenuItemHighlightedBorder" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="PopupBorderBrush" Color="{StaticResource Color_014}" />
+    <SolidColorBrush x:Key="PopupBackgroundBrush" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="IconBackgroundBrush" Color="{StaticResource Color_004}" />
+
+    <!--  *********************************  COMMON ATTRIBUTES  *********************************  -->
+    <Thickness x:Key="FinancialChartPadding">15,10,0,10</Thickness>
+    <Thickness x:Key="FinancialToolbarMargin">0,0,0,5</Thickness>
+    <Thickness x:Key="TextLabelMargin">0,0,5,0</Thickness>
+    <Thickness x:Key="ToolbarButtonPadding">4,3,4,3</Thickness>
+    <Thickness x:Key="ToolbarElementSeparation">0,0,10,0</Thickness>
+    <Thickness x:Key="ToolbarElementSmallerSeparation">0,0,5,0</Thickness>
+    <Thickness x:Key="ToolbarBorderThickness">1</Thickness>
+    <Thickness x:Key="ToolbarButtonThickness">1</Thickness>
+    <Thickness x:Key="RadioButtonMargin">0,0,4,0</Thickness>
+    <Thickness x:Key="ButtonTextMargin">5,0</Thickness>
+    <System:Double x:Key="RadioButtonWidth">30</System:Double>
+    <System:Double x:Key="ChartTypePickerWidth">80</System:Double>
+    <CornerRadius x:Key="ToolbarButtonCornerRadius">0</CornerRadius>
+    <System:Double x:Key="PickersPathOpacity">0.8</System:Double>
+
+    <!--  *********************************  Font Styles  *********************************  -->
+    <System:Double x:Key="ChartSmallFontSize">11</System:Double>
+    <System:Double x:Key="ChartTitleFontSize">16</System:Double>
+    <FontFamily x:Key="ChartFontFamily">Segoe UI</FontFamily>
+    <!--  BasicLegend  -->
+    <FontWeight x:Key="FinalValueWeight">SemiBold</FontWeight>
+
+    <!--  Strings  -->
+    <ig:SRProvider x:Key="strings" />
+
+    <!--  *********************************  ICONS  *********************************  -->
+    <!--  Indicator Icon  -->
+    <Geometry x:Key="IndicatorIcon">M 40.1213 33.4645 L 34.4645 39.1213 L 35.8787 40.5355 L 40.5 35.915 L 43.585 39 L 45 37.585 L 44.915 37.5 L 48.71 33.71 L 50 35 L 50 31 L 46 31 L 47.29 32.29 L 43.5 36.085 L 40.8787 33.4645 L 40.5 33.845 L 40.1213 33.4645 ZM 36 42.2031 L 36 47 L 38 47 L 38 41.075 C 37.3218 41.7305 36.687 42.2031 36 42.2031 ZM 39 40.0549 L 39 47 L 41 47 L 41 38.675 L 40.75 38.4531 C 40.0986 38.9417 39.5269 39.511 39 40.0549 ZM 42 39.67 L 42 47 L 44 47 L 44 40.4449 L 43.75 40.4531 C 42.7668 40.4531 42.5354 40.2404 42 39.67 ZM 45 40.145 L 45 47 L 47 47 L 47 37.955 C 46.1204 38.9313 45.6923 39.73 45 40.145 ZM 48 36.975 L 48 47 L 50 47 L 50 36.365 C 49.6666 36.3746 49.3334 36.3142 49 36.2031 C 48.6226 36.4644 48.2924 36.7231 48 36.975 Z</Geometry>
+
+    <!--  Overlay Icon  -->
+    <Geometry x:Key="OverlayIcon">M 154 40 L 162 44 L 170 40 L 167.625 38.6563 L 162 41.4063 L 156.5938 38.4375 L 154 40 ZM 154 44 L 162 48 L 170 44 L 167.5 42.5625 L 162 45.4063 L 156.5 42.5313 L 154 44 ZM 154 36 L 162 40 L 170 36 L 162 32 L 154 36 Z</Geometry>
+
+    <!--  DropDown Arrow  -->
+    <Geometry x:Key="DropDownArrow">M 0 0 L 3.5 4 L 7 0 L 0 0 Z</Geometry>
+
+    <!--  Chart Type Icons  -->
+    <PathGeometry x:Key="candlePathGeometry">M 9 3 L 9 13 L 11 13 L 11 16 L 13 16 L 13 13 L 15 13 L 15 3 L 13 3 L 13 0 L 11 0 L 11 3 L 9 3 ZM 1 5 L 1 12 L 3 12 L 3 15 L 5 15 L 5 12 L 7 12 L 7 5 L 5 5 L 5 2 L 3 2 L 3 5 L 1 5 Z</PathGeometry>
+    <PathGeometry x:Key="barPathGeometry">M 3 2 L 3 4 L 3 6 L 3 7 L 0 7 L 0 9 L 3 9 L 3 12 L 5 12 L 5 9 L 5 7 L 5 6 L 8 6 L 8 4 L 5 4 L 5 2 L 3 2 ZM 10 0 L 10 3 L 10 5 L 10 10 L 7 10 L 7 12 L 10 12 L 10 15 L 12 15 L 12 12 L 12 10 L 12 5 L 15 5 L 15 3 L 12 3 L 12 0 L 10 0 Z</PathGeometry>
+    <PathGeometry x:Key="columnPathGeometry">M 0 15 L 3 15 L 3 10 L 0 10 L 0 15 ZM 11 15 L 11 1 L 8 1 L 8 15 L 11 15 ZM 15 15 L 15 3 L 12 3 L 12 15 L 15 15 ZM 7 15 L 7 5 L 4 5 L 4 15 L 7 15 Z</PathGeometry>
+    <PathGeometry x:Key="linePathGeometry">M 0 11.3333 L 1.6842 13 L 6.5 8.8125 L 9.5313 11.3438 L 16 5.5 L 14 3.5 L 9.5313 8.1875 L 6.5 5.625 L 0 11.3333 Z</PathGeometry>
+
+    <!--  CheckMark  -->
+    <PathGeometry x:Key="CheckMark">M 1.7858 4.2857 L 0 6.1165 L 5 10 L 12 1.4563 L 10.125 0 L 4.9108 6.7129 L 1.7858 4.2857 Z</PathGeometry>
+
+    <!--  ********************************* Toolbar Labels Style  *********************************  -->
+    <Style x:Key="ToolbarLabelsStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="{StaticResource TextLabelMargin}" />
+    </Style>
+
+    <!--  ********************************* XamFinancialChart Style  *********************************  -->
+    <Style TargetType="local:XamFinancialChart" BasedOn="{StaticResource {ComponentResourceKey {x:Type ig:XamXYChart}, XYChartStyle}}">
+        <Setter Property="Background" Value="{StaticResource FinancialChartBackgroundBrush}" />
+        <Setter Property="Brushes" Value="{StaticResource PositiveBrushes}" />
+        <Setter Property="Outlines" Value="{StaticResource PositiveBrushes}" />
+        <Setter Property="OverlayBrushes" Value="{StaticResource OverlayBrushes}" />
+        <Setter Property="OverlayOutlines" Value="{StaticResource PositiveBrushes}" />
+        <Setter Property="VolumeBrushes" Value="{StaticResource PositiveBrushes}" />
+        <Setter Property="VolumeOutlines" Value="{StaticResource PositiveBrushes}" />
+        <Setter Property="TrendLineBrushes" Value="{StaticResource PositiveBrushes}" />
+        <Setter Property="IndicatorBrushes" Value="{StaticResource PositiveBrushes}" />
+        <Setter Property="IndicatorNegativeBrushes" Value="{StaticResource NegativeBrushes}" />
+        <Setter Property="NegativeBrushes" Value="{StaticResource NegativeBrushes}" />
+        <Setter Property="NegativeOutlines" Value="{StaticResource NegativeBrushes}" />
+        <Setter Property="YAxisLabelLocation" Value="OutsideRight" />
+        <Setter Property="YAxisLabelHorizontalAlignment" Value="Left" />
+        <Setter Property="Padding" Value="{StaticResource FinancialChartPadding}" />
+        <Setter Property="IsVerticalZoomEnabled" Value="False" />
+        <Setter Property="YAxisAbbreviateLargeNumbers" Value="True" />
+        <Setter Property="Resolution" Value="{x:Static mscorlib:Double.NaN}" />
+        <Setter Property="TrendLinePeriod" Value="7" />
+        <Setter Property="XAxisMajorStroke" Value="{x:Null}" />
+        <Setter Property="YAxisTickLength" Value="0" />
+        <Setter Property="YAxisMajorStrokeThickness" Value="1" />
+        <Setter Property="YAxisStrokeThickness" Value="2" />
+        <Setter Property="YAxisStroke" Value="{x:Null}" />
+        <Setter Property="TitleAlignment" Value="Left" />
+        <Setter Property="TitleFontSize" Value="{StaticResource ChartSmallFontSize}" />
+        <Setter Property="TitleFontFamily" Value="{StaticResource ChartFontFamily}" />
+        <Setter Property="FontFamily" Value="{StaticResource ChartFontFamily}" />
+        <Setter Property="SubtitleAlignment" Value="Left" />
+        <Setter Property="SubtitleFontSize" Value="{StaticResource ChartSmallFontSize}" />
+        <Setter Property="SubtitleFontFamily" Value="{StaticResource ChartFontFamily}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:XamFinancialChart">
+                    <Grid Background="{TemplateBinding Background}">
+                        <Grid.Resources>
+                            <BooleanToVisibilityConverter x:Key="bool2Vis" />
+                        </Grid.Resources>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" x:Name="toolbarRow" />
+                            <RowDefinition Height="Auto" x:Name="legendRow" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" x:Name="indicatorRow" />
+                            <RowDefinition Height="Auto" x:Name="volumeRow" />
+                            <RowDefinition Height="Auto" x:Name="zoomSliderRow" />
+                        </Grid.RowDefinitions>
+                        <ig:FinancialChartToolbar x:Name="toolbar" Margin="{StaticResource FinancialToolbarMargin}" />
+                        <ig:FinancialLegend x:Name="financialChartLegend" Grid.Row="1" Visibility="{Binding IsLegendVisible, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource bool2Vis}}" />
+                        <ContentControl Margin="{TemplateBinding Padding}" Grid.Row="2">
+                            <ig:XamDataChart x:Name="DataChart">
+                                <ig:SyncManager.SyncSettings>
+                                    <ig:SyncSettings SyncChannel="one" SynchronizeHorizontally="True" SynchronizeVertically="False" />
+                                </ig:SyncManager.SyncSettings>
+                            </ig:XamDataChart>
+                        </ContentControl>
+                        <StackPanel x:Name="indicatorPane"
+                                    Visibility="Collapsed"
+                                    Grid.Row="3"
+                                    Margin="{TemplateBinding Padding}" />
+                        <ContentControl x:Name="volumePane"
+                                        Visibility="Collapsed"
+                                        Grid.Row="4"
+                                        Margin="{TemplateBinding Padding}" />
+                        <Grid x:Name="zoomSliderPane"
+                              Visibility="Collapsed"
+                              Grid.Row="5"
+                              Margin="{TemplateBinding Padding}">
+                            <ig:XamZoomSlider x:Name="zoomSlider" />
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  ToolbarRadioButton Style  *********************************  -->
+    <Style x:Key="ToolbarRadioButtonStyle" TargetType="RadioButton">
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        <Setter Property="Background" Value="{StaticResource ToolbarRadioButtonBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource ToolbarRadioButtonBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{StaticResource ToolbarButtonThickness}" />
+        <Setter Property="Padding" Value="{StaticResource ToolbarButtonPadding}" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <BulletDecorator Cursor="Hand">
+                        <Border x:Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Padding="{TemplateBinding Padding}"
+                                CornerRadius="{StaticResource ToolbarButtonCornerRadius}">
+                            <ContentControl x:Name="content"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Content="{TemplateBinding Content}" />
+                        </Border>
+                    </BulletDecorator>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="CornerRadius" Value="{StaticResource ToolbarButtonCornerRadius}" />
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="Border" Property="CornerRadius" Value="{StaticResource ToolbarButtonCornerRadius}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource ForegroundBrushHover}" />
+                <Setter Property="Background" Value="{StaticResource ToolbarRadioButtonHoverBackgroundBrush}" />
+                <Setter Property="BorderBrush" Value="{StaticResource ToolbarRadioButtonHoverBorderBrush}" />
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource ForegroundBrushSelected}" />
+                <Setter Property="Background" Value="{StaticResource ToolbarRadioButtonCheckedBackgroundBrush}" />
+                <Setter Property="BorderBrush" Value="{StaticResource ToolbarRadioButtonCheckedBorderBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--  *********************************  FinancialChartRangeSelector Style  *********************************  -->
+    <Style TargetType="local:FinancialChartRangeSelector">
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:FinancialChartRangeSelector">
+                    <Grid>
+                        <Grid.Resources>
+                            <Style TargetType="RadioButton" BasedOn="{StaticResource ToolbarRadioButtonStyle}" />
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <RadioButton x:Name="oneMonth"
+                                     Grid.Column="0"
+                                     MinWidth="{StaticResource RadioButtonWidth}"
+                                     Margin="{StaticResource RadioButtonMargin}"
+                                     ig:FinancialChartRangeSelector.Option="{x:Static local:FinancialChartRangeSelectorOption.OneMonth}"
+                                     Content="{Binding FinancialChart_RangeSelector_OneMonth, Source={StaticResource strings}}" />
+                        <RadioButton x:Name="threeMonths"
+                                     Grid.Column="1"
+                                     MinWidth="{StaticResource RadioButtonWidth}"
+                                     Margin="{StaticResource RadioButtonMargin}"
+                                     ig:FinancialChartRangeSelector.Option="{x:Static local:FinancialChartRangeSelectorOption.ThreeMonths}"
+                                     Content="{Binding FinancialChart_RangeSelector_ThreeMonths, Source={StaticResource strings}}" />
+                        <RadioButton x:Name="sixMonths"
+                                     Grid.Column="2"
+                                     MinWidth="{StaticResource RadioButtonWidth}"
+                                     Margin="{StaticResource RadioButtonMargin}"
+                                     ig:FinancialChartRangeSelector.Option="{x:Static local:FinancialChartRangeSelectorOption.SixMonths}"
+                                     Content="{Binding FinancialChart_RangeSelector_SixMonths, Source={StaticResource strings}}" />
+                        <RadioButton x:Name="ytd"
+                                     Grid.Column="3"
+                                     MinWidth="{StaticResource RadioButtonWidth}"
+                                     Margin="{StaticResource RadioButtonMargin}"
+                                     ig:FinancialChartRangeSelector.Option="{x:Static local:FinancialChartRangeSelectorOption.YearToDate}"
+                                     Content="{Binding FinancialChart_RangeSelector_YearToDate, Source={StaticResource strings}}" />
+                        <RadioButton x:Name="oneYear"
+                                     Grid.Column="4"
+                                     MinWidth="{StaticResource RadioButtonWidth}"
+                                     Margin="{StaticResource RadioButtonMargin}"
+                                     ig:FinancialChartRangeSelector.Option="{x:Static local:FinancialChartRangeSelectorOption.OneYear}"
+                                     Content="{Binding FinancialChart_RangeSelector_OneYear, Source={StaticResource strings}}" />
+                        <RadioButton x:Name="all"
+                                     Grid.Column="5"
+                                     MinWidth="{StaticResource RadioButtonWidth}"
+                                     Margin="{StaticResource ToolbarElementSeparation}"
+                                     ig:FinancialChartRangeSelector.Option="{x:Static local:FinancialChartRangeSelectorOption.All}"
+                                     Content="{Binding FinancialChart_RangeSelector_All, Source={StaticResource strings}}" />
+                        <TextBlock Text="{Binding FinancialChart_RangeSelector_From, Source={StaticResource strings}}"
+                                   MinWidth="30"
+                                   Grid.Column="6"
+                                   Margin="{StaticResource TextLabelMargin}"
+                                   TextAlignment="Right"
+                                   Style="{StaticResource ToolbarLabelsStyle}" />
+                        <igEditors:XamDateTimeEditor x:Name="fromPicker"
+                                                     Grid.Column="7"
+                                                     Theme="RoyalDark"
+                                                     Margin="{StaticResource ToolbarElementSmallerSeparation}"
+                                                     VerticalContentAlignment="Center"/>
+                        <TextBlock Text="{Binding FinancialChart_RangeSelector_To, Source={StaticResource strings}}"
+                                   Grid.Column="8"
+                                   MinWidth="20"
+                                   Margin="{StaticResource TextLabelMargin}"
+                                   TextAlignment="Right"
+                                   Style="{StaticResource ToolbarLabelsStyle}" />
+                        <igEditors:XamDateTimeEditor x:Name="toPicker"
+                                                     Grid.Column="9"
+                                                     Theme="RoyalDark"
+                                                     Margin="0"
+                                                     VerticalContentAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  FinancialChartToolbar Style  *********************************  -->
+    <Style TargetType="local:FinancialChartToolbar">
+        <Setter Property="TrendLineType" Value="{Binding TrendLineType, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:XamFinancialChart}}" />
+        <Setter Property="VolumeType" Value="{Binding VolumeType, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:XamFinancialChart}}" />
+        <Setter Property="ChartType" Value="{Binding ChartType, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:XamFinancialChart}}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:FinancialChartToolbar">
+                    <Border Background="{StaticResource ToolbarBackgroundBrush}"
+                            BorderBrush="{StaticResource ToolbarBorderBrush}"
+                            BorderThickness="{StaticResource ToolbarBorderThickness}"
+                            Padding="6 4">
+                        <ig:XamMenu x:Name="menu" Background="Transparent" >
+                            <ig:XamMenu.Resources>
+                                <Style TargetType="CheckBox">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="CheckBox">
+                                                <BulletDecorator Background="Transparent">
+                                                    <BulletDecorator.Bullet>
+                                                        <Border x:Name="Border" Width="13" Height="13">
+                                                            <Path Width="12"
+                                                                  Height="10"
+                                                                  x:Name="CheckMark"
+                                                                  SnapsToDevicePixels="False"
+                                                                  Fill="{StaticResource IconBackgroundBrush}"
+                                                                  StrokeThickness="2"
+                                                                  Data="{StaticResource CheckMark}" />
+                                                        </Border>
+                                                    </BulletDecorator.Bullet>
+                                                    <ContentPresenter Margin="5,0,0,0"
+                                                                      VerticalAlignment="Center"
+                                                                      HorizontalAlignment="Left"
+                                                                      RecognizesAccessKey="True" />
+                                                </BulletDecorator>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsChecked" Value="false">
+                                                        <Setter TargetName="CheckMark" Property="Visibility" Value="Collapsed" />
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+
+
+                                <Style x:Key="iconStyle" TargetType="Path">
+                                    <!--<Setter Property="Fill" Value="{StaticResource IconBackgroundBrush}" />-->
+                                    <Setter Property="Fill" Value="{Binding RelativeSource={RelativeSource Self}, Path=(TextElement.Foreground)}" />
+                                </Style>
+                                <Style x:Key="candlePathStyle" TargetType="Path" BasedOn="{StaticResource iconStyle}">
+                                    <Setter Property="Data" Value="{StaticResource candlePathGeometry}" />
+                                </Style>
+                                <Style x:Key="barPathStyle" TargetType="Path" BasedOn="{StaticResource iconStyle}">
+                                    <Setter Property="Data" Value="{StaticResource barPathGeometry}" />
+                                </Style>
+                                <Style x:Key="linePathStyle" TargetType="Path" BasedOn="{StaticResource iconStyle}">
+                                    <Setter Property="Data" Value="{StaticResource linePathGeometry}" />
+                                </Style>
+                                <Style x:Key="columnPathStyle" TargetType="Path" BasedOn="{StaticResource iconStyle}">
+                                    <Setter Property="Data" Value="{StaticResource columnPathGeometry}" />
+                                </Style>
+
+                                <!--  this is the template for the indicator menu button  -->
+                                <DataTemplate x:Key="dropDownHeaderTemplate">
+                                    <Border x:Name="border"
+                                            Background="{Binding Background, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ig:XamMenuItem}}"
+                                            BorderBrush="{Binding BorderBrush, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ig:XamMenuItem}}"
+                                            BorderThickness="{Binding BorderThickness, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ig:XamMenuItem}}"
+                                            SnapsToDevicePixels="true"
+                                            CornerRadius="{StaticResource ToolbarButtonCornerRadius}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Header, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ig:XamMenuItem}}"
+                                                       HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ig:XamMenuItem}}"
+                                                       VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ig:XamMenuItem}}"
+                                                       Margin="{StaticResource ButtonTextMargin}"
+                                                       Foreground="{StaticResource ForegroundBrush}"
+                                                        />
+
+                                            <Path x:Name="Arrow"
+                                                  Data="{StaticResource DropDownArrow}"
+                                                  Fill="{Binding (TextElement.Foreground), RelativeSource={RelativeSource AncestorType=ContentPresenter}}"
+                                                  HorizontalAlignment="Stretch"
+                                                  VerticalAlignment="Center"
+                                                  Margin="0,2,0,0"
+                                                  Opacity="{StaticResource PickersPathOpacity}" />
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ig:XamMenu.Resources>
+                            <ig:XamMenu.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                    </Grid>
+                                </ItemsPanelTemplate>
+                            </ig:XamMenu.ItemsPanel>
+                            <ig:XamMenuItem MaxHeight="300"
+                                            SubmenuPreferredLocation="Auto"
+                                            Header="{Binding FinancialChart_IndicatorMenu_Header, Source={StaticResource strings}}"
+                                            Grid.Column="0"
+                                            HeaderTemplate="{StaticResource dropDownHeaderTemplate}">
+                                <ig:XamMenuItem.Icon>
+                                    <Path x:Name="Icon"
+                                          Width="16"
+                                          Height="16"
+                                          Fill="{Binding RelativeSource={RelativeSource Self}, Path=(TextElement.Foreground)}"
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Center"
+                                          Stretch="Fill"
+                                          Data="{StaticResource IndicatorIcon}"
+                                          SnapsToDevicePixels="True" />
+                                </ig:XamMenuItem.Icon>
+                                <ig:XamMenuItem.ItemsSource>
+                                    <ig:FinancialChartIndicatorMenuItems />
+                                </ig:XamMenuItem.ItemsSource>
+                                <ig:XamMenuItem.ItemTemplate>
+                                    <!--  this is the inner template for items in the indicator menu  -->
+                                    <DataTemplate>
+                                        <ContentControl Content="{Binding Label}">
+                                            <ContentControl.Style>
+                                                <Style TargetType="ContentControl">
+                                                    <Style.Triggers>
+                                                        <!--  level 0 items are bold  -->
+                                                        <DataTrigger Binding="{Binding Indentation}" Value="0">
+                                                            <Setter Property="FontWeight" Value="Bold" />
+                                                        </DataTrigger>
+                                                        <!--  level 1 items are indented  -->
+                                                        <DataTrigger Binding="{Binding Indentation}" Value="1">
+                                                            <Setter Property="Margin" Value="-4 0 0 0" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </ContentControl.Style>
+                                        </ContentControl>
+                                    </DataTemplate>
+                                </ig:XamMenuItem.ItemTemplate>
+                                <ig:XamMenuItem.ItemContainerStyle>
+                                    <Style TargetType="ig:XamMenuItem">
+                                        <Setter Property="Command" Value="{Binding IndicatorMenuItemCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:FinancialChartToolbar}}" />
+                                        <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Mode=Self}}" />
+                                        <Setter Property="IsChecked" Value="{Binding IsChecked, Mode=TwoWay}" />
+                                        <Setter Property="Background" Value="{StaticResource FinancialChartBackgroundBrush}" />
+                                        <Setter Property="StaysOpenOnClick" Value="True" />
+                                        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+                                        <Setter Property="MinHeight" Value="26" />
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <!--  this is the outer template for items in the indicator menu  -->
+                                                <ControlTemplate TargetType="ig:XamMenuItem">
+                                                   
+                                                        <Grid x:Name="MainGrid" Background="{TemplateBinding Background}">
+                                                            <Rectangle x:Name="HighlightedIndicator"
+                                                                       Fill="{StaticResource MenuItemMouseOver}"
+                                                                       Stroke="{StaticResource MenuItemMouseOverBorder}"
+                                                                       Visibility="Collapsed"
+                                                                       Grid.ColumnSpan="3"
+                                                                       HorizontalAlignment="Stretch"
+                                                                       RadiusX="0"
+                                                                       RadiusY="0"
+                                                                       Margin="1"/>
+                                                            <Border x:Name="IndicatorSectionBackground"
+                                                                Background="{StaticResource ToolbarBackgroundBrush}"
+                                                                HorizontalAlignment="Stretch"
+                                                                VerticalAlignment="Stretch"
+                                                                Visibility="Collapsed" />
+                                                            <Grid>
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                </Grid.ColumnDefinitions>
+                                                                <ContentPresenter x:Name="HeaderCheckboxPresenter"
+                                                                              HorizontalAlignment="Center"
+                                                                              VerticalAlignment="Center"
+                                                                              Visibility="{TemplateBinding CheckBoxVisibilityResolved}"
+                                                                              Margin="8 0 0 0">
+                                                                    <ContentPresenter.Content>
+                                                                        <CheckBox IsTabStop="False" IsHitTestVisible="False" IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsChecked, Mode=TwoWay}" />
+                                                                    </ContentPresenter.Content>
+                                                                </ContentPresenter>
+                                                                <ContentPresenter x:Name="HeaderPresenter"
+                                                                              Content="{TemplateBinding Header}"
+                                                                              ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                                                              Grid.Column="1"
+                                                                              VerticalAlignment="Center"
+                                                                              HorizontalAlignment="Left"
+                                                                              Margin="5 0 0 0" />
+                                                            </Grid>
+                                                        </Grid>
+                                                   
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsHighlighted" Value="True">
+                                                            <Setter TargetName="HighlightedIndicator" Property="Visibility" Value="Visible" />
+                                                            <!--<Setter Property="Foreground" Value="{StaticResource ForegroundBrushSelected}" />-->
+                                                        </Trigger>
+                                                        <DataTrigger Binding="{Binding Indentation}" Value="0">
+                                                            <Setter TargetName="IndicatorSectionBackground" Property="Visibility" Value="Visible" />
+                                                            <Setter Property="Height" Value="28" />
+                                                        </DataTrigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <!--  level 1 items are checkable  -->
+                                            <DataTrigger Binding="{Binding Indentation}" Value="1">
+                                                <Setter Property="IsCheckable" Value="True" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ig:XamMenuItem.ItemContainerStyle>
+                                <!--  Menu Item Template  -->
+                                <ig:XamMenuItem.Template>
+                                    <ControlTemplate TargetType="ig:XamMenuItem">
+                                        <Grid Background="{TemplateBinding Background}" VerticalAlignment="Center">
+                                            <VisualStateManager.VisualStateGroups>
+                                                <VisualStateGroup x:Name="CommonStates">
+                                                    <VisualState x:Name="Normal" >
+                                                        <Storyboard>
+                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuItemPresenter" Storyboard.TargetProperty="(TextElement.Foreground)">
+                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ForegroundBrush}" />
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                    <VisualState x:Name="MouseOver">
+                                                        <Storyboard x:Name="MouseOverStoryboard">
+                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MouseOverIndicator" Storyboard.TargetProperty="Visibility">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <Visibility>Visible</Visibility>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuItemPresenter" Storyboard.TargetProperty="(TextElement.Foreground)">
+                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ForegroundBrushHover}" />
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                    <VisualState x:Name="Highlighted">
+                                                        <Storyboard>
+                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HighlightedIndicator" Storyboard.TargetProperty="Visibility">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <Visibility>Visible</Visibility>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuItemPresenter" Storyboard.TargetProperty="(TextElement.Foreground)">
+                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ForegroundBrushSelected}" />
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HeaderIconPresenter" Storyboard.TargetProperty="(TextElement.Foreground)">
+                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ForegroundBrushSelected}" />
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                    <VisualState x:Name="Disabled">
+                                                        <Storyboard>
+                                                            <DoubleAnimation From="1" To=".3" Duration="0" Storyboard.TargetName="MenuItemPresenter" Storyboard.TargetProperty="Opacity" />
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                                <VisualStateGroup x:Name="SubmenuState">
+                                                    <VisualState x:Name="SubmenuOpen">
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="Opacity" To="1.0" BeginTime="0:0:0" Duration="0:0:0.15" />
+                                                        </Storyboard>
+                                                    </VisualState>
+
+                                                    <VisualState x:Name="SubmenuOpenImmediately">
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="Opacity" To="1.0" BeginTime="0:0:0" Duration="0:0:0.15" />
+                                                        </Storyboard>
+                                                    </VisualState>
+
+                                                    <VisualState x:Name="SubmenuClose">
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="Opacity" To="0.01" BeginTime="0:0:0" Duration="0:0:0.1" />
+
+                                                        </Storyboard>
+                                                    </VisualState>
+
+                                                    <VisualState x:Name="SubmenuCloseImmediately">
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="Opacity" To="0.01" BeginTime="0:0:0" Duration="0:0:0.1" />
+
+                                                        </Storyboard>
+                                                    </VisualState>
+
+                                                </VisualStateGroup>
+                                                <VisualStateGroup x:Name="MenuItemRole">
+                                                    <VisualState x:Name="TopLevelHeader">
+                                                        <Storyboard>
+                                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="IconPlace" Storyboard.TargetProperty="Width">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <GridLength>Auto</GridLength>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+
+                                                            <ObjectAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="HeaderPresenter" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <Thickness>10,3,0,3</Thickness>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                            <ObjectAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="HeaderCheckboxPresenter" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <Thickness>4,3,0,3</Thickness>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                        </Storyboard>
+                                                    </VisualState>
+
+                                                    <VisualState x:Name="TopLevelHeaderWithIcon">
+                                                        <Storyboard>
+                                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="IconPlace" Storyboard.TargetProperty="Width">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <GridLength>Auto</GridLength>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+
+                                                            <ObjectAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="HeaderPresenter" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <Thickness>0,3,0,3</Thickness>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                            <ObjectAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="HeaderCheckboxPresenter" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <Thickness>4,3,0,3</Thickness>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                        </Storyboard>
+                                                    </VisualState>
+
+                                                    <VisualState x:Name="TopLevelItem">
+                                                        <Storyboard>
+                                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="IconPlace" Storyboard.TargetProperty="Width">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <GridLength>Auto</GridLength>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+
+                                                            <ObjectAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="HeaderPresenter" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <Thickness>10,3,0,3</Thickness>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+
+                                                            <ObjectAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="HeaderCheckboxPresenter" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <Thickness>4,3,0,3</Thickness>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                        </Storyboard>
+                                                    </VisualState>
+
+                                                    <VisualState x:Name="TopLevelItemWithIcon">
+                                                        <Storyboard>
+                                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="IconPlace" Storyboard.TargetProperty="Width">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <GridLength>Auto</GridLength>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+
+                                                            <ObjectAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="HeaderPresenter" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <Thickness>0,3,0,3</Thickness>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+
+                                                            <ObjectAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="HeaderCheckboxPresenter" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <Thickness>4,3,0,3</Thickness>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                            </VisualStateManager.VisualStateGroups>
+                                            <Grid>
+                                                <Rectangle x:Name="HighlightedIndicator"
+                                                           Fill="{StaticResource MenuItemHighlighted}"
+                                                           Stroke="{StaticResource MenuItemHighlightedBorder}"
+                                                           Visibility="Collapsed"
+                                                           Grid.ColumnSpan="3"
+                                                           HorizontalAlignment="Stretch"
+                                                           RadiusX="0"
+                                                           RadiusY="0"
+                                                           Margin="1"/>
+                                                <Rectangle x:Name="MouseOverIndicator"
+                                                           Fill="{StaticResource MenuItemMouseOver}"
+                                                           Stroke="{StaticResource MenuItemMouseOverBorder}"
+                                                           Visibility="Collapsed"
+                                                           Grid.ColumnSpan="3"
+                                                           HorizontalAlignment="Stretch"
+                                                           RadiusX="0"
+                                                           RadiusY="0"
+                                                           Margin="1"/>
+
+                                                <!--MenuItemPresenter - presentes the content of the menu item.-->
+                                                <ContentPresenter x:Name="MenuItemPresenter"
+                                                                  Visibility="Visible"
+                                                                  Opacity="1"
+                                                                  Margin="3 2 2 3"
+                                                                  HorizontalAlignment="Left">
+                                                    <ContentPresenter.Content>
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition x:Name="IconPlace" Width="27" />
+                                                                <ColumnDefinition Width="*" />
+                                                            </Grid.ColumnDefinitions>
+
+                                                            <!--Icon presenter-->
+                                                            <igPrim:IconContentControl x:Name="HeaderIconPresenter"
+                                                                                       Height="16"
+                                                                                       Width="16"
+                                                                                       Visibility="{TemplateBinding IconVisibilityResolved}"
+                                                                                       Margin="4,3,4,3"
+                                                                                       Foreground="{StaticResource IconBackgroundBrush}"/>
+
+                                                            <!--Checkbox presenter-->
+                                                            <ContentPresenter x:Name="HeaderCheckboxPresenter"
+                                                                              HorizontalAlignment="Center"
+                                                                              VerticalAlignment="Center"
+                                                                              Visibility="{TemplateBinding CheckBoxVisibilityResolved}">
+                                                                <ContentPresenter.Content>
+                                                                    <CheckBox IsTabStop="False" IsHitTestVisible="False" IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsChecked, Mode=TwoWay}" />
+                                                                </ContentPresenter.Content>
+                                                            </ContentPresenter>
+
+                                                            <!--Header presenter-->
+                                                            <Grid Grid.Column="1">
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="*" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                </Grid.ColumnDefinitions>
+
+                                                                <ContentPresenter x:Name="HeaderPresenter"
+                                                                                  Margin="5,3,5,3"
+                                                                                  Content="{TemplateBinding Header}"
+                                                                                  ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                                                                  Grid.Column="0"
+                                                                                  VerticalAlignment="Center"
+                                                                                  HorizontalAlignment="Left"
+                                                                                  igPrim:XamlHelper.RecognizesAccessKey="True" />
+
+                                                                <TextBlock Grid.Column="1"
+                                                                           VerticalAlignment="Center"
+                                                                           Text="{TemplateBinding InputGestureText}"
+                                                                           Margin="8,3,2,3" />
+                                                            </Grid>
+                                                        </Grid>
+                                                    </ContentPresenter.Content>
+                                                </ContentPresenter>
+                                            </Grid>
+                                            <!--this popup is the indicator menu.-->
+                                            <Popup x:Name="Popup" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                                                <Grid>
+                                                    <Border x:Name="PopupBorder"
+                                                            BorderBrush="{StaticResource PopupBorderBrush}"
+                                                            Opacity="0.01"
+                                                            BorderThickness="1"
+                                                            Background="{StaticResource PopupBackgroundBrush}">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="27" />
+                                                                <ColumnDefinition Width="*" />
+                                                            </Grid.ColumnDefinitions>
+                                                            <Border Grid.Column="0" Width="27" HorizontalAlignment="Left" />
+                                                            <ScrollViewer x:Name="ScrollViewer"
+                                                                          MaxHeight="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=MaxHeight}"
+                                                                          MaxWidth="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=MaxWidth}"
+                                                                          VerticalScrollBarVisibility="Auto"
+                                                                          HorizontalScrollBarVisibility="Auto"
+                                                                          Grid.ColumnSpan="2">
+                                                                <ScrollViewer.Template>
+                                                                    <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                                                                        <Grid>
+                                                                            <Grid.ColumnDefinitions>
+                                                                                <ColumnDefinition Width="Auto" />
+                                                                                <ColumnDefinition />
+                                                                            </Grid.ColumnDefinitions>
+                                                                            <Grid.RowDefinitions>
+                                                                                <RowDefinition />
+                                                                                <RowDefinition Height="Auto" />
+                                                                            </Grid.RowDefinitions>
+                                                                            <Border Grid.Column="0">
+                                                                                <ScrollContentPresenter />
+                                                                            </Border>
+                                                                            <ScrollBar x:Name="PART_VerticalScrollBar"
+                                                                                       Grid.Column="1"
+                                                                                       Value="{TemplateBinding VerticalOffset}"
+                                                                                       Maximum="{TemplateBinding ScrollableHeight}"
+                                                                                       ViewportSize="{TemplateBinding ViewportHeight}"
+                                                                                       Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                                                                                       Style="{StaticResource ScrollBarStyle}"/>
+                                                                            <ScrollBar x:Name="PART_HorizontalScrollBar"
+                                                                                       Orientation="Horizontal"
+                                                                                       Grid.Row="1"
+                                                                                       Grid.Column="1"
+                                                                                       Value="{TemplateBinding HorizontalOffset}"
+                                                                                       Maximum="{TemplateBinding ScrollableWidth}"
+                                                                                       ViewportSize="{TemplateBinding ViewportWidth}"
+                                                                                       Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+                                                                                       Style="{StaticResource ScrollBarStyle}"/>
+                                                                        </Grid>
+                                                                    </ControlTemplate>
+                                                                </ScrollViewer.Template>
+                                                                <ItemsPresenter />
+                                                            </ScrollViewer>
+                                                        </Grid>
+                                                    </Border>
+                                                </Grid>
+                                            </Popup>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </ig:XamMenuItem.Template>
+                            </ig:XamMenuItem>
+                            <ig:XamMenuItem Grid.Column="1">
+                                <ig:XamMenuItem.Resources>
+                                    <Style TargetType="ig:XamMenuItem" >
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ig:XamMenuItem">
+                                                    <Grid Background="{TemplateBinding Background}">
+                                                        <Grid>
+                                                            <!--  MenuItemPresenter - presentes the content of the menu item.  -->
+                                                            <ContentPresenter x:Name="MenuItemPresenter" Visibility="Visible" Opacity="1">
+                                                                <ContentPresenter.Content>
+                                                                    <Grid>
+                                                                        <Grid.ColumnDefinitions>
+                                                                            <ColumnDefinition Width="*" />
+                                                                        </Grid.ColumnDefinitions>
+
+                                                                        <!--  Header presenter  -->
+                                                                        <Grid>
+                                                                            <Grid.ColumnDefinitions>
+                                                                                <ColumnDefinition Width="*" />
+                                                                            </Grid.ColumnDefinitions>
+
+                                                                            <ContentPresenter x:Name="HeaderPresenter"
+                                                                                              Margin="5,3,5,3"
+                                                                                              Content="{TemplateBinding Header}"
+                                                                                              ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                                                                              Grid.Column="0"
+                                                                                              VerticalAlignment="Center"
+                                                                                              HorizontalAlignment="Left" />
+                                                                        </Grid>
+                                                                    </Grid>
+                                                                </ContentPresenter.Content>
+                                                            </ContentPresenter>
+                                                        </Grid>
+                                                    </Grid>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ig:XamMenuItem.Resources>
+                                <ig:XamMenuItem.Header>
+                                    <ig:FinancialChartRangeSelector x:Name="rangeSelector" />
+                                </ig:XamMenuItem.Header>
+                            </ig:XamMenuItem>
+                            <ig:XamMenuItem Grid.Column="3" HeaderTemplate="{StaticResource dropDownHeaderTemplate}">
+                                <ig:XamMenuItem.Icon>
+                                    <Path SnapsToDevicePixels="True">
+                                        <Path.Style>
+                                            <Style TargetType="Path" BasedOn="{StaticResource iconStyle}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ChartType, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:XamFinancialChart}}" Value="{x:Static local:FinancialChartType.Auto}">
+                                                        <Setter Property="Data" Value="{StaticResource candlePathGeometry}" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding ChartType, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:XamFinancialChart}}" Value="{x:Static local:FinancialChartType.Candle}">
+                                                        <Setter Property="Data" Value="{StaticResource candlePathGeometry}" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding ChartType, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:XamFinancialChart}}" Value="{x:Static local:FinancialChartType.Line}">
+                                                        <Setter Property="Data" Value="{StaticResource linePathGeometry}" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding ChartType, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:XamFinancialChart}}" Value="{x:Static local:FinancialChartType.Column}">
+                                                        <Setter Property="Data" Value="{StaticResource columnPathGeometry}" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding ChartType, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:XamFinancialChart}}" Value="{x:Static local:FinancialChartType.Bar}">
+                                                        <Setter Property="Data" Value="{StaticResource barPathGeometry}" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Path.Style>
+                                    </Path>
+                                </ig:XamMenuItem.Icon>
+                                <ig:XamMenuItem Header="{x:Static local:FinancialChartType.Auto}">
+                                    <ig:XamMenuItem.Icon>
+                                        <Path Style="{StaticResource candlePathStyle}" />
+                                    </ig:XamMenuItem.Icon>
+                                </ig:XamMenuItem>
+                                <ig:XamMenuItem Header="{x:Static local:FinancialChartType.Bar}">
+                                    <ig:XamMenuItem.Icon>
+                                        <Path Style="{StaticResource barPathStyle}" />
+                                    </ig:XamMenuItem.Icon>
+                                </ig:XamMenuItem>
+                                <ig:XamMenuItem Header="{x:Static local:FinancialChartType.Line}">
+                                    <ig:XamMenuItem.Icon>
+                                        <Path Style="{StaticResource linePathStyle}" />
+                                    </ig:XamMenuItem.Icon>
+                                </ig:XamMenuItem>
+                                <ig:XamMenuItem Header="{x:Static local:FinancialChartType.Candle}">
+                                    <ig:XamMenuItem.Icon>
+                                        <Path Style="{StaticResource candlePathStyle}" />
+                                    </ig:XamMenuItem.Icon>
+                                </ig:XamMenuItem>
+                                <ig:XamMenuItem Header="{x:Static local:FinancialChartType.Column}">
+                                    <ig:XamMenuItem.Icon>
+                                        <Path Style="{StaticResource columnPathStyle}" />
+                                    </ig:XamMenuItem.Icon>
+                                </ig:XamMenuItem>
+                                <ig:XamMenuItem.ItemContainerStyle>
+                                    <Style TargetType="ig:XamMenuItem">
+                                        <Setter Property="Command" Value="{Binding ChartTypeMenuItemCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:FinancialChartToolbar}}" />
+                                        <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Mode=Self}}" />
+                                        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <!--  this is the outer template for items in the indicator menu  -->
+                                                <ControlTemplate TargetType="ig:XamMenuItem">
+                                                    <Border>
+                                                        <Grid x:Name="MainGrid" Background="{TemplateBinding Background}">
+                                                            <Rectangle x:Name="HighlightedIndicator"
+                                                                       Fill="{StaticResource MenuItemMouseOver}"
+                                                                       Stroke="{StaticResource MenuItemMouseOverBorder}"
+                                                                       Visibility="Collapsed"
+                                                                       Grid.ColumnSpan="3"
+                                                                       HorizontalAlignment="Stretch"
+                                                                       RadiusX="0"
+                                                                       RadiusY="0"
+                                                                       Margin="1"/>
+                                                            <Grid>
+
+                                                                <ContentPresenter x:Name="MenuItemPresenter"
+                                                                  Visibility="Visible"
+                                                                  Opacity="1"
+                                                                  Margin="3 2 -2 3">
+                                                                    <ContentPresenter.Content>
+                                                                        <Grid>
+                                                                            <Grid.ColumnDefinitions>
+                                                                                <ColumnDefinition x:Name="IconPlace" Width="27" />
+                                                                                <ColumnDefinition Width="Auto" />
+                                                                            </Grid.ColumnDefinitions>
+
+                                                                            <!--  Icon presenter  -->
+                                                                            <igPrim:IconContentControl x:Name="HeaderIconPresenter"
+                                                                                       Height="16"
+                                                                                       Width="16"
+                                                                                       Visibility="{TemplateBinding IconVisibilityResolved}"
+                                                                                                       Margin="4,3,4,3"
+                                                                                                       Foreground="{StaticResource IconBackgroundBrush}"/>
+                                                                            <!--  Header presenter  -->
+                                                                            <Grid Grid.Column="1">
+                                                                                <Grid.ColumnDefinitions>
+                                                                                    <ColumnDefinition Width="*" />
+                                                                                    <ColumnDefinition Width="Auto" />
+                                                                                </Grid.ColumnDefinitions>
+
+                                                                                <ContentPresenter x:Name="HeaderPresenter"
+                                                                                  Margin="5,3,5,3"
+                                                                                  Content="{TemplateBinding Header}"
+                                                                                  ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                                                                  Grid.Column="0"
+                                                                                  VerticalAlignment="Center"
+                                                                                  HorizontalAlignment="Left"
+                                                                                  igPrim:XamlHelper.RecognizesAccessKey="True"/>
+
+                                                                                <TextBlock Grid.Column="1"
+                                                                           VerticalAlignment="Center"
+                                                                           Text="{TemplateBinding InputGestureText}"
+                                                                           Margin="8,3,2,3"/>
+                                                                            </Grid>
+
+                                                                        </Grid>
+                                                                    </ContentPresenter.Content>
+                                                                </ContentPresenter>
+                                                            </Grid>
+                                                        </Grid>
+                                                    </Border>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsHighlighted" Value="True">
+                                                            <Setter TargetName="HighlightedIndicator" Property="Visibility" Value="Visible" />
+                                                            <!--<Setter TargetName="MenuItemPresenter" Property="TextElement.Foreground" Value="{StaticResource ForegroundBrushHover}" />-->
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ig:XamMenuItem.ItemContainerStyle>
+                                <!--  Menu Item Template  -->
+                                <ig:XamMenuItem.Template>
+                                    <ControlTemplate TargetType="ig:XamMenuItem">
+                                        <Grid Background="{TemplateBinding Background}" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                            <VisualStateManager.VisualStateGroups>
+                                                <VisualStateGroup x:Name="CommonStates">
+                                                    <VisualState x:Name="Normal" >
+                                                        <Storyboard>
+                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuItemPresenter" Storyboard.TargetProperty="(TextElement.Foreground)">
+                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource IconBackgroundBrush}" />
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                    <VisualState x:Name="MouseOver">
+                                                        <Storyboard x:Name="MouseOverStoryboard">
+                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MouseOverIndicator" Storyboard.TargetProperty="Visibility">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <Visibility>Visible</Visibility>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuItemPresenter" Storyboard.TargetProperty="(TextElement.Foreground)">
+                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource IconBackgroundBrush}" />
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                    <VisualState x:Name="Highlighted">
+                                                        <Storyboard>
+                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HighlightedIndicator" Storyboard.TargetProperty="Visibility">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <Visibility>Visible</Visibility>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuItemPresenter" Storyboard.TargetProperty="(TextElement.Foreground)">
+                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ForegroundBrushSelected}" />
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HeaderIconPresenter" Storyboard.TargetProperty="(TextElement.Foreground)">
+                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ForegroundBrushSelected}" />
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                    <VisualState x:Name="Disabled">
+                                                        <Storyboard>
+                                                            <DoubleAnimation From="1" To=".3" Duration="0" Storyboard.TargetName="MenuItemPresenter" Storyboard.TargetProperty="Opacity" />
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                                <VisualStateGroup x:Name="SubmenuState">
+                                                    <VisualState x:Name="SubmenuOpen">
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="Opacity" To="1.0" BeginTime="0:0:0" Duration="0:0:0.15" />
+                                                        </Storyboard>
+                                                    </VisualState>
+
+                                                    <VisualState x:Name="SubmenuOpenImmediately">
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="Opacity" To="1.0" BeginTime="0:0:0" Duration="0:0:0.15" />
+                                                        </Storyboard>
+                                                    </VisualState>
+
+                                                    <VisualState x:Name="SubmenuClose">
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="Opacity" To="0.01" BeginTime="0:0:0" Duration="0:0:0.1" />
+
+                                                        </Storyboard>
+                                                    </VisualState>
+
+                                                    <VisualState x:Name="SubmenuCloseImmediately">
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="Opacity" To="0.01" BeginTime="0:0:0" Duration="0:0:0.1" />
+
+                                                        </Storyboard>
+                                                    </VisualState>
+
+                                                </VisualStateGroup>
+                                                <VisualStateGroup x:Name="MenuItemRole">
+                                                    <VisualState x:Name="TopLevelHeader">
+                                                        <Storyboard>
+                                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="IconPlace" Storyboard.TargetProperty="Width">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <GridLength>Auto</GridLength>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+
+                                                            <ObjectAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="HeaderPresenter" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <Thickness>10,3,0,3</Thickness>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                        </Storyboard>
+                                                    </VisualState>
+
+                                                    <VisualState x:Name="TopLevelHeaderWithIcon">
+                                                        <Storyboard>
+                                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="IconPlace" Storyboard.TargetProperty="Width">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <GridLength>Auto</GridLength>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+
+                                                            <ObjectAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="HeaderPresenter" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <Thickness>0,3,0,3</Thickness>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+
+                                                        </Storyboard>
+                                                    </VisualState>
+
+                                                    <VisualState x:Name="TopLevelItem">
+                                                        <Storyboard>
+                                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="IconPlace" Storyboard.TargetProperty="Width">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <GridLength>Auto</GridLength>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+
+                                                            <ObjectAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="HeaderPresenter" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <Thickness>10,3,0,3</Thickness>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+
+                                                        </Storyboard>
+                                                    </VisualState>
+
+                                                    <VisualState x:Name="TopLevelItemWithIcon">
+                                                        <Storyboard>
+                                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="IconPlace" Storyboard.TargetProperty="Width">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <GridLength>Auto</GridLength>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+
+                                                            <ObjectAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="HeaderPresenter" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                                    <DiscreteObjectKeyFrame.Value>
+                                                                        <Thickness>0,3,0,3</Thickness>
+                                                                    </DiscreteObjectKeyFrame.Value>
+                                                                </DiscreteObjectKeyFrame>
+                                                            </ObjectAnimationUsingKeyFrames>
+
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                            </VisualStateManager.VisualStateGroups>
+                                            <Grid>
+                                                <Rectangle x:Name="HighlightedIndicator"
+                                                           Fill="{StaticResource MenuItemHighlighted}"
+                                                           Stroke="{StaticResource MenuItemHighlightedBorder}"
+                                                           Visibility="Collapsed"
+                                                           Grid.ColumnSpan="3"
+                                                           HorizontalAlignment="Stretch"
+                                                           RadiusX="0"
+                                                           RadiusY="0"
+                                                           Margin="1"/>
+                                                <Rectangle x:Name="MouseOverIndicator"
+                                                           Fill="{StaticResource MenuItemMouseOver}"
+                                                           Stroke="{StaticResource MenuItemMouseOverBorder}"
+                                                           Visibility="Collapsed"
+                                                           Grid.ColumnSpan="3"
+                                                           HorizontalAlignment="Stretch"
+                                                           RadiusX="0"
+                                                           RadiusY="0"
+                                                           Margin="1"/>
+                                                <!--  MenuItemPresenter - presentes the content of the menu item.  -->
+                                                <ContentPresenter x:Name="MenuItemPresenter"
+                                                                  Visibility="Visible"
+                                                                  Opacity="1"
+                                                                  Margin="3 2 -2 3">
+                                                    <ContentPresenter.Content>
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition x:Name="IconPlace" Width="27" />
+                                                                <ColumnDefinition Width="Auto" />
+                                                            </Grid.ColumnDefinitions>
+
+                                                            <!--  Icon presenter  -->
+                                                            <igPrim:IconContentControl x:Name="HeaderIconPresenter"
+                                                                                       Height="16"
+                                                                                       Width="16"
+                                                                                       Visibility="{TemplateBinding IconVisibilityResolved}"
+                                                                                       Margin="4,3,4,3" />
+
+                                                            <!--  Header presenter  -->
+                                                            <Grid Grid.Column="1">
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="*" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                </Grid.ColumnDefinitions>
+
+                                                                <ContentPresenter x:Name="HeaderPresenter"
+                                                                                  Margin="5,3,5,3"
+                                                                                  Content="{TemplateBinding Header}"
+                                                                                  ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                                                                  Grid.Column="0"
+                                                                                  VerticalAlignment="Center"
+                                                                                  HorizontalAlignment="Left"
+                                                                                  igPrim:XamlHelper.RecognizesAccessKey="True"/>
+
+                                                                <TextBlock Grid.Column="1"
+                                                                           VerticalAlignment="Center"
+                                                                           Text="{TemplateBinding InputGestureText}"
+                                                                           Margin="8,3,2,3"/>
+                                                            </Grid>
+
+                                                        </Grid>
+                                                    </ContentPresenter.Content>
+                                                </ContentPresenter>
+                                            </Grid>
+                                            <!--  this popup is the indicator menu.  -->
+                                            <Popup x:Name="Popup" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                                                <Grid>
+                                                    <Border x:Name="PopupBorder"
+                                                            BorderBrush="{StaticResource PopupBorderBrush}"
+                                                            Opacity="0.01"
+                                                            BorderThickness="1"
+                                                            Background="{StaticResource PopupBackgroundBrush}">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="27" />
+                                                                <ColumnDefinition Width="Auto" />
+                                                            </Grid.ColumnDefinitions>
+                                                            <Border Grid.Column="0" Width="27" HorizontalAlignment="Left" />
+                                                            <ScrollViewer x:Name="ScrollViewer"
+                                                                          MaxHeight="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=MaxHeight}"
+                                                                          MaxWidth="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=MaxWidth}"
+                                                                          VerticalScrollBarVisibility="Auto"
+                                                                          HorizontalScrollBarVisibility="Auto"
+                                                                          Grid.ColumnSpan="2">
+                                                                <ScrollViewer.Template>
+                                                                    <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                                                                        <Grid>
+                                                                            <Grid.ColumnDefinitions>
+                                                                                <ColumnDefinition Width="Auto" />
+                                                                                <ColumnDefinition />
+                                                                            </Grid.ColumnDefinitions>
+                                                                            <Grid.RowDefinitions>
+                                                                                <RowDefinition />
+                                                                                <RowDefinition Height="Auto" />
+                                                                            </Grid.RowDefinitions>
+                                                                            <Border Grid.Column="0">
+                                                                                <ScrollContentPresenter />
+                                                                            </Border>
+                                                                            <ScrollBar x:Name="PART_VerticalScrollBar"
+                                                                                       Grid.Column="1"
+                                                                                       Value="{TemplateBinding VerticalOffset}"
+                                                                                       Maximum="{TemplateBinding ScrollableHeight}"
+                                                                                       ViewportSize="{TemplateBinding ViewportHeight}"
+                                                                                       Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                                                                                       Style="{StaticResource ScrollBarStyle}"/>
+                                                                            <ScrollBar x:Name="PART_HorizontalScrollBar"
+                                                                                       Orientation="Horizontal"
+                                                                                       Grid.Row="1"
+                                                                                       Grid.Column="1"
+                                                                                       Value="{TemplateBinding HorizontalOffset}"
+                                                                                       Maximum="{TemplateBinding ScrollableWidth}"
+                                                                                       ViewportSize="{TemplateBinding ViewportWidth}"
+                                                                                       Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+                                                                                       Style="{StaticResource ScrollBarStyle}"/>
+                                                                        </Grid>
+                                                                    </ControlTemplate>
+                                                                </ScrollViewer.Template>
+                                                                <ItemsPresenter />
+                                                            </ScrollViewer>
+                                                        </Grid>
+                                                    </Border>
+                                                </Grid>
+                                            </Popup>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </ig:XamMenuItem.Template>
+                            </ig:XamMenuItem>
+                        </ig:XamMenu>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

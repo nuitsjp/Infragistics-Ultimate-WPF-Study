@@ -8,8 +8,6 @@
                     xmlns:controls="http://infragistics.com/DataPresenter">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="DataPresenterOrangePeel_Brushes.xaml" />
-
-
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type controls:DataRecordCellArea}">

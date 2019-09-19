@@ -41,6 +41,7 @@
     <Reference Include="InfragisticsWPF.Editors, Version=19.1.20191.164, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <HintPath>..\packages\Infragistics.WPF.Editors.19.1.164\lib\net40\InfragisticsWPF.Editors.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework.Luna" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -61,15 +62,39 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ResourceSets\DataPresenter\DataPresenterGeneric.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ResourceSets\DataPresenter\DataPresenterGeneric_Brushes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ResourceSets\DataPresenter\DataPresenterGeneric_Express.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ResourceSets\DataPresenter\DataPresenterOrangePeel_Brushes.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ResourceSets\DataPresenter\Editors.xaml">
+    <Page Include="ResourceSets\DataPresenter\DataPresenterRoyalDark.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ResourceSets\DataPresenter\Primitives.xaml">
+    <Page Include="ResourceSets\DataPresenter\DataPresenterRoyalDark_Brushes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ResourceSets\DataPresenter\DataPresenterRoyalDark_Express.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ResourceSets\Editors\Editors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ResourceSets\Primitives\Primitives.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -101,8 +126,24 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ResourceSets\Editors\" />
-    <Folder Include="ResourceSets\Primitives\" />
+    <Resource Include="ResourceSets\DataPresenter\Images\AndGroupIcon.png" />
+    <Resource Include="ResourceSets\DataPresenter\Images\DataPendingSpinner.gif" />
+    <Resource Include="ResourceSets\DataPresenter\Images\Filter.png" />
+    <Resource Include="ResourceSets\DataPresenter\Images\FilterClearButton.png" />
+    <Resource Include="ResourceSets\DataPresenter\Images\FilterClearMenu.png" />
+    <Resource Include="ResourceSets\DataPresenter\Images\FixedButtonWhenFixed.png" />
+    <Resource Include="ResourceSets\DataPresenter\Images\FixedButtonWhenUnfixed.png" />
+    <Resource Include="ResourceSets\DataPresenter\Images\IconAdd.png" />
+    <Resource Include="ResourceSets\DataPresenter\Images\IconSubtract.png" />
+    <Resource Include="ResourceSets\DataPresenter\Images\MagnifyingGlass.png" />
+    <Resource Include="ResourceSets\DataPresenter\Images\OrGroupIcon.png" />
+    <Resource Include="ResourceSets\DataPresenter\Images\summary.png" />
+    <Resource Include="ResourceSets\DataPresenter\Images\ToggleCardCollapsedState_Collapsed.png" />
+    <Resource Include="ResourceSets\DataPresenter\Images\ToggleCardCollapsedState_NotCollapsed.png" />
+    <Resource Include="ResourceSets\DataPresenter\Images\ToggleEmptyCardCellsCollapsedState_Collapsed.png" />
+    <Resource Include="ResourceSets\DataPresenter\Images\ToggleEmptyCardCellsCollapsedState_NotCollapsed.png" />
+    <Resource Include="ResourceSets\DataPresenter\Images\ToggleGroupIcon.png" />
+    <Resource Include="ResourceSets\DataPresenter\Images\UngroupGroupIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

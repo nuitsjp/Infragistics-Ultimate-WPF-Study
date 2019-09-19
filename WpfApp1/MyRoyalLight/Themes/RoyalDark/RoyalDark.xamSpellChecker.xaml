@@ -1,0 +1,942 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:System="clr-namespace:System;assembly=mscorlib"
+                    xmlns:ig="http://schemas.infragistics.com/xaml"
+                    xmlns:igBase="http://schemas.infragistics.com/xaml"
+                    xmlns:igDW="http://schemas.infragistics.com/xaml"
+                    xmlns:igDWP="http://schemas.infragistics.com/xaml/primitives"
+                    xmlns:igPrim="http://schemas.infragistics.com/xaml/primitives">
+
+    <!--  *********************************  RESOURCES  *********************************  -->
+    <ResourceDictionary.MergedDictionaries>     
+        <ResourceDictionary Source="RoyalDark.Styles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--  *********************************  COMMON GLYPHS  *********************************  -->
+    <Geometry x:Key="HeaderIcon">M8,0 C8,0 3,0 3,0 C3,0 3.0250244,5.895833 3.0250244,5.895833 C3.0250244,5.895833 8,0 8,0 z M16,14 C16,14 16,15 16,15 C16,15 5,15 5,15 C5,15 5,14 5,14 C5,14 16,14 16,14 z M18,0 C18,0 8.2916689,1.2417635E-09 8.2916689,1.2417635E-09 C8.2916689,1.2417635E-09 11,2.416667 11,2.416667 C11,2.416667 11,2 11,2 C11,2 16,2 16,2 C16,2 16,3 16,3 C16,3 11.58333,3 11.58333,3 C11.58333,3 12.075274,3.4039302 12.075274,3.4039302 C11.999996,3.515625 11.599972,4 11.599972,4 C11.599972,4 16,4 16,4 C16,4 16,5 16,5 C16,5 10.541666,5 10.541666,5 C10.541666,5 9.7482491,6 9.7482491,6 C9.7482491,6 16,6 16,6 C16,6 16,7 16,7 C16,7 8.9599562,7 8.9599562,7 C8.9599562,7 8.1249943,8 8.1249943,8 C8.1249943,8 16,8 16,8 C16,8 16,9 16,9 C16,9 7.156251,9 7.156251,9 C7.156251,9 6.312501,10 6.312501,10 C6.312501,10 16,10 16,10 C16,10 16,11 16,11 C16,11 5.4374995,11.03125 5.4374995,11.03125 C5.4374995,11.03125 4.5,12.005209 4.5,12.005209 C4.5,12.005209 16,12 16,12 C16,12 16,13 16,13 C16,13 5,13 5,13 C5,13 5,12 5,12 C5,12 4.5,12.015625 4.5,12.015625 C4.4765625,12.039063 3.765625,12.801766 3.765625,12.801766 C3.796875,12.801766 3,12.333016 3,12.333016 C3,12.333016 3,17 3,17 C3,17 18,17 18,17 C18,17 18,0 18,0 z M1.6071777,6.2857666 C1.6071777,6.2857666 0,8.1164551 0,8.1164551 C0,8.1164551 3.5,11 3.5,11 C3.5,11 10,3.4146321 10,3.4146321 C10,3.4146321 8.3125,1.9583334 8.3125,1.9583334 C8.3125,1.9583334 3.4196777,7.7962236 3.4196777,7.7962236 C3.4196777,7.7962236 1.6071777,6.2857666 1.6071777,6.2857666 z</Geometry>
+
+    <!--  CURSORS  -->
+    <Geometry x:Key="NWCursor">M0.25,0.25 L5.73,0.25 L3.5799277,2.4220438 L11.820115,10.662231 L14.006999,8.4530001 L14.006999,13.989 L8.5269995,13.989 L10.702939,11.790825 L2.4627509,3.550637 L0.25,5.7859998 z</Geometry>
+    <Geometry x:Key="SECursor">M0.25,0.25 L5.73,0.25 L3.5799277,2.4220438 L11.820115,10.662231 L14.006999,8.4530001 L14.006999,13.989 L8.5269995,13.989 L10.702939,11.790825 L2.4627509,3.550637 L0.25,5.7859998 z</Geometry>
+    <Geometry x:Key="NECursor">M0.25,0.25 L5.73,0.25 L3.5799277,2.4220438 L11.820115,10.662231 L14.006999,8.4530001 L14.006999,13.989 L8.5269995,13.989 L10.702939,11.790825 L2.4627509,3.550637 L0.25,5.7859998 z</Geometry>
+    <Geometry x:Key="SWCursor">M0.25,0.25 L5.73,0.25 L3.5799277,2.4220438 L11.820115,10.662231 L14.006999,8.4530001 L14.006999,13.989 L8.5269995,13.989 L10.702939,11.790825 L2.4627509,3.550637 L0.25,5.7859998 z</Geometry>
+
+    <!--  ********************************** BRUSHES **********************************  -->
+    <!--  SpellCheckerDialogWindow Brushes  -->
+    <SolidColorBrush x:Key="DialogWindowBackgroundBrush" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="DialogWindowBorderBrush" Color="{StaticResource Color_014}" />
+    <SolidColorBrush x:Key="DialogWindowModalBackgroundBrush" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="DialogWindowHeaderIconBackgroundBrush" Color="{StaticResource Color_006}" />
+    <SolidColorBrush x:Key="DialogWindowHeaderForegroundBrush" Color="{StaticResource Color_042}" />
+    <SolidColorBrush x:Key="DialogWindowActiveResizeBorderBrush" Color="{StaticResource Color_013}" />
+    <SolidColorBrush x:Key="DialogWindowNoActiveResizeBorderBrush" Color="{StaticResource Color_014}" />
+    <SolidColorBrush x:Key="DialogWindowContentBorderBrush" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="DialogWindowContentInnerBorderBrush" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="DialogWindowFooterBackgroundBrush" Color="{StaticResource Color_009}" />
+
+    <!--  ProgressBar Brushes  -->
+    <SolidColorBrush x:Key="ProgressBarBackgroundBrush" Color="{StaticResource Color_0451}" />
+    <SolidColorBrush x:Key="ProgressBarForegroundBrush" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="ProgressDialogBorderBrush" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="ProgressDialogBackgroundBrush" Color="{StaticResource Color_009}" />
+
+
+    <!--  Glyph Brushes  -->
+    <SolidColorBrush x:Key="GlyphBackgroundBrush" Color="{StaticResource Color_004}" />
+    <SolidColorBrush x:Key="GlyphBorderBrush" Color="{StaticResource Color_001}" />
+
+    <!--  ********************************** ProgressBar Style **********************************  -->
+    <Style x:Key="ProgressBarStyle" TargetType="{x:Type ProgressBar}">
+        <Setter Property="Foreground" Value="{StaticResource ProgressBarForegroundBrush}" />
+        <Setter Property="Background" Value="{StaticResource ProgressBarBackgroundBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Height" Value="6" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ProgressBar}">
+                    <Grid x:Name="TemplateRoot" SnapsToDevicePixels="true">
+                        <Rectangle Fill="{TemplateBinding Background}" />
+                        <Rectangle x:Name="PART_Track" Margin="1" />
+                        <Decorator x:Name="PART_Indicator" HorizontalAlignment="Left">
+                            <Grid x:Name="Foreground">
+                                <Rectangle x:Name="Indicator" Fill="{TemplateBinding Foreground}" />
+                            </Grid>
+                        </Decorator>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Orientation" Value="Vertical">
+                            <Setter TargetName="TemplateRoot" Property="LayoutTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="-90" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsIndeterminate" Value="true">
+                            <Setter TargetName="Indicator" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                     </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>  
+
+    <!--  *********************************  DialogButton Style  *********************************  -->
+    <Style x:Key="DialogButtonStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid Background="Transparent">
+                        <Rectangle Fill="{StaticResource TransparentBrush}" />
+                        <ContentPresenter x:Name="contentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          Opacity="0.6" />
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled" />
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused" />
+                                <VisualState x:Name="Unfocused" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  TextBlock Style  *********************************  -->
+    <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        <Setter Property="FontSize" Value="{StaticResource FontSize}" />
+        <Setter Property="FontFamily" Value="{StaticResource FontFamily}" />
+    </Style>
+
+    <Style x:Key="ProgressDialogTextBlockStyle" BasedOn="{StaticResource TextBlockStyle}" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{StaticResource FontSize14}" />
+        <Setter Property="FontWeight" Value="{StaticResource FontLight}" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+         <Setter Property="Margin" Value="0 10" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+
+    <Style x:Key="HeaderTextBlockStyle" BasedOn="{StaticResource TextBlockStyle}" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource DialogWindowHeaderForegroundBrush}" />
+        <Setter Property="FontWeight" Value="{StaticResource FontSemiBold}" />
+    </Style>
+    
+     <Style x:Key="HiglightedTextBlockStyle" BasedOn="{StaticResource TextBlockStyle}" TargetType="TextBlock">
+         <Setter Property="FontWeight" Value="{StaticResource FontSemiBold}" />
+    </Style>
+
+    <!--  ********************************** DictionaryLoadProgressDialog Style **********************************  -->
+    <Style TargetType="ig:DictionaryLoadProgressDialog">
+        <Setter Property="Background" Value="{StaticResource ProgressDialogBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource ProgressDialogBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{StaticResource DefaultBorderThickness}" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ig:DictionaryLoadProgressDialog">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource ProgressDialogTextBlockStyle}" Text="{Binding Loading}" />
+                            <Border>
+                                <ContentControl>
+                                    <ProgressBar Width="200" Style="{StaticResource ProgressBarStyle}" Value="{TemplateBinding ProgressValue}" />
+                                </ContentControl>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  XamSpellCheckerDialogWindow Style  *********************************  -->
+    <Style TargetType="ig:XamSpellCheckerDialogWindow">
+        <Setter Property="IsEnabled" Value="true" />
+        <Setter Property="ModalBackground" Value="{StaticResource DialogWindowModalBackgroundBrush}" />
+        <Setter Property="ModalBackgroundOpacity" Value="0.8" />
+        <Setter Property="Background" Value="{StaticResource DialogWindowBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DialogWindowBorderBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        <Setter Property="BorderThickness" Value="{StaticResource DefaultBorderThickness}" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Top" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HeaderForeground" Value="{StaticResource ForegroundBrush}" />
+        <Setter Property="HeaderBackground" Value="{StaticResource TransparentBrush}" />
+        <Setter Property="HeaderVerticalContentAlignment" Value="Center" />
+        <Setter Property="MinWidth" Value="70" />
+        <Setter Property="MinHeight" Value="30" />
+        <Setter Property="MinimizedWidth" Value="100" />
+        <Setter Property="Height" Value="424" />
+        <Setter Property="Width" Value="424" />
+        <Setter Property="IsModal" Value="True" />
+        <Setter Property="WindowState" Value="Hidden" />
+        <Setter Property="StartupPosition" Value="Center" />
+        <Setter Property="HeaderIconTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Path Data="{StaticResource HeaderIcon}" Fill="{StaticResource DialogWindowHeaderIconBackgroundBrush}" Opacity="1" Stretch="Fill" />
+                    </Grid>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="igDW:XamDialogWindow">
+                    <Grid x:Name="ContainerContext" igPrim:XamlHelper.SnapsToDevicePixels="True">
+                        <Grid.Resources>
+                            <DataTemplate x:Key="NWCursor">
+                                <Grid Width="16" Height="16">
+                                    <Grid.RenderTransform>
+                                        <TransformGroup>
+                                            <TranslateTransform X="-9" />
+                                            <TranslateTransform Y="-9" />
+                                        </TransformGroup>
+                                    </Grid.RenderTransform>
+                                    <Path Data="{StaticResource NWCursor}"
+                                          Fill="{StaticResource GlyphBackgroundBrush}"
+                                          RenderTransformOrigin="0.5,0.5"
+                                          Stretch="Uniform"
+                                          Stroke="{StaticResource GlyphBorderBrush}"
+                                          StrokeThickness="0.6" />
+                                </Grid>
+                            </DataTemplate>
+                            <DataTemplate x:Key="SECursor">
+                                <Grid Width="16" Height="16">
+                                    <Path Data="{StaticResource SECursor}"
+                                          Fill="{StaticResource GlyphBackgroundBrush}"
+                                          RenderTransformOrigin="0.5,0.5"
+                                          Stretch="Uniform"
+                                          Stroke="{StaticResource GlyphBorderBrush}"
+                                          StrokeThickness="0.6" />
+                                </Grid>
+                            </DataTemplate>
+                            <DataTemplate x:Key="NECursor">
+                                <Grid Width="16" Height="16" RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform />
+                                            <SkewTransform AngleX="0" AngleY="0" />
+                                            <RotateTransform Angle="90" />
+                                            <TranslateTransform X="-9" />
+                                            <TranslateTransform Y="-9" />
+                                            <TranslateTransform />
+                                        </TransformGroup>
+                                    </Grid.RenderTransform>
+                                    <Path Data="{StaticResource NECursor}"
+                                          Fill="{StaticResource GlyphBackgroundBrush}"
+                                          RenderTransformOrigin="0.5,0.5"
+                                          Stretch="Uniform"
+                                          Stroke="{StaticResource GlyphBorderBrush}"
+                                          StrokeThickness="0.6" />
+                                </Grid>
+                            </DataTemplate>
+                            <DataTemplate x:Key="SWCursor">
+                                <Grid Width="16" Height="16" RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform />
+                                            <SkewTransform AngleX="0" AngleY="0" />
+                                            <RotateTransform Angle="90" />
+                                            <TranslateTransform X="-17" />
+                                            <TranslateTransform />
+                                        </TransformGroup>
+                                    </Grid.RenderTransform>
+                                    <Path Data="{StaticResource SWCursor}"
+                                          Fill="{StaticResource GlyphBackgroundBrush}"
+                                          RenderTransformOrigin="0.5,0.5"
+                                          Stretch="Uniform"
+                                          Stroke="{StaticResource GlyphBorderBrush}"
+                                          StrokeThickness="0.6" />
+                                </Grid>
+                            </DataTemplate>
+                        </Grid.Resources>
+                        <igPrim:DialogRootPanel x:Name="Root" IsHitTestVisible="{TemplateBinding IsEnabled}" Visibility="{Binding Visibility, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                            <!--  Borders  -->
+                            <Grid x:Name="BorderGrid">
+                                <Grid x:Name="ActiveResizeBorderGrid" Margin="0" Background="{x:Null}">
+                                    <Border x:Name="ActiveResizeBorder" BorderBrush="{StaticResource DialogWindowActiveResizeBorderBrush}" BorderThickness="1" />
+                                </Grid>
+                                <Grid x:Name="NoActiveResizeBorderGrid" Margin="0" Background="{x:Null}" Visibility="Collapsed">
+                                    <Border x:Name="NoActiveResizeBorder" BorderBrush="{StaticResource DialogWindowNoActiveResizeBorderBrush}" BorderThickness="1" />
+                                </Grid>
+                            </Grid>
+                            <ContentControl x:Name="MaximizedContent"
+                                            HorizontalContentAlignment="Stretch"
+                                            VerticalContentAlignment="Stretch"
+                                            IsEnabled="{TemplateBinding IsEnabled}"
+                                            IsTabStop="False"
+                                            Visibility="Visible">
+                                <Grid Margin="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" MinHeight="36" />
+                                        <RowDefinition />
+                                        <RowDefinition Height="Auto" MinHeight="42" />
+                                    </Grid.RowDefinitions>
+                                    <!--  Header  -->
+                                    <Border x:Name="HeaderArea" Grid.Column="1" Margin="1,1,1,0" Background="{TemplateBinding HeaderBackground}">
+                                        <Grid x:Name="WindowHeader" Margin="5,1,100,0" VerticalAlignment="Center">
+                                            <Grid HorizontalAlignment="Stretch">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <ContentControl x:Name="SmallImage"
+                                                                Grid.Column="0"
+                                                                MinWidth="16"
+                                                                MinHeight="16"
+                                                                MaxWidth="16"
+                                                                MaxHeight="16"
+                                                                Margin="5,0,0,0"
+                                                                VerticalAlignment="Center"
+                                                                ContentTemplate="{TemplateBinding HeaderIconTemplate}"
+                                                                IsTabStop="False"
+                                                                Visibility="Visible" />
+                                                <ContentControl x:Name="HeaderContent"
+                                                                Grid.Column="1"
+                                                                Margin="5,0,0,0"
+                                                                HorizontalAlignment="{TemplateBinding HeaderHorizontalContentAlignment}"
+                                                                VerticalAlignment="{TemplateBinding HeaderVerticalContentAlignment}"
+                                                                HorizontalContentAlignment="{TemplateBinding HeaderHorizontalContentAlignment}"
+                                                                VerticalContentAlignment="{TemplateBinding HeaderVerticalContentAlignment}"
+                                                                Content="{TemplateBinding Header}"
+                                                                ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                                                Foreground="{TemplateBinding HeaderForeground}"
+                                                                IsTabStop="False" />
+                                                <ContentControl x:Name="MinimizedHeaderContent"
+                                                                Grid.Column="1"
+                                                                Margin="5,0,0,0"
+                                                                HorizontalAlignment="{TemplateBinding HeaderHorizontalContentAlignment}"
+                                                                VerticalAlignment="{TemplateBinding HeaderVerticalContentAlignment}"
+                                                                HorizontalContentAlignment="{TemplateBinding HeaderHorizontalContentAlignment}"
+                                                                VerticalContentAlignment="{TemplateBinding HeaderVerticalContentAlignment}"
+                                                                Content="{TemplateBinding Header}"
+                                                                ContentTemplate="{TemplateBinding MinimizedHeaderTemplate}"
+                                                                Foreground="{TemplateBinding HeaderForeground}"
+                                                                IsTabStop="False"
+                                                                Visibility="Collapsed" />
+                                            </Grid>
+                                        </Grid>
+                                    </Border>
+                                    <!--  Content  -->
+                                    <Grid x:Name="ContentGrid" Grid.Row="1" Margin="1,0,1,1">
+                                        <Border Background="{TemplateBinding Background}" BorderBrush="{StaticResource DialogWindowContentBorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                            <Grid>
+                                                <Grid x:Name="Core" Margin="16,0,16,0" DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SpellChecker.CurrentBadWord}">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto" />
+                                                        <RowDefinition Height="Auto" />
+                                                        <RowDefinition Height="Auto" />
+                                                        <RowDefinition Height="Auto" />
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="Auto" MinWidth="70" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackPanel>
+                                                        <StackPanel Margin="0,0,0,6" Orientation="Horizontal">
+                                                            <TextBlock Margin="0,0,0,0" Style="{StaticResource HeaderTextBlockStyle}" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SpellChecker.DialogSettings.DialogStringResources.NotInDictionary}" TextWrapping="Wrap" />
+                                                            <TextBlock Margin="5,0,0,0" Style="{StaticResource HiglightedTextBlockStyle}" Text="{Binding Word}" />
+                                                        </StackPanel>
+                                                        <TextBlock Grid.Row="1"
+                                                                   Margin="0,0,0,8"
+                                                                   VerticalAlignment="Top"
+                                                                   RenderTransformOrigin="1,1"
+                                                                   Style="{StaticResource TextBlockStyle}"
+                                                                   Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SpellChecker.DialogSettings.DialogStringResources.Context}"
+                                                                   TextWrapping="Wrap"
+                                                                   Visibility="Collapsed" />
+                                                    </StackPanel>
+                                                    <StackPanel Grid.Row="1" Margin="0,0,10,0">
+                                                        <Border Margin="0" Background="{StaticResource DialogWindowBackgroundBrush}" BorderBrush="{StaticResource DialogWindowContentInnerBorderBrush}" BorderThickness="1">
+                                                            <ScrollViewer Height="88" Style="{StaticResource ScrollViewerStyle}">
+                                                                <TextBlock x:Name="Context" Margin="6,4" Style="{StaticResource TextBlockStyle}" TextWrapping="Wrap" />
+                                                            </ScrollViewer>
+                                                        </Border>
+                                                    </StackPanel>
+                                                    <StackPanel Grid.Row="1" Grid.Column="1">
+                                                        <Button x:Name="Ignore" Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SpellChecker.DialogSettings.DialogStringResources.Ignore}" Style="{StaticResource ButtonStyle}">
+                                                            <igDW:Commanding.Command>
+                                                                <igDW:XamSpellCheckerDialogCommandSource CommandType="Ignore" EventName="Click" />
+                                                            </igDW:Commanding.Command>
+                                                        </Button>
+                                                        <Button x:Name="IgnoreAll" Margin="0,8,0,0" Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SpellChecker.DialogSettings.DialogStringResources.IgnoreAll}" Style="{StaticResource ButtonStyle}">
+                                                            <igDW:Commanding.Command>
+                                                                <igDW:XamSpellCheckerDialogCommandSource CommandType="IgnoreAll" EventName="Click" />
+                                                            </igDW:Commanding.Command>
+                                                        </Button>
+                                                    </StackPanel>
+                                                    <StackPanel Grid.Row="2" Margin="0,8,10,0">
+                                                        <TextBlock Margin="0,0,0,6" Style="{StaticResource HeaderTextBlockStyle}" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SpellChecker.DialogSettings.DialogStringResources.Suggestions}" TextWrapping="Wrap" />
+                                                        <ListBox x:Name="Suggestions" Height="88" SelectedItem="{Binding Mode=TwoWay, ElementName=ChangeTo, Path=Text}" Style="{StaticResource ListBoxStyle}" />
+                                                        <TextBlock Margin="0,10,0,6" Style="{StaticResource HeaderTextBlockStyle}" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SpellChecker.DialogSettings.DialogStringResources.UseThisInstead}" />
+                                                        <TextBox x:Name="ChangeTo" Style="{StaticResource TextBoxStyle}" TextWrapping="Wrap" />
+                                                    </StackPanel>
+                                                    <StackPanel Grid.Row="2" Grid.Column="1" Margin="0,32,0,0">
+                                                        <Button x:Name="Change" Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SpellChecker.DialogSettings.DialogStringResources.Change}" Style="{StaticResource ButtonStyle}">
+                                                            <igDW:Commanding.Command>
+                                                                <igDW:XamSpellCheckerDialogCommandSource CommandType="Change" EventName="Click" />
+                                                            </igDW:Commanding.Command>
+                                                        </Button>
+                                                        <Button x:Name="ChangeAll" Margin="0,8,0,0" Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SpellChecker.DialogSettings.DialogStringResources.ChangeAll}" Style="{StaticResource ButtonStyle}">
+                                                            <igDW:Commanding.Command>
+                                                                <igDW:XamSpellCheckerDialogCommandSource CommandType="ChangeAll" EventName="Click" />
+                                                            </igDW:Commanding.Command>
+                                                        </Button>
+                                                    </StackPanel>
+                                                    <StackPanel Grid.Row="3" Margin="0,10,10,0" Orientation="Horizontal">
+                                                        <Button x:Name="PreviousField"
+                                                                MinWidth="90"
+                                                                HorizontalAlignment="Stretch"
+                                                                Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SpellChecker.DialogSettings.DialogStringResources.PreviousField}"
+                                                                Style="{StaticResource ButtonStyle}">
+                                                            <igDW:Commanding.Command>
+                                                                <igDW:XamSpellCheckerDialogCommandSource CommandType="PreviousField" EventName="Click" />
+                                                            </igDW:Commanding.Command>
+                                                        </Button>
+                                                        <Button x:Name="NextField"
+                                                                MinWidth="90"
+                                                                Margin="8,0,0,0"
+                                                                HorizontalAlignment="Stretch"
+                                                                Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SpellChecker.DialogSettings.DialogStringResources.NextField}"
+                                                                Style="{StaticResource ButtonStyle}">
+                                                            <igDW:Commanding.Command>
+                                                                <igDW:XamSpellCheckerDialogCommandSource CommandType="NextField" EventName="Click" />
+                                                            </igDW:Commanding.Command>
+                                                        </Button>
+                                                    </StackPanel>
+                                                </Grid>
+                                                <Grid x:Name="SpellCheckCompleteGrid"
+                                                      Margin="{TemplateBinding Padding}"
+                                                      HorizontalAlignment="Center"
+                                                      VerticalAlignment="Center"
+                                                      Visibility="Collapsed">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition />
+                                                        <RowDefinition />
+                                                    </Grid.RowDefinitions>
+                                                    <TextBlock Margin="10,5" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SpellChecker.DialogSettings.DialogStringResources.SpellCheckComplete}" />
+                                                    <Button Grid.Row="1"
+                                                            Width="120"
+                                                            Margin="10,5"
+                                                            Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SpellChecker.DialogSettings.DialogStringResources.Ok}"
+                                                            Style="{StaticResource ButtonStyle}">
+                                                        <igDW:Commanding.Command>
+                                                            <igDW:XamSpellCheckerDialogCommandSource CommandType="CloseDialog" EventName="Click" />
+                                                        </igDW:Commanding.Command>
+                                                    </Button>
+                                                </Grid>
+                                            </Grid>
+                                        </Border>
+                                    </Grid>
+                                    <Border x:Name="Footer"
+                                            Grid.Row="2"
+                                            Height="42"
+                                            Margin="1,0,1,1"
+                                            HorizontalAlignment="Stretch"
+                                            Background="{StaticResource DialogWindowFooterBackgroundBrush}">
+                                        <Button Width="70"
+                                                Margin="0,0,17,0"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Center"
+                                                Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SpellChecker.DialogSettings.DialogStringResources.Ok}"
+                                                Style="{StaticResource ButtonStyle}">
+                                            <igDW:Commanding.Command>
+                                                <igDW:XamSpellCheckerDialogCommandSource CommandType="CancelDialog" EventName="Click" />
+                                            </igDW:Commanding.Command>
+                                        </Button>
+                                    </Border>
+                                </Grid>
+                            </ContentControl>
+                            <Border x:Name="Resize" Margin="-18" BorderBrush="{StaticResource TransparentBrush}" BorderThickness="23" />
+                            <!--  Buttons  -->
+                            <Border Margin="0,4,5,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <StackPanel Margin="0,6,6,0" Orientation="Horizontal">
+                                    <Button x:Name="Minimize"
+                                            Margin="0,0,7,0"
+                                            IsEnabled="{TemplateBinding IsEnabled}"
+                                            IsTabStop="False"
+                                            Padding="0"
+                                            Style="{StaticResource DialogButtonStyle}">
+                                        <igDW:Commanding.Command>
+                                            <igDW:XamDialogWindowCommandSource CommandType="ToggleMinimize" EventName="Click" />
+                                        </igDW:Commanding.Command>
+                                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Path x:Name="MinimizeGlyph"
+                                                  Width="9"
+                                                  Height="3"
+                                                  Margin="0 6 0 0"
+                                                  VerticalAlignment="Bottom"
+                                                  igPrim:XamlHelper.SnapsToDevicePixels="True"
+                                                  Data="{StaticResource MinimizeIcon}"
+                                                  Fill="{Binding Path=Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContentControl}}"
+                                                  Stretch="Fill" />
+                                            <Grid x:Name="MinimizeRestoreGlyph" Visibility="Collapsed">
+                                                <Path Width="10"
+                                                      Height="10"
+                                                      igPrim:XamlHelper.SnapsToDevicePixels="True"
+                                                      Data="{StaticResource RestoreDownIcon}"
+                                                      Fill="{Binding Path=Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContentControl}}"
+                                                      Stretch="Fill" />
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+                                    <Button x:Name="Maximize"
+                                            Margin="0,0,7,0"
+                                            IsEnabled="{TemplateBinding IsEnabled}"
+                                            IsTabStop="False"
+                                            Padding="0"
+                                            Style="{StaticResource DialogButtonStyle}">
+                                        <igDW:Commanding.Command>
+                                            <igDW:XamDialogWindowCommandSource CommandType="ToggleMaximize" EventName="Click" />
+                                        </igDW:Commanding.Command>
+                                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Grid x:Name="MaximizeGlyph">
+                                                <Path Width="9"
+                                                      Height="9"
+                                                      HorizontalAlignment="Center"
+                                                      VerticalAlignment="Center"
+                                                      igPrim:XamlHelper.SnapsToDevicePixels="True"
+                                                      Data="{StaticResource MaximizeIcon}"
+                                                      Fill="{Binding Path=Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContentControl}}"
+                                                      Stretch="Fill" />
+                                            </Grid>
+                                            <Grid x:Name="RestoreGlyph" Visibility="Collapsed">
+                                                <Path Width="10"
+                                                      Height="10"
+                                                      igPrim:XamlHelper.SnapsToDevicePixels="True"
+                                                      Data="{StaticResource RestoreDownIcon}"
+                                                      Fill="{Binding Path=Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContentControl}}"
+                                                      Stretch="Fill" />
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+                                    <Button x:Name="Close"
+                                            Margin="1,0,0,0"
+                                            IsEnabled="{TemplateBinding IsEnabled}"
+                                            IsTabStop="False"
+                                            Style="{StaticResource DialogButtonStyle}">
+                                        <igDW:Commanding.Command>
+                                            <igDW:XamDialogWindowCommandSource CommandType="Close" EventName="Click" />
+                                        </igDW:Commanding.Command>
+                                        <Path Width="10"
+                                              Height="10"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              igPrim:XamlHelper.SnapsToDevicePixels="True"
+                                              Data="{StaticResource CloseIcon}"
+                                              Fill="{Binding Path=Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContentControl}}"
+                                              Stretch="Fill" />
+                                    </Button>
+                                </StackPanel>
+                            </Border>
+                        </igPrim:DialogRootPanel>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="ActiveStates">
+                                <VisualState x:Name="Inactive">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="ActiveResizeBorderGrid" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="NoActiveResizeBorderGrid" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Active">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="ActiveResizeBorderGrid" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="NoActiveResizeBorderGrid" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="ModalStates">
+                                <VisualState x:Name="NonModal" />
+                                <VisualState x:Name="Modal" />
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="WindowSatateStates">
+                                <VisualState x:Name="Maximized">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="ContentGrid" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="RestoreGlyph" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="MaximizeGlyph" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="MinimizeGlyph" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="MinimizeRestoreGlyph" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="MinimizedHeaderContent" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="HeaderContent" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="ContentGrid" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="MaximizeGlyph" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="MinimizeGlyph" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="MinimizeRestoreGlyph" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="RestoreGlyph" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="MinimizedHeaderContent" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="HeaderContent" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Minimized">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="ContentGrid" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="MinimizeGlyph" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="MinimizeRestoreGlyph" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="MaximizeGlyph" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="RestoreGlyph" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="MinimizedHeaderContent" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="HeaderContent" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="HiddenStates">
+                                <VisualState x:Name="Hidden">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Root" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Visible">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Root" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="CloseButtonStates">
+                                <VisualState x:Name="CloseButtonIsVisible">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Close" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="CloseButtonIsNotVisible">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Close" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="MaximizeButtonStates">
+                                <VisualState x:Name="MaximizeButtonIsVisible">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Maximize" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MaximizeButtonIsNotVisible">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Maximize" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="MinimizeButtonStates">
+                                <VisualState x:Name="MinimizeButtonIsVisible">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Minimize" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MinimizeButtonIsNotVisible">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Minimize" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="HeaderIconStates">
+                                <VisualState x:Name="HeaderIconIsNotVisible">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="SmallImage" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="HeaderIconIsVisible">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="SmallImage" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="SpellCheckerStates">
+                                <VisualState x:Name="SpellCheckNormal" />
+                                <VisualState x:Name="SpellCheckComplete">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="SpellCheckCompleteGrid" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>
+                                                        Visible
+                                                    </Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Core" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>
+                                                        Collapsed
+                                                    </Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Footer" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>
+                                                        Collapsed
+                                                    </Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Close" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>
+                                                        Collapsed
+                                                    </Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  ********************************** XamSpellChecker Style **********************************  -->
+    <Style TargetType="ig:XamSpellChecker">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ig:XamSpellChecker">
+                    <Grid x:Name="VisualTreePlaceHolder" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

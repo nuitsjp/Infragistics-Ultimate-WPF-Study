@@ -1,0 +1,583 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:ig="http://schemas.infragistics.com/xaml"
+                    xmlns:igBase="http://schemas.infragistics.com/xaml"
+                    xmlns:igBasePrim="http://schemas.infragistics.com/xaml/primitives"
+                    xmlns:igPrimitives="http://schemas.infragistics.com/xaml/primitives"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    mc:Ignorable="d">
+
+    <!--  *********************************  RESOURCES  *********************************  -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="RoyalDark.Styles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--  *********************************  COMMON GLYPHS  *********************************  -->
+
+    <!--  ICONS  -->
+    <Geometry x:Key="DecreaseIcon">M 1444 245 L 1450 245 L 1450 247 L 1444 247 L 1444 245 Z</Geometry>
+    <Geometry x:Key="IncreaseIcon">M 1578 242 L 1578 245 L 1575 245 L 1575 247 L 1578 247 L 1578 250 L 1580 250 L 1580 247 L 1583 247 L 1583 245 L 1580 245 L 1580 242 L 1578 242 Z</Geometry>
+
+
+    <!--  ********************************** BRUSHES **********************************  -->
+    <SolidColorBrush x:Key="ForegroundBrush" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="TransparentBrush" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource Color_046}" />
+
+    <!--  RepeatButton Brushes  -->
+    <SolidColorBrush x:Key="RepeatButtonBackgroundBrush" Color="{StaticResource Color_004}" />
+    <SolidColorBrush x:Key="RepeatButtonHoverBackgroundBrush" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="RepeatButtonPressedBackgroundBrush" Color="{StaticResource Color_013}" />
+
+    <!--  Slider Brushes  -->
+    <SolidColorBrush x:Key="HSliderTrackBackgroundBrush" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="VSliderTrackBackgroundBrush" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="TickBackgroundBrush" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="TrackFillBackgroundBrush" Color="{StaticResource Color_013}" />
+
+    <!--  Slider Thumb Brushes  -->
+    <SolidColorBrush x:Key="SliderThumbBackgroundBrush" Color="{StaticResource Color_004}" />
+    <SolidColorBrush x:Key="SliderThumbHoverBackgroundBrush" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="SliderThumbPressedBackgroundBrush" Color="{StaticResource Color_013}" />
+    <SolidColorBrush x:Key="SliderThumbDisabledBackgroundBrush" Color="{StaticResource Color_014}" />
+
+
+    <igPrimitives:ValueConverterGroup x:Key="boolToVisibilityConverter">
+        <!--  if true sets visibility to Visible  -->
+        <igPrimitives:FixedValueConverter>
+            <igPrimitives:FixedValueConverter.SourceValue>
+                <sys:Boolean>True</sys:Boolean>
+            </igPrimitives:FixedValueConverter.SourceValue>
+            <igPrimitives:FixedValueConverter.DestinationValue>
+                <Visibility>Visible</Visibility>
+            </igPrimitives:FixedValueConverter.DestinationValue>
+        </igPrimitives:FixedValueConverter>
+        <!--  if false sets visibility to Collapsed  -->
+        <igPrimitives:FixedValueConverter>
+            <igPrimitives:FixedValueConverter.DestinationValue>
+                <Visibility>Collapsed</Visibility>
+            </igPrimitives:FixedValueConverter.DestinationValue>
+        </igPrimitives:FixedValueConverter>
+    </igPrimitives:ValueConverterGroup>
+    <igPrimitives:ValueConverterGroup x:Key="NotBoolToVisibilityConverter">
+        <!--  if true sets visibility to Collapsed  -->
+        <igPrimitives:FixedValueConverter>
+            <igPrimitives:FixedValueConverter.SourceValue>
+                <sys:Boolean>True</sys:Boolean>
+            </igPrimitives:FixedValueConverter.SourceValue>
+            <igPrimitives:FixedValueConverter.DestinationValue>
+                <Visibility>Collapsed</Visibility>
+            </igPrimitives:FixedValueConverter.DestinationValue>
+        </igPrimitives:FixedValueConverter>
+        <!--  if false sets visibility to Visible  -->
+        <igPrimitives:FixedValueConverter>
+            <igPrimitives:FixedValueConverter.DestinationValue>
+                <Visibility>Visible</Visibility>
+            </igPrimitives:FixedValueConverter.DestinationValue>
+        </igPrimitives:FixedValueConverter>
+    </igPrimitives:ValueConverterGroup>
+
+    <!--  *********************************  IncrementButton Style  *********************************  -->
+    <Style x:Key="DecreaseButtonStyle" TargetType="RepeatButton">
+        <Setter Property="Background" Value="{StaticResource RepeatButtonBackgroundBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        <Setter Property="Height" Value="12" />
+        <Setter Property="Width" Value="12" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Grid x:Name="root" igPrimitives:XamlHelper.SnapsToDevicePixels="True" Background="{StaticResource TransparentBrush}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation d:IsOptimized="True" Duration="0" Storyboard.TargetName="hoverElem" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimation d:IsOptimized="True" Duration="0" Storyboard.TargetName="pressedElem" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="root" Storyboard.TargetProperty="(UIElement.Opacity)" To="0.2" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused" />
+                                <VisualState x:Name="Unfocused" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Rectangle Fill="{StaticResource TransparentBrush}" Height="12" Width="12" />
+                        <Path x:Name="normalElem" Width="6" Height="2" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Data="{StaticResource DecreaseIcon}" Fill="{TemplateBinding Background}" Stretch="Fill" UseLayoutRounding="False" />
+                        <Path x:Name="hoverElem" Width="6" Height="2" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Data="{StaticResource DecreaseIcon}" Fill="{StaticResource RepeatButtonHoverBackgroundBrush}" Opacity="0" Stretch="Fill" UseLayoutRounding="False" />
+                        <Path x:Name="pressedElem" Width="6" Height="2" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Data="{StaticResource DecreaseIcon}" Fill="{StaticResource RepeatButtonPressedBackgroundBrush}" Opacity="0" Stretch="Fill" UseLayoutRounding="False" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  IncrementButton Style  *********************************  -->
+    <Style x:Key="IncreaseButtonStyle" TargetType="RepeatButton">
+        <Setter Property="Background" Value="{StaticResource RepeatButtonBackgroundBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        <Setter Property="Height" Value="12" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Width" Value="12" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Grid x:Name="root" igPrimitives:XamlHelper.SnapsToDevicePixels="True" Background="{StaticResource TransparentBrush}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation d:IsOptimized="True" Duration="0" Storyboard.TargetName="hoverElem" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimation d:IsOptimized="True" Duration="0" Storyboard.TargetName="pressedElem" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="root" Storyboard.TargetProperty="(UIElement.Opacity)" To="0.2" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused" />
+                                <VisualState x:Name="Unfocused" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Rectangle Fill="{StaticResource TransparentBrush}" Height="12" Width="12" />
+                        <Path x:Name="normalElem" Width="8" Height="8" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Data="{StaticResource IncreaseIcon}" Fill="{TemplateBinding Background}" Stretch="Fill" />
+                        <Path x:Name="hoverElem" Width="8" Height="8" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Data="{StaticResource IncreaseIcon}" Fill="{StaticResource RepeatButtonHoverBackgroundBrush}" Opacity="0" Stretch="Fill" />
+                        <Path x:Name="pressedElem" Width="8" Height="8" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Data="{StaticResource IncreaseIcon}" Fill="{StaticResource RepeatButtonPressedBackgroundBrush}" Opacity="0" Stretch="Fill" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  Tick Styles  *********************************  -->
+    <DataTemplate x:Key="HorizontalTick">
+        <Rectangle Width="2" Height="6" Fill="{StaticResource TickBackgroundBrush}" igPrimitives:XamlHelper.SnapsToDevicePixels="True"  Margin="0,0,0,10" />
+    </DataTemplate>
+    <DataTemplate x:Key="VerticalTick">
+        <Rectangle Width="6" Height="2" Fill="{StaticResource TickBackgroundBrush}" igPrimitives:XamlHelper.SnapsToDevicePixels="True" Margin="0,0,10,0" />
+    </DataTemplate>
+
+    <!-- *********************************  SliderThumbTooltip Style  ********************************* -->
+    <Style x:Key="SliderThumbTooltip" TargetType="ToolTip">
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource FontFamily}" />
+        <Setter Property="FontSize" Value="{StaticResource FontSize}" />
+        <Setter Property="FontWeight" Value="{StaticResource FontNormal}" />
+        <Setter Property="Background" Value="{StaticResource TooltipBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource TooltipBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="12,9" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToolTip">
+                    <Grid>
+                        <Rectangle Fill="{TemplateBinding Background}"
+                                   Stroke="{TemplateBinding BorderBrush}"
+                                   StrokeThickness="{TemplateBinding BorderThickness}" />
+                        <StackPanel Orientation="Horizontal">
+                            <ContentPresenter Margin="{TemplateBinding Padding}"/>
+                        </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  XamSliderBase Style  *********************************  -->
+    <Style x:Key="SliderBaseStyle" TargetType="igBase:XamSliderBase">
+        <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+        <Setter Property="HorizontalTickMarksTemplate" Value="{StaticResource HorizontalTick}" />
+        <Setter Property="IsMouseWheelEnabled" Value="False" />
+        <Setter Property="Orientation" Value="Horizontal" />
+        <Setter Property="VerticalTickMarksTemplate" Value="{StaticResource VerticalTick}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="igBase:XamSliderBase">
+                    <Grid x:Name="RootElement" Background="{TemplateBinding Background}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="OrientationStates">
+                                <VisualState x:Name="Horizontal" />
+                                <VisualState x:Name="Vertical">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HorizontalSlider" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="VerticalSlider" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Enabled" />
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="HTrack" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SliderThumbDisabledBackgroundBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="VTrack" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SliderThumbDisabledBackgroundBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid x:Name="HorizontalSlider">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                       
+                                <RepeatButton x:Name="HorizontalDecrease" 
+                                              Grid.Column="0"
+                                              Margin="0,0,10,0" 
+                                              igPrimitives:XamlHelper.Focusable="False" 
+                                              Style="{StaticResource DecreaseButtonStyle}" 
+                                              Visibility="{TemplateBinding DecreaseButtonVisibility}">
+                                    <igBase:Commanding.Command>
+                                        <igBase:XamSliderBaseCommandSource CommandType="SmallDecrease" EventName="Click" />
+                                    </igBase:Commanding.Command>
+                                </RepeatButton>
+                            
+                                  <RepeatButton x:Name="HorizontalIncrease" 
+                                              Grid.Column="2" 
+                                              Margin="10,0,0,0" 
+                                              igPrimitives:XamlHelper.Focusable="False"
+                                              Style="{StaticResource IncreaseButtonStyle}"
+                                              Visibility="{TemplateBinding IncreaseButtonVisibility}">
+                                    <igBase:Commanding.Command>
+                                        <igBase:XamSliderBaseCommandSource CommandType="SmallIncrease" EventName="Click" />
+                                    </igBase:Commanding.Command>
+                                </RepeatButton>
+                           
+                            <Grid x:Name="HorizontalSlidersGrid" Grid.Column="1" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                            </Grid>
+                            <Grid x:Name="HorizontalTickMarks" Grid.Column="1" Margin="0" Background="{StaticResource TransparentBrush}" />
+                            <Grid x:Name="HorizontalTrack" Grid.Column="1" Height="10" Background="{StaticResource TransparentBrush}">
+                                <Rectangle x:Name="HTrack" Height="2" Margin="0" igPrimitives:XamlHelper.SnapsToDevicePixels="True" Fill="{StaticResource HSliderTrackBackgroundBrush}" />
+                                <Canvas x:Name="HorizontalTrackFills" />
+                                <Canvas x:Name="HorizontalThumbs"/>
+                            </Grid>
+   
+                        </Grid>
+                        <Grid x:Name="VerticalSlider" Visibility="Collapsed">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            
+                           <RepeatButton x:Name="VerticalDecrease" 
+                                              Grid.Row="2" 
+                                              Margin="0,10,0,0" 
+                                              igPrimitives:XamlHelper.Focusable="False"
+                                              Style="{StaticResource DecreaseButtonStyle}"
+                                              Visibility="{TemplateBinding DecreaseButtonVisibility}">
+                                    <igBase:Commanding.Command>
+                                        <igBase:XamSliderBaseCommandSource CommandType="SmallDecrease" EventName="Click" />
+                                    </igBase:Commanding.Command>
+                                </RepeatButton>
+                            
+                                <RepeatButton x:Name="VerticalIncrease" 
+                                              Grid.Row="0"
+                                              Margin="0,0,0,10" 
+                                              igPrimitives:XamlHelper.Focusable="False"
+                                              Style="{StaticResource IncreaseButtonStyle}"
+                                              Visibility="{TemplateBinding IncreaseButtonVisibility}">
+                                    <igBase:Commanding.Command>
+                                        <igBase:XamSliderBaseCommandSource CommandType="SmallIncrease" EventName="Click" />
+                                    </igBase:Commanding.Command>
+                                </RepeatButton>
+                                         
+                            <Grid x:Name="VerticalSlidersGrid" Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                            <Grid x:Name="VerticalTickMarks" Grid.Row="1" Margin="0" Background="{StaticResource TransparentBrush}" />
+     
+                            <Grid x:Name="VerticalTrack" Grid.Row="1" Width="10" Background="{StaticResource TransparentBrush}">
+                                <Rectangle x:Name="VTrack" Width="2" Margin="0" igPrimitives:XamlHelper.SnapsToDevicePixels="True" Fill="{StaticResource VSliderTrackBackgroundBrush}" />
+                                <Canvas x:Name="VerticalTrackFills" />
+                                <Canvas x:Name="VerticalThumbs" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style BasedOn="{StaticResource SliderBaseStyle}" TargetType="igBase:XamSliderBase" />
+
+    <!--  ********************************* XamNumericSlider Style  *********************************  -->
+    <Style BasedOn="{StaticResource SliderBaseStyle}" TargetType="igBase:XamNumericSlider">
+        <Setter Property="LargeChange" Value="10" />
+        <Setter Property="MaxValue" Value="100" />
+        <Setter Property="MinValue" Value="0" />
+        <Setter Property="SmallChange" Value="1" />
+        <Setter Property="TrackClickAction" Value="None" />
+    </Style>
+
+    <!--  ********************************* XamDateTimeSlider Style  *********************************  -->
+    <Style BasedOn="{StaticResource SliderBaseStyle}" TargetType="igBase:XamDateTimeSlider">
+        <Setter Property="LargeChange" Value="10" />
+        <Setter Property="LargeChangeType" Value="Days" />
+        <Setter Property="SmallChange" Value="1" />
+        <Setter Property="SmallChangeType" Value="Days" />
+        <Setter Property="TrackClickAction" Value="None" />
+    </Style>
+
+    <!--  ********************************* XamNumericRangeSlider Style  *********************************  -->
+    <Style BasedOn="{StaticResource SliderBaseStyle}" TargetType="igBase:XamNumericRangeSlider">
+        <Setter Property="LargeChange" Value="10" />
+        <Setter Property="MaxValue" Value="100" />
+        <Setter Property="MinValue" Value="0" />
+        <Setter Property="SmallChange" Value="1" />
+        <Setter Property="TrackClickAction" Value="None" />
+    </Style>
+
+    <!--  ********************************* XamDateTimeRangeSlider Style  *********************************  -->
+    <Style BasedOn="{StaticResource SliderBaseStyle}" TargetType="igBase:XamDateTimeRangeSlider">
+        <Setter Property="LargeChange" Value="10" />
+        <Setter Property="LargeChangeType" Value="Days" />
+        <Setter Property="SmallChange" Value="1" />
+        <Setter Property="SmallChangeType" Value="Days" />
+        <Setter Property="TrackClickAction" Value="None" />
+    </Style>
+
+    <!--  ********************************* XamSliderThumbBase Style  *********************************  -->
+    <Style x:Key="XamSliderThumbBaseStyle" TargetType="igBase:XamSliderThumbBase">
+        <Setter Property="Background" Value="{StaticResource SliderThumbBackgroundBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="igBase:XamSliderThumbBase">
+                    <Grid x:Name="RootElement">
+                        <ToolTipService.ToolTip>
+                            <ToolTip x:Name="ThumbToolTip" Style="{StaticResource SliderThumbTooltip}" 
+                                     ContentTemplate="{TemplateBinding ToolTipTemplate}" Visibility="{TemplateBinding ToolTipVisibility}" />
+                        </ToolTipService.ToolTip>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="OrientationStates">
+                                <VisualState x:Name="Horizontal" />
+                                <VisualState x:Name="Vertical">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HorizontalThumb" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="VerticalThumb" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Enabled" />
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="normalElem" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SliderThumbDisabledBackgroundBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="verticalnormalElem" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SliderThumbDisabledBackgroundBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>                                      
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Unfocused">
+                                    <Storyboard>
+                                        <DoubleAnimation d:IsOptimized="True" Duration="0" Storyboard.TargetName="DragElem" Storyboard.TargetProperty="(UIElement.Opacity)" To="0" />
+                                        <DoubleAnimation d:IsOptimized="True" Duration="0" Storyboard.TargetName="verticalDragElem" Storyboard.TargetProperty="(UIElement.Opacity)" To="0" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <DoubleAnimation d:IsOptimized="True" Duration="0" Storyboard.TargetName="DragElem" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" />
+                                        <DoubleAnimation d:IsOptimized="True" Duration="0" Storyboard.TargetName="verticalDragElem" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="ActiveStates">
+                                <VisualState x:Name="Inactive" />
+                                <VisualState x:Name="Active">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="HorizontalThumbContent" Storyboard.TargetProperty="Opacity" To="1" />
+                                        <DoubleAnimation Storyboard.TargetName="VerticalThumbContent" Storyboard.TargetProperty="Opacity" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="HoverStates">
+                                <VisualState x:Name="Hover">
+                                    <Storyboard>
+                                        <DoubleAnimation d:IsOptimized="True" Duration="0" Storyboard.TargetName="HoverElem" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" />
+                                        <DoubleAnimation d:IsOptimized="True" Duration="0" Storyboard.TargetName="verticalHoverElem" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="NoHover" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid x:Name="HorizontalThumb" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-5,0,5,0">
+                            <Grid x:Name="HorizontalThumbContent" Width="10" Height="10" igPrimitives:XamlHelper.SnapsToDevicePixels="True">
+                                <Ellipse x:Name="normalElem" Fill="{TemplateBinding Background}" />
+                                <Ellipse x:Name="HoverElem" Fill="{StaticResource SliderThumbHoverBackgroundBrush}" Opacity="0" />
+                                <Ellipse x:Name="DragElem" Fill="{StaticResource SliderThumbPressedBackgroundBrush}" Opacity="0" />
+                            </Grid>
+                        </Grid>
+                        <Grid x:Name="VerticalThumb" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" Margin="0,-5,0,5">
+                            <Grid x:Name="VerticalThumbContent" Width="10" Height="10" igPrimitives:XamlHelper.SnapsToDevicePixels="True">
+                                <Ellipse x:Name="verticalnormalElem" Fill="{TemplateBinding Background}" />
+                                <Ellipse x:Name="verticalHoverElem" Fill="{StaticResource SliderThumbHoverBackgroundBrush}" Opacity="0" />
+                                <Ellipse x:Name="verticalDragElem" Fill="{StaticResource SliderThumbPressedBackgroundBrush}" Opacity="0" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style BasedOn="{StaticResource XamSliderThumbBaseStyle}" TargetType="igBase:XamSliderDateTimeThumb" />
+    <Style BasedOn="{StaticResource XamSliderThumbBaseStyle}" TargetType="igBase:XamSliderNumericThumb" />
+
+    <!--  *********************************  TrackFillThumb Style  *********************************  -->
+    <Style x:Key="TrackFillThumbStyle" TargetType="igBase:XamSliderThumbBase">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="igBase:XamSliderThumbBase">
+                    <Grid x:Name="RootElement">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="OrientationStates">
+                                <VisualState x:Name="Horizontal">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HorizontalThumb" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>
+                                                        Visible
+                                                    </Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="VerticalThumb" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>
+                                                        Collapsed
+                                                    </Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Vertical">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HorizontalThumb" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>
+                                                        Collapsed
+                                                    </Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="VerticalThumb" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>
+                                                        Visible
+                                                    </Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Unfocused" />
+                                <VisualState x:Name="Focused" />
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Enabled" />
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="RootElement" Storyboard.TargetProperty="(UIElement.Opacity)" To="0.2" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="ActiveStates">
+                                <VisualState x:Name="Inactive" />
+                                <VisualState x:Name="Active" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid x:Name="HorizontalThumb">
+                            <Rectangle Height="2" VerticalAlignment="Center" igPrimitives:XamlHelper.SnapsToDevicePixels="True" Fill="{TemplateBinding Background}" />
+                        </Grid>
+                        <Grid x:Name="VerticalThumb">
+                            <Rectangle  Width="2" HorizontalAlignment="Center" igPrimitives:XamlHelper.SnapsToDevicePixels="True" Fill="{TemplateBinding Background}" />
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  ********************************* TrackFill Style  *********************************  -->
+    <Style BasedOn="{StaticResource TrackFillThumbStyle}" TargetType="igPrimitives:TrackFill">
+        <Setter Property="Background" Value="{StaticResource TrackFillBackgroundBrush}" />
+    </Style>
+</ResourceDictionary>

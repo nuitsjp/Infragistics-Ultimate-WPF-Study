@@ -1,0 +1,1948 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ComponentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:ig="http://schemas.infragistics.com/xaml"
+                    xmlns:igPrim="http://schemas.infragistics.com/xaml/primitives"
+                    xmlns:igWindows="http://infragistics.com/Windows"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!--  *********************************  RESOURCES  *********************************  -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="RoyalDark.DataVisualization.xaml" />
+        <ResourceDictionary Source="RoyalDark.xamColorPicker.xaml" />
+        <ResourceDictionary Source="RoyalDark.xamMaskedInput.xaml" />
+        <ResourceDictionary Source="RoyalDark.Styles.xaml" />    
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--  *********************************  COMMON GLYPHS  *********************************  -->
+    <!--  OptionsPane Icons  -->
+    <Geometry x:Key="OptionsPaneIcon">M 587.4617 540.9224 L 586.8163 540.9224 C 586.5203 540.9224 586.2053 540.6922 586.1172 540.4085 L 585.7469 539.507 C 585.6063 539.2458 585.6649 538.8613 585.8719 538.6512 L 586.3326 538.1938 C 586.5422 537.9836 586.5422 537.6414 586.3326 537.4312 L 585.5703 536.6694 C 585.3594 536.4601 585.0189 536.4601 584.8079 536.6694 L 584.3484 537.1279 C 584.1399 537.3375 583.7538 537.3942 583.4922 537.2546 L 582.593 536.8837 C 582.3102 536.797 582.0789 536.4821 582.0789 536.1849 L 582.0789 535.5398 C 582.0789 535.2443 581.8359 535 581.539 535 L 580.4617 535 C 580.1665 535 579.9227 535.2443 579.9227 535.5398 L 579.9227 536.1849 C 579.9227 536.4821 579.6921 536.797 579.4086 536.8837 L 578.5071 537.2546 C 578.2454 537.3942 577.8625 537.3392 577.6532 537.1279 L 577.1921 536.6694 C 576.9836 536.4601 576.6406 536.4601 576.4336 536.6694 L 575.6711 537.4312 C 575.4617 537.6414 575.4617 537.9836 575.6711 538.1928 L 576.1274 538.6512 C 576.3384 538.8613 576.3954 539.2458 576.2547 539.507 L 575.8844 540.4092 C 575.7946 540.6928 575.482 540.9232 575.1852 540.9232 L 574.539 540.9224 C 574.2438 540.9224 574 541.1646 574 541.4612 L 574 542.5389 C 574 542.8346 574.2438 543.077 574.539 543.077 L 575.1852 543.077 C 575.482 543.0786 575.7946 543.309 575.8828 543.592 L 576.2547 544.4936 C 576.3954 544.7543 576.3384 545.1409 576.1274 545.3502 L 575.6703 545.8068 C 575.4617 546.0173 575.4617 546.3597 575.6703 546.5706 L 576.4336 547.3317 C 576.6406 547.5408 576.9836 547.5408 577.1921 547.3317 L 577.6532 546.8721 C 577.8609 546.6644 578.2454 546.6068 578.5054 546.748 L 579.4086 547.118 C 579.6921 547.2073 579.9227 547.5206 579.9227 547.8172 L 579.9227 548.462 C 579.9227 548.7571 580.1665 549 580.4617 549 L 581.539 549 C 581.8359 549 582.0789 548.7571 582.0789 548.462 L 582.0789 547.8172 C 582.0789 547.5206 582.3102 547.2073 582.593 547.118 L 583.4954 546.748 C 583.7546 546.6068 584.1414 546.6644 584.3508 546.8721 L 584.8079 547.3317 C 585.0189 547.5408 585.3594 547.5408 585.5703 547.3317 L 586.3326 546.5706 C 586.5422 546.3597 586.5422 546.0173 586.3326 545.8068 L 585.8719 545.3502 C 585.6649 545.1409 585.6063 544.7543 585.7469 544.4936 L 586.1172 543.592 C 586.2053 543.309 586.522 543.0786 586.8163 543.0786 L 587.4617 543.0786 C 587.7585 543.0786 588 542.8355 588 542.5395 L 588 541.4612 C 588 541.1646 587.7585 540.9224 587.4617 540.9224 L 587.4617 540.9224 ZM 584.1172 541.9997 C 584.1172 543.7202 582.7241 545.1144 581.0031 545.1144 C 579.2805 545.1144 577.8859 543.7202 577.8859 541.9997 C 577.8859 540.2795 579.2805 538.8848 581.0031 538.8848 C 582.7241 538.8848 584.1172 540.2795 584.1172 541.9997 L 584.1172 541.9997 Z</Geometry>
+    <Geometry x:Key="CutIcon">M 518.8 384.1121 C 518.8 383.716 519.1134 383.395 519.5 383.395 C 519.8866 383.395 520.2 383.716 520.2 384.1121 C 520.2 384.5081 519.8866 384.8291 519.5 384.8291 C 519.1134 384.8291 518.8 384.5081 518.8 384.1121 ZM 521.6 388.7731 C 521.6 387.783 522.3834 386.9804 523.35 386.9804 C 524.3164 386.9804 525.1 387.783 525.1 388.7731 C 525.1 389.7632 524.3164 390.5658 523.35 390.5658 C 522.3834 390.5658 521.6 389.7632 521.6 388.7731 ZM 513.9 388.7731 C 513.9 387.783 514.6836 386.9804 515.65 386.9804 C 516.6166 386.9804 517.4 387.783 517.4 388.7731 C 517.4 389.7632 516.6166 390.5658 515.65 390.5658 C 514.6836 390.5658 513.9 389.7632 513.9 388.7731 ZM 512.5 388.7731 C 512.5 390.5553 513.9103 392 515.65 392 C 517.3898 392 518.8 390.5553 518.8 388.7731 C 518.8 388.251 518.679 387.7589 518.464 387.3223 L 519.5747 385.9012 L 520.5967 387.2047 C 520.3447 387.6686 520.2 388.2046 520.2 388.7731 C 520.2 390.5553 521.6102 392 523.35 392 C 525.0897 392 526.5 390.5553 526.5 388.7731 C 526.5 386.9909 525.0897 385.5462 523.35 385.5462 C 523.1028 385.5462 522.8621 385.5732 522.6313 385.6282 L 521.1753 383.8494 L 524.6525 379.3976 C 524.6525 379.3976 526.15 377.972 524.4 376 L 519.5747 381.8965 L 514.749 376 C 512.999 377.972 514.4966 379.3976 514.4966 379.3976 L 517.974 383.8494 L 516.4901 385.6611 C 516.2222 385.5853 515.9414 385.5462 515.65 385.5462 C 513.9103 385.5462 512.5 386.9909 512.5 388.7731 Z</Geometry>
+    <Geometry x:Key="CopyIcon">M 596 385 L 596 384 L 602 384 L 602 385 L 596 385 ZM 596 389 L 596 388 L 602 388 L 602 389 L 596 389 ZM 596 391 L 596 390 L 602 390 L 602 391 L 596 391 ZM 596 387 L 596 386 L 602 386 L 602 387 L 596 387 ZM 594 393 L 604 393 L 604 390 L 604 382 L 594 382 L 594 393 ZM 590 380 L 590 379 L 596 379 L 596 380 L 590 380 ZM 588 388 L 593 388 L 593 386 L 590 386 L 590 385 L 593 385 L 593 384 L 590 384 L 590 383 L 593 383 L 593 382 L 590 382 L 590 381 L 598 381 L 598 377 L 588 377 L 588 388 Z</Geometry>
+    <Geometry x:Key="PasteIcon">M 672 383 L 678 383 L 678 384 L 672 384 L 672 383 ZM 672 387 L 678 387 L 678 388 L 672 388 L 672 387 ZM 672 385 L 678 385 L 678 386 L 672 386 L 672 385 ZM 672 389 L 678 389 L 678 390 L 672 390 L 672 389 ZM 670 381 L 670 392 L 680 392 L 680 381 L 670 381 ZM 672 376 L 669 376 L 669 377 L 668 377 L 668 378 L 673 378 L 673 377 L 672 377 L 672 376 ZM 665 377 L 665 390 L 669 390 L 669 380 L 676 380 L 676 377 L 674 377 L 674 379 L 667 379 L 667 377 L 665 377 Z</Geometry>
+    <Geometry x:Key="DeleteIcon">M 754 382.5 L 754 389.5 C 754 389.7141 753.7148 390 753.5 390 C 753.2852 390 753 389.7141 753 389.5 L 753 382.5 C 753 382.2859 753.2852 382 753.5 382 C 753.7148 382 754 382.2859 754 382.5 ZM 751 382.5 L 751 389.5 C 751 389.7141 750.7148 390 750.5 390 C 750.2852 390 750 389.7141 750 389.5 L 750 382.5 C 750 382.2859 750.2852 382 750.5 382 C 750.7148 382 751 382.2859 751 382.5 ZM 748 382.5 L 748 389.5 C 748 389.7141 747.7148 390 747.5 390 C 747.2852 390 747 389.7141 747 389.5 L 747 382.5 C 747 382.2859 747.2852 382 747.5 382 C 747.7148 382 748 382.2859 748 382.5 ZM 745 380 L 745 390 C 745 390 744.76 392 747 392 L 754 392 C 754 392 756 392.1616 756 390 L 756 380 L 745 380 ZM 745.25 377 C 744.5596 377 744 377.5596 744 378.25 L 744 379 L 757 379 L 757 378.25 C 757 377.5596 756.4404 377 755.75 377 L 753 377 L 753 376.8333 C 753 376.373 752.627 376 752.1666 376 L 748.8334 376 C 748.373 376 748 376.373 748 376.8333 L 748 377 L 745.25 377 Z</Geometry>
+    <Geometry x:Key="BringForwardIcon">M 512 448 L 512 460 L 524 460 L 524 448 L 512 448 ZM 519 461 L 519 464 L 528 464 L 528 455 L 525 455 L 525 456 L 527 456 L 527 463 L 520 463 L 520 461 L 519 461 Z</Geometry>
+    <Geometry x:Key="SendBackwardIcon">M 597 456 L 604 456 L 604 463 L 597 463 L 597 456 ZM 596 455 L 596 464 L 605 464 L 605 455 L 596 455 ZM 589 448 L 589 460 L 595 460 L 595 454 L 601 454 L 601 448 L 589 448 Z</Geometry>
+    <Geometry x:Key="ToFrontIcon">M 668 451 L 668 461 L 678 461 L 678 451 L 668 451 ZM 665 448 L 665 454 L 667 454 L 667 453 L 666 453 L 666 449 L 670 449 L 670 450 L 671 450 L 671 448 L 665 448 ZM 675 462 L 675 464 L 681 464 L 681 458 L 679 458 L 679 459 L 680 459 L 680 463 L 676 463 L 676 462 L 675 462 Z</Geometry>
+    <Geometry x:Key="ToBackIcon">M 759 462 L 755 462 L 755 458 L 759 458 L 759 462 ZM 760 463 L 760 457 L 754 457 L 754 463 L 760 463 ZM 745 448 L 749 448 L 749 452 L 745 452 L 745 448 ZM 744 447 L 744 453 L 750 453 L 750 447 L 744 447 ZM 747 454 L 747 460 L 753 460 L 753 456 L 757 456 L 757 450 L 751 450 L 751 454 L 747 454 Z</Geometry>
+    <Geometry x:Key="ExclamationIcon">M 0 5 L 2 5 L 2 0 L 0 0 L 0 5 ZM 0 8 L 2 8 L 2 6 L 0 6 L 0 8 Z</Geometry>
+    
+    <!--  *********************************  BRUSHES  *********************************  -->
+    <!--  Slider Brushes  -->
+    <SolidColorBrush x:Key="SliderThumbBackgroundBrush" Color="{StaticResource Color_004}" />
+    <SolidColorBrush x:Key="SliderThumbHoverBackgroundBrush" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="SliderThumbPressedBackgroundBrush" Color="{StaticResource Color_013}" />
+    <SolidColorBrush x:Key="SliderThumbFocusedBorderBrush" Color="{StaticResource Color_013}" />
+    <SolidColorBrush x:Key="SliderTrackBackgroundBrush" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="SliderSelectionRangeBackgroundBrush" Color="{StaticResource Color_013}" />
+
+    <!--  TabControl Brushes  -->
+    <SolidColorBrush x:Key="TabControlBackgroundBrush" Color="{StaticResource Color_007}" />
+    <SolidColorBrush x:Key="TabControlBorderBrush" Color="{StaticResource Color_014}" />
+    <SolidColorBrush x:Key="TabItemBackgroundBrush" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="TabItemBorderBrush" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="TabItemSelectedBorderBrush" Color="{StaticResource Color_013}" />
+    <SolidColorBrush x:Key="TabItemForegroundBrush" Color="{StaticResource Color_004}" />
+    <SolidColorBrush x:Key="TabItemHoverForegroundBrush" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="TabItemSelectedForegroundBrush" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="TabItemDisabledForegroundBrush" Color="{StaticResource Color_002}" />
+
+    <!--  Expander Brushes  -->  
+    <SolidColorBrush x:Key="ExpanderHeaderBackgroundBrush" Color="{StaticResource Color_007}" />
+    <SolidColorBrush x:Key="ExpanderHeaderHoverBackgroundBrush" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="ExpanderHeaderPressedBackgroundBrush" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="ExpanderDisabledForegroundBrush" Color="{StaticResource Color_007}" />
+
+    <!--  Diagram Brushes  -->
+    <SolidColorBrush x:Key="DiagramBackgroundBrush" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="DiagramNodeBorderBrush" Color="{StaticResource Color_014}" />
+    <SolidColorBrush x:Key="DiagramNodeBackgroundBrush" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="DiagramNodeForegroundBrush" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="DiagramConnectionBorderBrush" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="DiagramConnectionBackgroundBrush" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="DiagramConnectionForegroundBrush" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="DragRectangleBorderBrush" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="PreviewPathBackgroundBrush" Color="{StaticResource Color_055}" />
+    <SolidColorBrush x:Key="ConnectionPointBackgroundBrush" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="ConnectionPointHighlightBackgroundBrush" Color="{StaticResource Color_012}" />
+    <SolidColorBrush x:Key="OptionsPaneBackgroundBrush" Color="{StaticResource Color_007}" />
+    <SolidColorBrush x:Key="OptionsPaneBorderBrush" Color="{StaticResource Color_014}" />
+    <SolidColorBrush x:Key="ToolBoxBackgroundBrush" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="ToolBoxHeaderBackgroundBrush" Color="{StaticResource Color_014}" />
+    <SolidColorBrush x:Key="ToolBoxHeaderBorderBrush" Color="{StaticResource Color_014}" />
+    <SolidColorBrush x:Key="ToolBoxBorderBrush" Color="{StaticResource Color_014}" />
+    <SolidColorBrush x:Key="ToolBoxItemHoverBackgroundBrush" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="ConnectionCapBorderBrush" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="ConnectionCapBackgroundBrush" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="ZOrderBigRectangleBackgroundBrush" Color="{StaticResource Color_017}" />
+    <SolidColorBrush x:Key="ZOrderSmallRectangleBackgroundBrush" Color="{StaticResource Color_009}" />
+
+    <!--  ColorPicker Palette  -->
+    <ig:ColorPalette x:Key="ColorPickerPalette">
+        <ig:ColorPalette.Colors>
+            <ig:ColorPatchCollection>
+                <ig:ColorPatch Color="#FFFFFFFF" />
+                <ig:ColorPatch Color="#FF000000" />
+                <ig:ColorPatch Color="#FFEEECE1" />
+                <ig:ColorPatch Color="#FF2B579A" />
+                <ig:ColorPatch Color="#FF487DCC" />
+                <ig:ColorPatch Color="#FFC05046" />
+                <ig:ColorPatch Color="#FF9DBB61" />
+                <ig:ColorPatch Color="#FFAB9AC0" />
+                <ig:ColorPatch Color="#FF4BACC6" />
+                <ig:ColorPatch Color="#FF58358B" />
+            </ig:ColorPatchCollection>
+        </ig:ColorPalette.Colors>
+    </ig:ColorPalette>
+
+    <!--  *********************************  Converters  *********************************  -->
+    <igPrim:DiagramNodeOptionsVisibilityConverter x:Key="nodeOptionsVisibilityConverter" />
+    <igPrim:DiagramConnectionOptionsVisibilityConverter x:Key="connectionOptionsVisibilityConverter" />
+    <igPrim:SolidColorBrushToColorConverter x:Key="brushToColorConverter" />
+    <igPrim:DoubleCollectionToStringConverter x:Key="dashArrayConverter" />
+    <igPrim:DiagramConnectionCapTypeToSizeConverter x:Key="capTypeToSizeConverter" />
+    <igPrim:DiagramConnectionTypeConverter x:Key="connectionTypeConverter" />
+    <igPrim:FallbackFontFamilyConverter x:Key="fontFamilyConverter" />
+    <BooleanToVisibilityConverter x:Key="boolToVisibilityConverter" />
+    <ig:DiagramStringSettings x:Key="stringResources" />
+
+      <!--  *********************************  AdvancedFocusTextBox Style*********************************  -->    
+   <Style TargetType="{x:Type igPrim:AdvancedFocusTextBox}">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="SelectionBrush" Value="{StaticResource SelectionBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource TextBoxBorderBrush}"/>
+            <Setter Property="Background" Value="{StaticResource TextBoxBackgroundBrush}"/>
+            <Setter Property="BorderThickness" Value="{StaticResource DefaultBorderThickness}"/>
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type igPrim:AdvancedFocusTextBox}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" Value="{StaticResource TextBoxHoverBorderBrush}"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" Value="{StaticResource TextBoxFocusedBrush}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    <!--  *********************************  TitleTextBlock Style*********************************  -->
+    <Style x:Key="TitleTextBlockStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+    </Style>
+
+    <!--  *********************************  DialogButton Style  *********************************  -->
+    <Style x:Key="DialogButtonStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="{StaticResource GlyphBackgroundBrush}" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="3" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid Background="Transparent">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="(TextElement.Foreground)">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource GlyphHoverBackgroundBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="(TextElement.Foreground)">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource GlyphPressedBackgroundBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="(TextElement.Foreground)">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource GlyphDisabledBackgroundBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused" />
+                                <VisualState x:Name="Unfocused" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Rectangle Fill="{StaticResource TransparentBrush}" />                     
+                            <ContentPresenter x:Name="contentPresenter"
+                                              Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              TextElement.Foreground="{TemplateBinding Foreground}"/>
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  SliderRepeatButton Style  *********************************  -->
+    <Style x:Key="SliderRepeatButtonStyle" TargetType="{x:Type RepeatButton}">
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="IsTabStop" Value="false" />
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Rectangle Fill="{StaticResource TransparentBrush}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!--  *********************************  Slider Horizontal Thumb Style  *********************************  -->
+    <Style x:Key="HSliderThumbStyle" TargetType="{x:Type Thumb}">
+        <Setter Property="Background" Value="{StaticResource SliderThumbBackgroundBrush}" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Grid>
+                        <Ellipse x:Name="ThumbBackground"
+                                 Width="12"
+                                 Height="12"
+                                 Fill="{TemplateBinding Background}" />
+                        <Ellipse x:Name="FocusedVisualElement"
+                                 Width="12"
+                                 Height="12"
+                                 Opacity="0"
+                                 Stroke="{StaticResource SliderThumbFocusedBorderBrush}"
+                                 StrokeThickness="1" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ThumbBackground" Property="Fill" Value="{StaticResource SliderThumbHoverBackgroundBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseCaptured" Value="True">
+                            <Setter TargetName="ThumbBackground" Property="Fill" Value="{StaticResource SliderThumbPressedBackgroundBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="ThumbBackground" Property="Opacity" Value="0.3" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  Slider Style  *********************************  -->
+    <Style x:Key="SliderStyle" TargetType="{x:Type Slider}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Slider}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="true">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TickBar x:Name="TopTick"
+                                     Grid.Row="0"
+                                     Height="1"
+                                     Fill="{TemplateBinding Foreground}"
+                                     Placement="Top"
+                                     Visibility="Collapsed" />
+                            <Border x:Name="TrackBackground"
+                                    Grid.Row="1"
+                                    Height="2"
+                                    VerticalAlignment="center"
+                                    Background="{StaticResource SliderTrackBackgroundBrush}">
+                                <Canvas Margin="-6 0 -6 -1">
+                                    <Rectangle x:Name="PART_SelectionRange"
+                                               Height="2"
+                                               Fill="{StaticResource SliderSelectionRangeBackgroundBrush}"
+                                               Visibility="Hidden" />
+                                </Canvas>
+                            </Border>
+                            <Track x:Name="PART_Track" Grid.Row="1">
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource SliderRepeatButtonStyle}" />
+                                </Track.DecreaseRepeatButton>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource SliderRepeatButtonStyle}" />
+                                </Track.IncreaseRepeatButton>
+                                <Track.Thumb>
+                                    <Thumb x:Name="Thumb" Style="{StaticResource HSliderThumbStyle}" />
+                                </Track.Thumb>
+                            </Track>
+                            <TickBar x:Name="BottomTick"
+                                     Grid.Row="2"
+                                     Height="1"
+                                     Fill="{TemplateBinding Foreground}"
+                                     Placement="Bottom"
+                                     Visibility="Collapsed" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="TickPlacement" Value="TopLeft">
+                            <Setter TargetName="TrackBackground" Property="Margin" Value="5,2,5,0" />
+                            <Setter TargetName="Thumb" Property="Style" Value="{StaticResource HSliderThumbStyle}" />
+                            <Setter TargetName="TopTick" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="TickPlacement" Value="BottomRight">
+                            <Setter TargetName="TrackBackground" Property="Margin" Value="5,0,5,2" />
+                            <Setter TargetName="Thumb" Property="Style" Value="{StaticResource HSliderThumbStyle}" />
+                            <Setter TargetName="BottomTick" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="TickPlacement" Value="Both">
+                            <Setter TargetName="TopTick" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="BottomTick" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsSelectionRangeEnabled" Value="true">
+                            <Setter TargetName="PART_SelectionRange" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Setter TargetName="Thumb" Property="Foreground" Value="{StaticResource SliderThumbFocusedBorderBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  ToggleButton Style  *********************************  -->
+    <Style x:Key="ToggleButtonStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="FontFamily" Value="{StaticResource FontFamily}" />
+        <Setter Property="FontSize" Value="{StaticResource FontSize}" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        <Setter Property="MinHeight" Value="22" />
+        <Setter Property="MinWidth" Value="22" />
+        <Setter Property="Padding" Value="10,0,10,2" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid x:Name="main">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Bd" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonHoverBackgroundBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Bd" Storyboard.TargetProperty="Stroke">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonHoverBorderBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Bd" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonPressedBackgroundBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Bd" Storyboard.TargetProperty="Stroke">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonPressedBorderBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                      <DoubleAnimation Duration="0" Storyboard.TargetName="main" Storyboard.TargetProperty="Opacity" To="0.3" />        
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="CheckStates">
+                                <VisualState x:Name="Checked">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="checked" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unchecked" />
+                                <VisualState x:Name="Indeterminate" />
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused" />
+                                <VisualState x:Name="Unfocused" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Rectangle x:Name="Bd"
+                                   Fill="{StaticResource ButtonBackgroundBrush}"
+                                   Stroke="{StaticResource ButtonBorderBrush}"
+                                   StrokeThickness="{StaticResource DefaultStrokeThickness}" />
+                        <Rectangle x:Name="checked"
+                                   Fill="{StaticResource ButtonPressedBackgroundBrush}"
+                                   Stroke="{StaticResource ButtonPressedBackgroundBrush}"
+                                   StrokeThickness="{StaticResource DefaultStrokeThickness}"
+                                   Visibility="Collapsed" />
+                        <ContentControl x:Name="ContentControl"
+                                        Margin="{TemplateBinding Padding}"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        Foreground="{TemplateBinding Foreground}">
+                            <ContentPresenter x:Name="contentPresenter" />
+                        </ContentControl>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  OptionsPaneTabControl Style  *********************************  -->
+    <Style x:Key="OptionsPaneTabControl" TargetType="{x:Type TabControl}">
+        <Setter Property="Background" Value="{StaticResource TabControlBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource TabControlBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1 2 1 1" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="6" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TabControl}">
+                    <Grid x:Name="templateRoot"
+                          ClipToBounds="True"
+                          KeyboardNavigation.TabNavigation="Local"
+                          SnapsToDevicePixels="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition x:Name="ColumnDefinition0" />
+                            <ColumnDefinition x:Name="ColumnDefinition1" Width="0" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition x:Name="RowDefinition0" Height="Auto" />
+                            <RowDefinition x:Name="RowDefinition1" Height="*" />
+                        </Grid.RowDefinitions>
+                        <TabPanel x:Name="HeaderPanel"
+                                  Grid.Row="0"
+                                  Grid.Column="0"
+                                  Margin="6,0,34,-2"
+                                  Panel.ZIndex="1"
+                                  Background="Transparent"
+                                  IsItemsHost="True"
+                                  KeyboardNavigation.TabIndex="1"/>                       
+                        <Border x:Name="ContentPanel"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                KeyboardNavigation.DirectionalNavigation="Contained"
+                                KeyboardNavigation.TabIndex="2"
+                                KeyboardNavigation.TabNavigation="Local"
+                                >
+                            <ContentPresenter x:Name="PART_SelectedContentHost"
+                                              Margin="{TemplateBinding Padding}"
+                                              Content="{TemplateBinding SelectedContent}"
+                                              ContentSource="SelectedContent"
+                                              ContentStringFormat="{TemplateBinding SelectedContentStringFormat}"
+                                              ContentTemplate="{TemplateBinding SelectedContentTemplate}"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="templateRoot" Property="Opacity" Value="0.3" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  TabItem Style  *********************************  -->
+    <Style TargetType="{x:Type TabItem}">
+        <Setter Property="Background" Value="{StaticResource TabItemBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource TabItemBorderBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource TabItemForegroundBrush}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="Padding" Value="8 6 8 8" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TabItem}">
+                    <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
+                        <Border x:Name="mainBorder"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                VerticalAlignment="Bottom"/>             
+                        <Border x:Name="bottomLine"
+                                VerticalAlignment="Bottom"
+                                BorderBrush="{StaticResource TabItemBackgroundBrush}"
+                                BorderThickness="0,0,0,2" />                      
+                        <ContentPresenter x:Name="contentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                          VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                          ContentSource="Header"
+                                          Focusable="False"
+                                          RecognizesAccessKey="True"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true" />
+                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="contentPresenter" Property="TextBlock.Foreground" Value="{StaticResource TabItemHoverForegroundBrush}" />
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false" />
+                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="contentPresenter" Property="TextBlock.Foreground" Value="{StaticResource TabItemDisabledForegroundBrush}" />
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true" />
+                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top" />
+                            </MultiDataTrigger.Conditions>
+                              <Setter TargetName="bottomLine" Property="BorderBrush" Value="{StaticResource TabItemSelectedBorderBrush}" />
+                            <Setter TargetName="contentPresenter" Property="TextBlock.Foreground" Value="{StaticResource TabItemSelectedForegroundBrush}" />
+                        </MultiDataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  Expander Down Style  *********************************  -->
+    <Style x:Key="ExpanderDownHeaderStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border igPrim:XamlHelper.SnapsToDevicePixels="True" Padding="{TemplateBinding Padding}" x:Name="mainborder">
+                        <Border x:Name="Bg" Background="{StaticResource ExpanderHeaderBackgroundBrush}">
+                            <Grid Height="24"
+                                  Margin="4,0"
+                                  Background="{StaticResource TransparentBrush}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="22" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Path x:Name="arrow"
+                                      Width="6"
+                                      Height="10"
+                                      Data="{StaticResource VArrowRight}"
+                                      Fill="{StaticResource ForegroundBrush}"
+                                      RenderTransformOrigin="0.5, 0.5"
+                                      Stretch="Fill"
+                                      Opacity="0.4"/>
+                                <ContentPresenter Grid.Column="1"
+                                                  Margin="4,0,0,0"
+                                                  HorizontalAlignment="Stretch"
+                                                  VerticalAlignment="Center"
+                                                  RecognizesAccessKey="True"
+                                                  SnapsToDevicePixels="True"
+                                                  TextBlock.FontWeight="SemiBold" />
+                            </Grid>
+                        </Border>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="true">
+                            <Setter TargetName="arrow" Property="LayoutTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="90" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="Bg" Property="Background" Value="{StaticResource ExpanderHeaderPressedBackgroundBrush}" />
+                         </Trigger>                      
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="Bg" Property="Background" Value="{StaticResource ExpanderHeaderHoverBackgroundBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter TargetName="Bg" Property="Background" Value="{StaticResource ExpanderHeaderPressedBackgroundBrush}" />
+                            </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="mainborder" Property="Opacity" Value="0.3" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  Expander Style  *********************************  -->
+    <Style x:Key="ExpanderStyle" TargetType="{x:Type Expander}">
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FontFamily" Value="{StaticResource FontFamily}" />
+        <Setter Property="FontSize" Value="{StaticResource FontSize}" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Expander}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="3"
+                            SnapsToDevicePixels="true"
+                            x:Name="mainborder">
+                        <DockPanel>
+                            <ToggleButton x:Name="HeaderSite"
+                                          MinWidth="0"
+                                          MinHeight="0"
+                                          Margin="1"
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Header}"
+                                          ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                          ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}"
+                                          DockPanel.Dock="Top"
+                                          FontFamily="{TemplateBinding FontFamily}"
+                                          FontSize="{TemplateBinding FontSize}"
+                                          FontStretch="{TemplateBinding FontStretch}"
+                                          FontStyle="{TemplateBinding FontStyle}"
+                                          FontWeight="{TemplateBinding FontWeight}"
+                                          Foreground="{TemplateBinding Foreground}"
+                                          IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                          Padding="{TemplateBinding Padding}"
+                                          Style="{StaticResource ExpanderDownHeaderStyle}" />
+                            <ContentPresenter x:Name="ExpandSite"
+                                              Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              DockPanel.Dock="Bottom"
+                                              Focusable="false"
+                                              Visibility="Collapsed" />
+                        </DockPanel>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsExpanded" Value="true">
+                            <Setter TargetName="ExpandSite" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="mainborder" Property="Opacity" Value="0.3" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+    </Style>
+
+    <!--  *********************************  CapType Enum  *********************************  -->
+    <ObjectDataProvider x:Key="capTypeEnum"
+                        MethodName="GetValues"
+                        ObjectType="{x:Type system:Enum}">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="ig:DiagramConnectionCapType" />
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+    <!--  *********************************  Node Shapes  *********************************  -->
+    <ResourceDictionary x:Key="NodeShapes">
+        <EllipseGeometry x:Key="EllipseNodeGeometry"
+                         Center="50,50"
+                         RadiusX="50"
+                         RadiusY="50" />
+        <RectangleGeometry x:Key="RectangleNodeGeometry" Rect="0 0 100 100" />
+        <RectangleGeometry x:Key="RoundedRectangleNodeGeometry"
+                           RadiusX="5"
+                           RadiusY="5"
+                           Rect="0 0 120 80" />
+        <PathGeometry x:Key="TriangeNodeGeometry">
+            <PathFigure IsClosed="True"
+                        IsFilled="True"
+                        StartPoint="50, 0">
+                <LineSegment Point="0, 100" />
+                <LineSegment Point="100, 100" />
+            </PathFigure>
+        </PathGeometry>
+        <PathGeometry x:Key="RightTriangeNodeGeometry">
+            <PathFigure IsClosed="True"
+                        IsFilled="True"
+                        StartPoint="0, 0">
+                <LineSegment Point="0, 100" />
+                <LineSegment Point="100, 100" />
+            </PathFigure>
+        </PathGeometry>
+        <PathGeometry x:Key="RightTriangeMirroredNodeGeometry">
+            <PathFigure IsClosed="True"
+                        IsFilled="True"
+                        StartPoint="100, 0">
+                <LineSegment Point="0, 100" />
+                <LineSegment Point="100, 100" />
+            </PathFigure>
+        </PathGeometry>
+        <PathGeometry x:Key="RhombusNodeGeometry">
+            <PathFigure IsClosed="True"
+                        IsFilled="True"
+                        StartPoint="0, 50">
+                <LineSegment Point="50, 0" />
+                <LineSegment Point="100, 50" />
+                <LineSegment Point="50, 100" />
+            </PathFigure>
+        </PathGeometry>
+        <PathGeometry x:Key="OctagonNodeGeometry">
+            <PathFigure IsClosed="True"
+                        IsFilled="True"
+                        StartPoint="30, 0">
+                <LineSegment Point="70, 0" />
+                <LineSegment Point="100, 30" />
+                <LineSegment Point="100, 70" />
+                <LineSegment Point="70, 100" />
+                <LineSegment Point="30, 100" />
+                <LineSegment Point="0, 70" />
+                <LineSegment Point="0, 30" />
+            </PathFigure>
+        </PathGeometry>
+        <PathGeometry x:Key="ChevronNodeGeometry">
+            <PathFigure IsClosed="True"
+                        IsFilled="True"
+                        StartPoint="0, 0">
+                <LineSegment Point="50, 0" />
+                <LineSegment Point="100, 50" />
+                <LineSegment Point="50, 100" />
+                <LineSegment Point="0, 100" />
+                <LineSegment Point="50, 50" />
+            </PathFigure>
+        </PathGeometry>
+        <PathGeometry x:Key="HexagonNodeGeometry">
+            <PathFigure IsClosed="True"
+                        IsFilled="True"
+                        StartPoint="0, 50">
+                <LineSegment Point="25, 0" />
+                <LineSegment Point="75, 0" />
+                <LineSegment Point="100, 50" />
+                <LineSegment Point="75, 100" />
+                <LineSegment Point="25, 100" />
+            </PathFigure>
+        </PathGeometry>
+        <PathGeometry x:Key="PentagonNodeGeometry">
+            <PathFigure IsClosed="True" StartPoint="50, 0">
+                <PathFigure.Segments>
+                    <LineSegment Point="100, 40" />
+                    <LineSegment Point="80, 100" />
+                    <LineSegment Point="20, 100" />
+                    <LineSegment Point="0, 40" />
+                </PathFigure.Segments>
+            </PathFigure>
+        </PathGeometry>
+        <PathGeometry x:Key="HeptagonNodeGeometry">
+            <PathFigure IsClosed="True" StartPoint="50, 0">
+                <PathFigure.Segments>
+                    <LineSegment Point="90, 19" />
+                    <LineSegment Point="100, 62" />
+                    <LineSegment Point="73, 100" />
+                    <LineSegment Point="27, 100" />
+                    <LineSegment Point="0, 62" />
+                    <LineSegment Point="10, 19" />
+                </PathFigure.Segments>
+            </PathFigure>
+        </PathGeometry>
+        <PathGeometry x:Key="CrossNodeGeometry">
+            <PathFigure IsClosed="True" StartPoint="0,33">
+                <PathFigure.Segments>
+                    <LineSegment Point="33,33" />
+                    <LineSegment Point="33,0" />
+                    <LineSegment Point="66,0" />
+                    <LineSegment Point="66,33" />
+                    <LineSegment Point="99,33" />
+                    <LineSegment Point="99,66" />
+                    <LineSegment Point="66,66" />
+                    <LineSegment Point="66,99" />
+                    <LineSegment Point="33,99" />
+                    <LineSegment Point="33,66" />
+                    <LineSegment Point="0,66" />
+                </PathFigure.Segments>
+            </PathFigure>
+        </PathGeometry>
+        <PathGeometry x:Key="ThinCrossNodeGeometry">
+            <PathFigure IsClosed="True" StartPoint="0,44">
+                <PathFigure.Segments>
+                    <LineSegment Point="44,44" />
+                    <LineSegment Point="44,0" />
+                    <LineSegment Point="55,0" />
+                    <LineSegment Point="55,44" />
+                    <LineSegment Point="99,44" />
+                    <LineSegment Point="99,55" />
+                    <LineSegment Point="55,55" />
+                    <LineSegment Point="55,99" />
+                    <LineSegment Point="44,99" />
+                    <LineSegment Point="44,55" />
+                    <LineSegment Point="0,55" />
+                </PathFigure.Segments>
+            </PathFigure>
+        </PathGeometry>
+    </ResourceDictionary>
+    
+    <!-- *********************************  Default Error Template  ********************************* -->
+    <ResourceDictionary x:Key="DiagramResources">
+        <ControlTemplate x:Key="EditorErrorTemplate">
+            <DockPanel LastChildFill="true">
+                <Border Background="{StaticResource ValidationErrorElement}"
+                        DockPanel.Dock="right"
+                        Margin="10,0,0,0" />
+                <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center" >
+                    <Border BorderBrush="{StaticResource ValidationErrorElement}"
+                            BorderThickness="1"
+                            ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                        <Border.Resources>
+                            <Style TargetType="ToolTip" BasedOn="{StaticResource ToolTipStyle}">
+                                <Setter Property="Background" Value="{StaticResource ValidationErrorElement}" />
+                                <Setter Property="BorderBrush" Value="{StaticResource ValidationErrorElement}" />
+                            </Style>
+                        </Border.Resources>
+                        <Grid HorizontalAlignment="Right" Margin="0 0 -1 0">
+                            <Border Width="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}"
+                                    Background="{StaticResource ValidationErrorElement}"/>
+                            <Path Stretch="Fill"
+                                  Width="2"
+                                  Height="8"
+                                  Data="{StaticResource ExclamationIcon}"
+                                  VerticalAlignment="Center"
+                                  HorizontalAlignment="Center"
+                                  Fill="{StaticResource ForegroundBrush}"/>
+                        </Grid>
+                    </Border>
+                </AdornedElementPlaceholder>
+            </DockPanel>
+        </ControlTemplate>
+        <ControlTemplate x:Key="DisplayErrorTemplate">
+            <DockPanel LastChildFill="true">
+                <Border Background="{StaticResource ValidationErrorElement}"
+                        DockPanel.Dock="right"
+                        Margin="10,0,0,0"/>
+                <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center" >
+                    <Border BorderBrush="{StaticResource ValidationErrorElement}"
+                            BorderThickness="1"
+                            ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}" >
+                        <Border.Resources>
+                            <Style TargetType="ToolTip" BasedOn="{StaticResource ToolTipStyle}">
+                                <Setter Property="Background" Value="{StaticResource ValidationErrorElement}" />
+                                <Setter Property="BorderBrush" Value="{StaticResource ValidationErrorElement}" />
+                            </Style>
+                        </Border.Resources>
+                        <Grid HorizontalAlignment="Right" Margin="0 0 -1 0">
+                            <Border Width="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" Background="{StaticResource ValidationErrorElement}"/>
+                            <Path Stretch="Fill"
+                                  Width="2"
+                                  Height="8"
+                                  Data="{StaticResource ExclamationIcon}"
+                                  VerticalAlignment="Center"
+                                  HorizontalAlignment="Center"
+                                  Fill="{StaticResource ForegroundBrush}"/>
+                        </Grid>
+                    </Border>
+                </AdornedElementPlaceholder>
+            </DockPanel>
+        </ControlTemplate>
+    </ResourceDictionary>
+    
+    <!--  *********************************  NodeContent Template  *********************************  -->
+    <DataTemplate x:Key="NodeContentTemplate">
+        <TextBlock Margin="5 3"
+                   Text="{Binding Mode=OneWay}"
+                   TextAlignment="Center"
+                   TextWrapping="Wrap" />
+    </DataTemplate>
+
+    <!--  *********************************  DiagramNode Style  *********************************  -->
+    <Style TargetType="ig:DiagramNode">
+        <Setter Property="DisplayTemplate" Value="{StaticResource NodeContentTemplate}" />
+        <Setter Property="Fill" Value="{StaticResource DiagramNodeBackgroundBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource DiagramNodeForegroundBrush}" />
+        <Setter Property="Stroke" Value="{StaticResource DiagramNodeBorderBrush}" />
+        <Setter Property="StrokeThickness" Value="{StaticResource DefaultStrokeThickness}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate Resources="{StaticResource NodeShapes}" TargetType="ig:DiagramNode">
+                    <Grid igPrim:XamlHelper.SnapsToDevicePixels="True">
+                        <Grid x:Name="ShapePanel" />
+                        <Grid x:Name="ContentPanel" />
+                        <Grid x:Name="EditPanel" Visibility="Collapsed" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  ConnectionContent Template  *********************************  -->
+    <DataTemplate x:Key="ConnectionContentTemplate">
+        <TextBlock Text="{Binding Mode=OneWay}"
+                   TextAlignment="Center"
+                   TextWrapping="Wrap" />
+    </DataTemplate>
+
+    <!--  *********************************  DiagramConnection Style  *********************************  -->
+    <Style TargetType="ig:DiagramConnection">
+        <Setter Property="Cursor" Value="Arrow" />
+        <Setter Property="DisplayTemplate" Value="{StaticResource ConnectionContentTemplate}" />
+        <Setter Property="EndCapType" Value="FilledArrow" />
+        <Setter Property="Fill" Value="{StaticResource DiagramConnectionBackgroundBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource DiagramConnectionForegroundBrush}" />
+        <Setter Property="Stroke" Value="{StaticResource DiagramConnectionBorderBrush}" />
+        <Setter Property="StrokeThickness" Value="{StaticResource DefaultStrokeThickness}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ig:DiagramConnection">
+                    <Grid igPrim:XamlHelper.SnapsToDevicePixels="True">
+                        <Grid x:Name="ShapePanel">
+                            <Canvas x:Name="ConnectionCanvas">
+                                <Path x:Name="UnderlayPath"
+                                      Stroke="{StaticResource TransparentBrush}"
+                                      StrokeThickness="10" />
+                            </Canvas>
+                            <Path x:Name="ShapePath" StrokeDashCap="Round" />
+                        </Grid>
+                        <Grid x:Name="RootContentPanel"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top">
+                            <Grid x:Name="ContentPanel">
+                                <Rectangle Fill="{Binding Background, RelativeSource={RelativeSource AncestorType=ig:XamDiagram}}" />
+                                <igPrim:DiagramItemContentPresenter x:Name="ContentPresenter" />
+                            </Grid>
+                            <Grid x:Name="EditPanel"
+                                  HorizontalAlignment="Stretch"
+                                  VerticalAlignment="Stretch"
+                                  Visibility="Collapsed" />
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  Diagram Style  *********************************  -->
+    <Style TargetType="ig:XamDiagram">
+        <Setter Property="Background" Value="{StaticResource DiagramBackgroundBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ig:XamDiagram" Resources="{StaticResource DiagramResources}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            x:Name="optionsPaneBorder">
+                        <ig:DragDropManager.DropTarget>
+                            <ig:DropTarget IsDropTarget="True" />
+                        </ig:DragDropManager.DropTarget>
+                        <Grid igPrim:XamlHelper.SnapsToDevicePixels="True">
+                            <Grid x:Name="MainGrid">
+                                <igPrim:DrawingPanel x:Name="DrawingPanel" />
+                            </Grid>
+                            <Grid>
+                                <Canvas x:Name="ConnectionPointsLayer" />
+                                <Canvas x:Name="HandlesLayer">
+                                    <Rectangle x:Name="SelectionRectangle"
+                                               Stroke="{StaticResource DragRectangleBorderBrush}"
+                                               StrokeDashArray="2 2"
+                                               StrokeThickness="{StaticResource DefaultStrokeThickness}"
+                                               Visibility="Collapsed" />
+                                </Canvas>
+                                <Canvas>
+                                    <Rectangle x:Name="DragRectangle"
+                                               Stroke="{StaticResource DragRectangleBorderBrush}"
+                                               StrokeDashArray="3, 3"
+                                               StrokeThickness="{StaticResource DefaultStrokeThickness}"
+                                               Visibility="Collapsed" />
+                                    <Path x:Name="PreviewPath"
+                                          Fill="{StaticResource PreviewPathBackgroundBrush}"
+                                          Visibility="Collapsed" />
+                                    <Button x:Name="OptionsPaneButton"
+                                            Width="24"
+                                            Height="24"
+                                            Command="ig:DiagramCommands.ShowOptionsPane"
+                                            CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                            Cursor="Arrow"
+                                            Padding="1"
+                                            Style="{StaticResource ButtonStyle}"
+                                            Visibility="Collapsed">
+                                        <Path Width="14"
+                                              Height="14"
+                                              Margin="2"
+                                              Data="{StaticResource OptionsPaneIcon}"
+                                              Fill="{StaticResource GlyphBackgroundBrush}"
+                                              Stretch="Fill" />
+                                    </Button>
+                                    <Popup x:Name="OptionsPanePopup"
+                                           Focusable="False"
+                                           IsOpen="False"
+                                           PlacementTarget="{Binding ElementName=OptionsPaneButton}"
+                                           StaysOpen="False">
+                                        <igPrim:DiagramOptionsPane x:Name="DiagramOptionsPane"
+                                                                   Width="320"
+                                                                   Height="{Binding ElementName=optionsPaneBorder, Path=Height}" />
+                                    </Popup>
+                                </Canvas>
+                            </Grid>
+                            <ig:XamOverviewPlusDetailPane x:Name="Thumbnail"
+                                                          HorizontalAlignment="{TemplateBinding NavigationPaneHorizontalAlignment}"
+                                                          VerticalAlignment="{TemplateBinding NavigationPaneVerticalAlignment}"
+                                                          IsZoomable="True"
+                                                          Visibility="{TemplateBinding NavigationPaneVisibility}" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  ConnectionDrawingHandle Style  *********************************  -->
+
+    <Style TargetType="igPrim:DiagramConnectionHandle">
+        <Setter Property="Background" Value="{StaticResource DiagramBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DragRectangleBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{StaticResource DefaultBorderThickness}" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="igPrim:DiagramConnectionHandle">
+                    <Rectangle Fill="{TemplateBinding Background}"
+                               Stroke="{TemplateBinding BorderBrush}"
+                               StrokeThickness="{TemplateBinding BorderThickness}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="UniformHeight" Value="8" />
+    </Style>
+
+    <!--  *********************************  ResizeHandle Style  *********************************  -->
+    <Style TargetType="igPrim:DiagramResizeHandle">
+        <Setter Property="Background" Value="{StaticResource DiagramBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DragRectangleBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{StaticResource DefaultBorderThickness}" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="igPrim:DiagramResizeHandle">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="UniformHeight" Value="8" />
+    </Style>
+
+    <!--  *********************************  ResizeHandleLine Style  *********************************  -->
+    <Style TargetType="igPrim:DiagramResizeHandleLine">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="igPrim:DiagramResizeHandleLine">
+                    <Rectangle Fill="{StaticResource TransparentBrush}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="UniformHeight" Value="4" />
+    </Style>
+
+
+
+    <!--  *********************************  DiagramConnectionPointPresenter Style  *********************************  -->
+    <Style TargetType="igPrim:DiagramConnectionPointPresenter">
+        <Setter Property="Background" Value="{StaticResource ConnectionPointBackgroundBrush}" />
+        <Setter Property="HighlightBrush" Value="{StaticResource ConnectionPointHighlightBackgroundBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="igPrim:DiagramConnectionPointPresenter">
+                    <Grid igPrim:XamlHelper.SnapsToDevicePixels="True" Background="{StaticResource TransparentBrush}">
+                        <Rectangle Width="5"
+                                   Height="5"
+                                   Margin="4"
+                                   Fill="{TemplateBinding Background}"
+                                   RadiusX="1"
+                                   RadiusY="1" />
+                        <Rectangle Width="13"
+                                   Height="13"
+                                   Stroke="{TemplateBinding HighlightBrush}"
+                                   StrokeThickness="3"
+                                   Visibility="{TemplateBinding IsHighlighted,
+                                                                Converter={StaticResource boolToVisibilityConverter}}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  DiagramConnectionCapPresenter Style  *********************************  -->
+    <Style TargetType="ig:DiagramConnectionCapPresenter">
+        <Setter Property="Background" Value="{StaticResource ConnectionCapBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource ConnectionCapBorderBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ig:DiagramConnectionCapPresenter">
+                    <Border igPrim:XamlHelper.SnapsToDevicePixels="True"
+                            Background="{TemplateBinding Background}"
+                            Padding="5">
+                        <Path Stroke="{TemplateBinding BorderBrush}">
+                            <Path.Data>
+                                <EllipseGeometry RadiusX="10" RadiusY="10" />
+                            </Path.Data>
+                        </Path>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  DiagramToolbox Style  *********************************  -->
+    <Style TargetType="{x:Type ig:XamDiagramToolbox}">
+        <Setter Property="Background" Value="{StaticResource ToolBoxBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource ToolBoxBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{StaticResource DefaultBorderThickness}" />
+        <Setter Property="Header" Value="{Binding Source={StaticResource stringResources}, Path=ToolboxHeaderText}" />
+        <Setter Property="HeaderBackground" Value="{StaticResource ToolBoxHeaderBackgroundBrush}" />
+        <Setter Property="HeaderBorderBrush" Value="{StaticResource ToolBoxHeaderBorderBrush}" />
+        <Setter Property="HeaderBorderThickness" Value="0,0,0,1" />
+        <Setter Property="HeaderForeground" Value="{StaticResource ForegroundBrush}" />
+        <Setter Property="MinWidth" Value="150" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ig:XamDiagramToolbox}">
+                    <Border x:Name="toolboxBorder"
+                            igPrim:XamlHelper.SnapsToDevicePixels="True"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid x:Name="ToolBoxLayout">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+
+                            <Border x:Name="headerBorder"
+                                    Background="{TemplateBinding HeaderBackground}"
+                                    BorderBrush="{TemplateBinding HeaderBorderBrush}"
+                                    BorderThickness="{TemplateBinding HeaderBorderThickness}"
+                                    Visibility="{TemplateBinding HeaderVisibility}">
+                                <ContentControl Margin="5"
+                                                Content="{TemplateBinding Header}"
+                                                Foreground="{TemplateBinding HeaderForeground}" />
+                            </Border>
+
+                            <ScrollViewer Grid.Row="1"
+                                          Margin="2"
+                                          HorizontalScrollBarVisibility="Disabled"
+                                          Style="{StaticResource ScrollViewerStyle}"
+                                          VerticalScrollBarVisibility="Auto">
+                                <ItemsControl x:Name="toolBox" ItemsSource="{TemplateBinding Categories}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Orientation="Vertical" />
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Expander Header="{Binding Name, Mode=OneWay}"
+                                                      IsExpanded="{Binding IsExpanded, Mode=OneWay}"
+                                                      Style="{StaticResource ExpanderStyle}">
+                                                <igPrim:DiagramToolboxCategoryItemsControl ItemsSource="{Binding Items, Mode=OneWay}">
+                                                    <igPrim:DiagramToolboxCategoryItemsControl.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <ig:DiagramToolboxItemsPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </igPrim:DiagramToolboxCategoryItemsControl.ItemsPanel>
+                                                </igPrim:DiagramToolboxCategoryItemsControl>
+                                            </Expander>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </ScrollViewer>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  DragTemplate Style  *********************************  -->
+    <Style x:Key="DragTemplateStyle" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Rectangle />
+                        <ContentPresenter x:Name="contentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  *********************************  DiagramToolBoxCategoryItem Style  *********************************  -->
+    <Style TargetType="{x:Type igPrim:DiagramToolboxCategoryItem}">
+        <Setter Property="MinWidth" Value="120" />
+        <Setter Property="MinHeight" Value="60" />
+        <Setter Property="HeaderTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <TextBlock Foreground="{StaticResource ForegroundBrush}"
+                               Text="{Binding Title, Mode=OneWay}"
+                               TextWrapping="Wrap" />
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type igPrim:DiagramToolboxCategoryItem}">
+                    <ControlTemplate.Resources>
+                        <DataTemplate x:Key="DragTemplate">
+                            <ContentControl x:Name="DragPresenter"
+                                            Content="{Binding Path=Data}"
+                                            Opacity=".72" />
+                        </DataTemplate>
+                    </ControlTemplate.Resources>
+                    <Border x:Name="Border"
+                            Margin="2 2 0 0"
+                            igPrim:XamlHelper.SnapsToDevicePixels="True">
+                        <Border.Style>
+                            <Style>
+                                <Setter Property="Border.Background" Value="{StaticResource TransparentBrush}" />
+                                <Style.Triggers>
+                                    <Trigger Property="Border.IsMouseOver" Value="True">
+                                        <Setter Property="Border.Background" Value="{StaticResource ToolBoxItemHoverBackgroundBrush}" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <Grid x:Name="MainGrid">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid>
+                                <Rectangle Fill="{TemplateBinding Background}" />
+                                <ContentPresenter Content="{Binding Content, Mode=OneWay}" />
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Rectangle Stroke="{TemplateBinding Background}" />
+                                <ContentPresenter Margin="5"
+                                                  HorizontalAlignment="Left"
+                                                  VerticalAlignment="Center"
+                                                  ContentSource="Header"
+                                                  TextBlock.Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ig:XamDiagramToolbox}}, Path=Foreground}" />
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter> 
+    </Style>
+
+    <!--  *********************************  DiagramOptionsPane Style  *********************************  -->
+    <Style TargetType="{x:Type igPrim:DiagramOptionsPane}">
+        <Setter Property="Background" Value="{StaticResource OptionsPaneBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource OptionsPaneBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{StaticResource DefaultBorderThickness}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type igPrim:DiagramOptionsPane}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid Margin="-1,1,-1,-1" igPrim:XamlHelper.SnapsToDevicePixels="True">
+                            <TabControl Style="{StaticResource OptionsPaneTabControl}">
+                                <!--  General  -->
+                                <TabItem Header="{Binding Source={StaticResource stringResources}, Path=ContextMenuGeneralHeaderText}">
+                                    <Grid Margin="5">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <Button Grid.Column="0"
+                                                Height="50"
+                                                Margin="0,0,5,0"
+                                                Command="ApplicationCommands.Cut"
+                                                CommandTarget="{TemplateBinding Diagram}"
+                                                Style="{StaticResource ButtonStyle}">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition  />
+                                                    <RowDefinition Height="20" />
+                                                </Grid.RowDefinitions>
+                                                <Path Width="14"
+                                                      Height="16"
+                                                      Data="{StaticResource CutIcon}"
+                                                      Fill="{StaticResource GlyphBackgroundBrush}"
+                                                      Stretch="Fill" />
+                                                <TextBlock Grid.Row="1" Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuCutCommandText}" />
+                                            </Grid>
+                                        </Button>
+                                        <Button Grid.Column="1"
+                                                Height="50"
+                                                Margin="5,0,5,0"
+                                                Command="ApplicationCommands.Copy"
+                                                CommandTarget="{TemplateBinding Diagram}"
+                                                Style="{StaticResource ButtonStyle}">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition Height="20" />
+                                                </Grid.RowDefinitions>
+                                                <Path Width="16"
+                                                      Height="16"
+                                                      Data="{StaticResource CopyIcon}"
+                                                      Fill="{StaticResource GlyphBackgroundBrush}"
+                                                      Stretch="Fill" />
+                                                <TextBlock Grid.Row="1" Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuCopyCommandText}" />
+                                            </Grid>
+                                        </Button>
+                                        <Button Grid.Column="2"
+                                                Height="50"
+                                                Margin="5,0,5,0"
+                                                Command="ApplicationCommands.Paste"
+                                                CommandTarget="{TemplateBinding Diagram}"
+                                                Style="{StaticResource ButtonStyle}">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition Height="20" />
+                                                </Grid.RowDefinitions>
+                                                <Path Width="15"
+                                                      Height="16"
+                                                      Data="{StaticResource PasteIcon}"
+                                                      Fill="{StaticResource GlyphBackgroundBrush}"
+                                                      Stretch="Fill" />
+                                                <TextBlock Grid.Row="1" Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuPasteCommandText}" />
+                                            </Grid>
+                                        </Button>
+                                        <Button Grid.Column="3"
+                                                Height="50"
+                                                Margin="5,0,0,0"
+                                                Command="ApplicationCommands.Delete"
+                                                CommandTarget="{TemplateBinding Diagram}"
+                                                Style="{StaticResource ButtonStyle}">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition Height="20" />
+                                                </Grid.RowDefinitions>
+                                                <Path Width="13"
+                                                      Height="16"
+                                                      Data="{StaticResource DeleteIcon}"
+                                                      Fill="{StaticResource GlyphBackgroundBrush}"
+                                                      Stretch="Fill" />
+                                                <TextBlock Grid.Row="1" Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuDeleteCommandText}" />
+                                            </Grid>
+                                        </Button>
+
+                                        <Rectangle Grid.Row="1"
+                                                   Grid.ColumnSpan="4"
+                                                   Height="1"
+                                                   Margin="5,10"
+                                                   VerticalAlignment="Center"
+                                                   Fill="{StaticResource OptionsPaneBorderBrush}"
+                                                   StrokeThickness="1" />
+
+                                        <Button Grid.Row="2"
+                                                Grid.Column="0"
+                                                Height="50"
+                                                Margin="0,0,5,0"
+                                                Command="ig:DiagramCommands.BringForward"
+                                                CommandTarget="{TemplateBinding Diagram}"
+                                                Style="{StaticResource ButtonStyle}"
+                                                ToolTip="{Binding Source={StaticResource stringResources}, Path=ContextMenuBringForwardCommandFullText}">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition Height="20" />
+                                                </Grid.RowDefinitions>
+                                                 <Path Width="16"
+                                                      Height="16"
+                                                      Data="{StaticResource BringForwardIcon}"
+                                                      Fill="{StaticResource GlyphBackgroundBrush}"
+                                                      Stretch="Fill" />                                        
+                                                <TextBlock Grid.Row="1"
+                                                           Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContentControl}}, Path=Foreground}"
+                                                           Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuBringForwardCommandText}" />
+                                            </Grid>
+                                        </Button>
+                                        <Button Grid.Row="2"
+                                                Grid.Column="1"
+                                                Height="50"
+                                                Margin="5,0,5,0"
+                                                Command="ig:DiagramCommands.SendBackward"
+                                                CommandTarget="{TemplateBinding Diagram}"
+                                                Style="{StaticResource ButtonStyle}"
+                                                ToolTip="{Binding Source={StaticResource stringResources}, Path=ContextMenuSendBackwardCommandFullText}">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition Height="20" />
+                                                </Grid.RowDefinitions>
+                                                 <Path Width="16"
+                                                      Height="16"
+                                                      Data="{StaticResource SendBackwardIcon}"
+                                                      Fill="{StaticResource GlyphBackgroundBrush}"
+                                                      Stretch="Fill" />                                  
+                                                <TextBlock Grid.Row="1"
+                                                           Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContentControl}}, Path=Foreground}"
+                                                           Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuSendBackwardCommandText}" />
+                                            </Grid>
+                                        </Button>
+                                        <Button Grid.Row="2"
+                                                Grid.Column="2"
+                                                Height="50"
+                                                Margin="5,0,5,0"
+                                                Command="ig:DiagramCommands.BringToFront"
+                                                CommandTarget="{TemplateBinding Diagram}"
+                                                Style="{StaticResource ButtonStyle}"
+                                                ToolTip="{Binding Source={StaticResource stringResources}, Path=ContextMenuBringToFrontCommandFullText}">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition Height="20" />
+                                                </Grid.RowDefinitions>
+                                                 <Path Width="16"
+                                                      Height="16"
+                                                      Data="{StaticResource ToFrontIcon}"
+                                                      Fill="{StaticResource GlyphBackgroundBrush}"
+                                                      Stretch="Fill" />                                          
+                                                <TextBlock Grid.Row="1"
+                                                           Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContentControl}}, Path=Foreground}"
+                                                           Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuBringToFrontCommandText}" />
+                                            </Grid>
+                                        </Button>
+                                        <Button Grid.Row="2"
+                                                Grid.Column="3"
+                                                Height="50"
+                                                Margin="5,0,0,0"
+                                                Command="ig:DiagramCommands.SendToBack"
+                                                CommandTarget="{TemplateBinding Diagram}"
+                                                Style="{StaticResource ButtonStyle}"
+                                                ToolTip="{Binding Source={StaticResource stringResources}, Path=ContextMenuSendToBackCommandFullText}">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition Height="20" />
+                                                </Grid.RowDefinitions>
+                                                 <Path Width="16"
+                                                      Height="16"
+                                                      Data="{StaticResource ToBackIcon}"
+                                                      Fill="{StaticResource GlyphBackgroundBrush}"
+                                                      Stretch="Fill" />                       
+                                                <TextBlock Grid.Row="1"
+                                                           Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContentControl}}, Path=Foreground}"
+                                                           Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuSendToBackCommandText}" />
+                                            </Grid>
+                                        </Button>
+                                    </Grid>
+                                </TabItem>
+
+                                <!--  Shape  -->
+                                <TabItem Header="{Binding Source={StaticResource stringResources}, Path=ContextMenuShapeHeaderText}">
+                                    <Grid Margin="5 5 5 0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="10" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="10" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50" />
+                                            <ColumnDefinition Width="10"/>
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Grid.Row="0"
+                                                   Grid.Column="0"
+                                                   VerticalAlignment="Center"
+                                                   Style="{StaticResource TitleTextBlockStyle}"
+                                                   Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuShapeFillText}" />
+                                        <ig:XamColorPicker Grid.Row="0"
+                                                           Grid.Column="2"
+                                                           CurrentPalette="{StaticResource ColorPickerPalette}"
+                                                           SelectedColor="{Binding Path=Fill, Converter={StaticResource brushToColorConverter}, Mode=TwoWay}" />
+
+                                        <TextBlock Grid.Row="2"
+                                                   Grid.Column="0"
+                                                   VerticalAlignment="Center"
+                                                   Style="{StaticResource TitleTextBlockStyle}"
+                                                   Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuShapeOpacityText}" />
+                                        <Slider Grid.Row="2"
+                                                Grid.Column="2"
+                                                LargeChange="0.1"
+                                                Maximum="1"
+                                                Minimum="0"
+                                                SmallChange="0.01"
+                                                Style="{StaticResource SliderStyle}"
+                                                Value="{Binding Opacity, TargetNullValue=1.1}" />
+
+                                        <Grid Grid.Row="4"
+                                              Grid.ColumnSpan="3">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="10" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="10" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="50" />
+                                                <ColumnDefinition Width="10"/>
+                                                <ColumnDefinition />
+                                                <ColumnDefinition Width="50" />
+                                                <ColumnDefinition Width="10"/>
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Grid.Row="0"
+                                                       Grid.Column="0"
+                                                       VerticalAlignment="Center"
+                                                       Style="{StaticResource TitleTextBlockStyle}"
+                                                       Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuShapeWidthText}"
+                                                       Visibility="{Binding Mode, Converter={StaticResource nodeOptionsVisibilityConverter}, FallbackValue=Collapsed}" />
+
+                                            <TextBlock Grid.Row="0"
+                                                       Grid.Column="0"
+                                                       VerticalAlignment="Center"
+                                                       Style="{StaticResource TitleTextBlockStyle}"
+                                                       Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuConnectionStartPointXText}"
+                                                       Visibility="{Binding Mode, Converter={StaticResource connectionOptionsVisibilityConverter}, FallbackValue=Collapsed}" />
+                                            <ig:XamNumericInput Grid.Row="0"
+                                                                Grid.Column="2"
+                                                                Mask="{}{number:0-999999}"
+                                                                SpinButtonDisplayMode="Always"
+                                                                Visibility="{Binding Mode, Converter={StaticResource nodeOptionsVisibilityConverter}, FallbackValue=Collapsed}"
+                                                                Value="{Binding Width}"
+                                                                IsEnabled="{Binding Path=AllowResizeResolved}"/>
+                                            <ig:XamNumericInput Grid.Row="0"
+                                                                Grid.Column="2"
+                                                                Mask="{}{number:-999999-999999}"
+                                                                SpinButtonDisplayMode="Always"
+                                                                Visibility="{Binding Mode, Converter={StaticResource connectionOptionsVisibilityConverter}, FallbackValue=Collapsed}"
+                                                                Value="{Binding StartX}" />
+
+                                            <TextBlock Grid.Row="0"
+                                                       Grid.Column="3"
+                                                       VerticalAlignment="Center"
+                                                       HorizontalAlignment="Right"
+                                                       Style="{StaticResource TitleTextBlockStyle}"
+                                                       Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuShapeStartPointXText}"
+                                                       Visibility="{Binding Mode, Converter={StaticResource nodeOptionsVisibilityConverter}, FallbackValue=Collapsed}" />
+
+                                            <TextBlock Grid.Row="0"
+                                                       Grid.Column="3"
+                                                       VerticalAlignment="Center"
+                                                       HorizontalAlignment="Right"
+                                                       Style="{StaticResource TitleTextBlockStyle}"
+                                                       Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuConnectionEndPointXText}"
+                                                       Visibility="{Binding Mode, Converter={StaticResource connectionOptionsVisibilityConverter}, FallbackValue=Collapsed}" />
+                                            <ig:XamNumericInput Grid.Row="0"
+                                                                Grid.Column="5"
+                                                                Mask="{}{number:-999999-999999}"
+                                                                SpinButtonDisplayMode="Always"
+                                                                Visibility="{Binding Mode, Converter={StaticResource nodeOptionsVisibilityConverter}, FallbackValue=Collapsed}"
+                                                                Value="{Binding X}" />
+                                            <ig:XamNumericInput Grid.Row="0"
+                                                                Grid.Column="5"
+                                                                Mask="{}{number:-999999-999999}"
+                                                                SpinButtonDisplayMode="Always"
+                                                                Visibility="{Binding Mode, Converter={StaticResource connectionOptionsVisibilityConverter}, FallbackValue=Collapsed}"
+                                                                Value="{Binding EndX}" />
+
+                                            <TextBlock Grid.Row="2"
+                                                       Grid.Column="0"
+                                                       VerticalAlignment="Center"
+                                                       Style="{StaticResource TitleTextBlockStyle}"
+                                                       Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuShapeHeightText}"
+                                                       Visibility="{Binding Mode, Converter={StaticResource nodeOptionsVisibilityConverter}, FallbackValue=Collapsed}" />
+
+                                            <TextBlock Grid.Row="2"
+                                                       Grid.Column="0"
+                                                       VerticalAlignment="Center"
+                                                       Style="{StaticResource TitleTextBlockStyle}"
+                                                       Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuConnectionStartPointYText}"
+                                                       Visibility="{Binding Mode, Converter={StaticResource connectionOptionsVisibilityConverter}, FallbackValue=Collapsed}" />
+                                            <ig:XamNumericInput Grid.Row="2"
+                                                                Grid.Column="2"
+                                                                Mask="{}{number:0-999999}"
+                                                                SpinButtonDisplayMode="Always"
+                                                                Visibility="{Binding Mode, Converter={StaticResource nodeOptionsVisibilityConverter}, FallbackValue=Collapsed}"
+                                                                Value="{Binding Height}"
+                                                                IsEnabled="{Binding Path=AllowResizeResolved}"/>
+                                            <ig:XamNumericInput Grid.Row="2"
+                                                                Grid.Column="2"
+                                                                Mask="{}{number:-999999-999999}"
+                                                                SpinButtonDisplayMode="Always"
+                                                                Visibility="{Binding Mode, Converter={StaticResource connectionOptionsVisibilityConverter}, FallbackValue=Collapsed}"
+                                                                Value="{Binding StartY}" />
+
+                                            <TextBlock Grid.Row="2"
+                                                       Grid.Column="3"
+                                                       HorizontalAlignment="Right"
+                                                       Style="{StaticResource TitleTextBlockStyle}"
+                                                       Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuShapeStartPointYText}"
+                                                       Visibility="{Binding Mode, Converter={StaticResource nodeOptionsVisibilityConverter}, FallbackValue=Collapsed}" />
+
+                                            <TextBlock Grid.Row="2"
+                                                       Grid.Column="3"
+                                                       VerticalAlignment="Center"
+                                                       HorizontalAlignment="Right"
+                                                       Style="{StaticResource TitleTextBlockStyle}"
+                                                       Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuConnectionEndPointYText}"
+                                                       Visibility="{Binding Mode, Converter={StaticResource connectionOptionsVisibilityConverter}, FallbackValue=Collapsed}" />
+                                            <ig:XamNumericInput Grid.Row="2"
+                                                                Grid.Column="5"
+                                                                Mask="{}{number:-999999-999999}"
+                                                                SpinButtonDisplayMode="Always"
+                                                                Visibility="{Binding Mode, Converter={StaticResource nodeOptionsVisibilityConverter}, FallbackValue=Collapsed}"
+                                                                Value="{Binding Y}" />
+                                            <ig:XamNumericInput Grid.Row="2"
+                                                                Grid.Column="5"
+                                                                Mask="{}{number:-999999-999999}"
+                                                                SpinButtonDisplayMode="Always"
+                                                                Visibility="{Binding Mode, Converter={StaticResource connectionOptionsVisibilityConverter}, FallbackValue=Collapsed}"
+                                                                Value="{Binding EndY}" />
+
+                                            <StackPanel Grid.Row="4"
+                                                        Grid.ColumnSpan="5"
+                                                        Orientation="Horizontal"
+                                                        Visibility="{Binding Mode, Converter={StaticResource nodeOptionsVisibilityConverter}, FallbackValue=Collapsed}">
+                                                <TextBlock VerticalAlignment="Center"
+                                                           Style="{StaticResource TitleTextBlockStyle}"
+                                                           Text="{Binding Source={StaticResource stringResources}, Path=MaintainAspectRatioText}" />
+                                                <CheckBox Margin="6,0,0,0"
+                                                          VerticalAlignment="Bottom"
+                                                          IsChecked="{Binding MaintainAspectRatio}"
+                                                          Style="{StaticResource CheckBoxStyle}" />
+                                            </StackPanel>
+                                        </Grid>
+                                    </Grid>
+                                </TabItem>
+
+                                <!--  Line  -->
+                                <TabItem Header="{Binding Source={StaticResource stringResources}, Path=ContextMenuConnectionHeaderText}">
+                                    <Grid Margin="5" Grid.IsSharedSizeScope="True">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="10" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="10" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="10" />
+                                            <RowDefinition Height="Auto" /> 
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" SharedSizeGroup="FirstColumnGroup" />
+                                            <ColumnDefinition Width="5"/>
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Grid.Row="0"
+                                                   Grid.Column="0"
+                                                   VerticalAlignment="Center"
+                                                   Style="{StaticResource TitleTextBlockStyle}"
+                                                   Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuLineStrokeText}" />
+                                        <ig:XamColorPicker Grid.Row="0"
+                                                           Grid.Column="2"
+                                                           CurrentPalette="{StaticResource ColorPickerPalette}"
+                                                           SelectedColor="{Binding Path=Stroke, Converter={StaticResource brushToColorConverter}, Mode=TwoWay}" />
+
+                                        <TextBlock Grid.Row="2"
+                                                   Grid.Column="0"
+                                                   VerticalAlignment="Center"
+                                                   Style="{StaticResource TitleTextBlockStyle}"
+                                                   Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuLineThicknessText}" />
+                                        <ig:XamNumericInput Grid.Row="2"
+                                                            Grid.Column="2"
+                                                            Mask="{}{number:0-999999}"
+                                                            SpinButtonDisplayMode="Always"
+                                                            Value="{Binding Path=StrokeThickness}" />
+
+                                        <TextBlock Grid.Row="4"
+                                                   Grid.Column="0"
+                                                   VerticalAlignment="Center"
+                                                   Margin="0 0 10 0"
+                                                   Style="{StaticResource TitleTextBlockStyle}"
+                                                   Text="{Binding Source={StaticResource stringResources}, Path=ContextMenuLineDashTypeText}" />
+                                        <ComboBox Grid.Row="4"
+                                                  Grid.Column="2"
+                                                  Height="22"
+                                                  ItemsSource="{TemplateBinding StrokeDashArrays}"
+                                                  SelectedItem="{Binding Path=StrokeDashArray, Converter={StaticResource dashArrayConverter}}"
+                                                  Style="{StaticResource ComboBoxStyle}">
+                                            <ComboBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid Height="20">
+                                                        <Line VerticalAlignment="Center"
+                                                              SnapsToDevicePixels="True"
+                                                              Stroke="{Binding Path=Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Control}}"
+                                                              StrokeDashArray="{Binding}"
+                                                              X1="0"
+                                                              X2="100"
+                                                              Y1="0.5"
+                                                              Y2="0.5" />
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ComboBox.ItemTemplate>
+                                        </ComboBox>
+
+                                        <Grid Grid.Row="6"
+                                              Grid.ColumnSpan="3"
+                                              Visibility="{Binding Mode, Converter={StaticResource connectionOptionsVisibilityConverter}, FallbackValue=Collapsed}">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="15" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="10" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="10" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition />
+                                                <ColumnDefinition Width="10"/>
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+
+                                            <!--<Rectangle Grid.Row="0"
+                                                       Grid.ColumnSpan="2"
+                                                       Height="1"
+                                                       Margin="0,5,0,5"
+                                                       HorizontalAlignment="Stretch"
+                                                       VerticalAlignment="Bottom"
+                                                       Fill="{StaticResource TransparentBrush}"
+                                                       StrokeThickness="0" />-->
+
+                                            <Grid Grid.Row="1"
+                                                  Grid.ColumnSpan="5">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" SharedSizeGroup="FirstColumnGroup" />
+                                                    <ColumnDefinition Width="4"/>
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition Width="10"/>
+                                                    <ColumnDefinition />
+                                                </Grid.ColumnDefinitions>
+
+                                                <TextBlock Grid.Column="0"
+                                                           VerticalAlignment="Center"
+                                                           Style="{StaticResource TitleTextBlockStyle}"
+                                                           Text="{Binding Source={StaticResource stringResources}, Path=ConnectionText}" />
+
+                                                <RadioButton Grid.Column="2"
+                                                             Height="22"
+                                                             HorizontalContentAlignment="Center"
+                                                             VerticalContentAlignment="Center"
+                                                             Content="{Binding Source={StaticResource stringResources}, Path=ContextMenuConnectionTypeRightAngleText}"
+                                                             IsChecked="{Binding Path=ConnectionType, Converter={StaticResource connectionTypeConverter}, ConverterParameter={x:Static ig:DiagramConnectionType.RightAngle}}"
+                                                             Style="{StaticResource ToggleButtonStyle}" />
+                                                <RadioButton Grid.Column="4"
+                                                             Height="22"
+                                                             HorizontalContentAlignment="Center"
+                                                             VerticalContentAlignment="Center"
+                                                             Content="{Binding Source={StaticResource stringResources}, Path=ContextMenuConnectionTypeStraightText}"
+                                                             IsChecked="{Binding Path=ConnectionType, Converter={StaticResource connectionTypeConverter}, ConverterParameter={x:Static ig:DiagramConnectionType.Straight}}"
+                                                             Style="{StaticResource ToggleButtonStyle}" />
+                                            </Grid>
+
+                                            <ComboBox Grid.Row="3"
+                                                      Grid.Column="0"
+                                                      Height="22"
+                                                      ItemsSource="{Binding Source={StaticResource capTypeEnum}}"
+                                                      SelectedItem="{Binding StartCapType}"
+                                                      Style="{StaticResource ComboBoxStyle}">
+                                                <ComboBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Grid Height="20">
+                                                            <ig:DiagramConnection Margin="10,9,0,0"
+                                                                                  VerticalAlignment="Center"
+                                                                                  EndCapType="None"
+                                                                                  EndPosition="55,0"
+                                                                                  StartCapSize="{Binding Converter={StaticResource capTypeToSizeConverter}}"
+                                                                                  StartCapType="{Binding}"
+                                                                                  StartPosition="0,0"
+                                                                                  Stroke="{Binding Path=Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Control}}" 
+                                                                                  Fill="{Binding Path=Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Control}}"/>
+                                                        </Grid>
+                                                    </DataTemplate>
+                                                </ComboBox.ItemTemplate>
+                                            </ComboBox>
+
+                                            <ComboBox Grid.Row="3"
+                                                      Grid.Column="2"
+                                                      Height="22"
+                                                      ItemsSource="{Binding Source={StaticResource capTypeEnum}}"
+                                                      SelectedItem="{Binding EndCapType}"
+                                                      Style="{StaticResource ComboBoxStyle}">
+                                                <ComboBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Grid Height="20">
+                                                            <ig:DiagramConnection Margin="10,9,0,0"
+                                                                                  VerticalAlignment="Center"
+                                                                                  EndCapSize="{Binding Converter={StaticResource capTypeToSizeConverter}}"
+                                                                                  EndCapType="{Binding}"
+                                                                                  EndPosition="55,0"
+                                                                                  StartCapType="None"
+                                                                                  StartPosition="0,0"
+                                                                                  Stroke="{Binding Path=Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Control}}" 
+                                                                                  Fill="{Binding Path=Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Control}}"
+                                                                                  />
+                                                        </Grid>
+                                                    </DataTemplate>
+                                                </ComboBox.ItemTemplate>
+                                            </ComboBox>
+
+                                            <ig:XamNumericInput Grid.Row="5"
+                                                                Grid.Column="0"
+                                                                Height="22"
+                                                                Margin="0,0,2,5"
+                                                                Mask="{}{number:0-999999}"
+                                                                SpinButtonDisplayMode="Always"
+                                                                Value="{Binding Path=StartCapSize}" />
+
+                                            <ig:XamNumericInput Grid.Row="5"
+                                                                Grid.Column="2"
+                                                                Height="22"
+                                                                Margin="2,0,0,5"
+                                                                Mask="{}{number:0-999999}"
+                                                                SpinButtonDisplayMode="Always"
+                                                                Value="{Binding Path=EndCapSize}" />
+                                        </Grid>
+                                    </Grid>
+                                </TabItem>
+
+                                <!--  Text  -->
+                                <TabItem Header="{Binding Source={StaticResource stringResources}, Path=ContextMenuTextHeaderText}">
+                                    <Grid Margin="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="10" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="10" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <TextBox Grid.Row="0"
+                                                 Grid.Column="1"
+                                                 Height="22"
+                                                 Style="{StaticResource TextBoxStyle}"
+                                                 Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"
+                                                 IsEnabled="{Binding AllowEditResolved}"
+                                                 IsReadOnly="{Binding IsContentReadOnly}"/>
+
+                                        <Grid Grid.Row="2">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition />
+                                                <ColumnDefinition Width="10"/>
+                                                <ColumnDefinition Width="60" />
+                                            </Grid.ColumnDefinitions>
+                                            <ComboBox Height="22"
+                                                      VerticalContentAlignment="Center"
+                                                      SelectedItem="{Binding Path=FontFamily}"
+                                                      Style="{StaticResource ComboBoxStyle}">
+                                                <ComboBox.Resources>
+                                                    <CollectionViewSource x:Key="myFonts" Source="{Binding Source={x:Static Fonts.SystemFontFamilies}}">
+                                                        <CollectionViewSource.SortDescriptions>
+                                                            <ComponentModel:SortDescription PropertyName="Source" />
+                                                        </CollectionViewSource.SortDescriptions>
+                                                    </CollectionViewSource>
+                                                </ComboBox.Resources>
+                                                <ComboBox.ItemsSource>
+                                                    <Binding Source="{StaticResource myFonts}" />
+                                                </ComboBox.ItemsSource>
+
+                                                <ComboBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock VerticalAlignment="Center"
+                                                                   FontFamily="{Binding Converter={StaticResource fontFamilyConverter}}"
+                                                                   Text="{Binding Source}" />
+                                                    </DataTemplate>
+                                                </ComboBox.ItemTemplate>
+                                            </ComboBox>
+
+                                            <igPrim:AdvancedEditableComboBox Grid.Column="2"
+                                                                             Height="22"
+                                                                             ItemsSource="{TemplateBinding FontSizes}"
+                                                                             Style="{StaticResource ComboBoxStyle}"
+                                                                             Text="{Binding Path=FontSize, ValidatesOnDataErrors=True}" />
+                                        </Grid>
+
+                                        <Grid Grid.Row="4"
+                                              Grid.ColumnSpan="3">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="10" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="10" />
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+                                            <ToggleButton Grid.Column="0"
+                                                          Width="22"
+                                                          Height="22"
+                                                          FontFamily="Callibri"
+                                                          FontWeight="Bold"
+                                                          IsChecked="{Binding Path=IsBold}"
+                                                          Padding="2,0"
+                                                          Style="{StaticResource ToggleButtonStyle}">
+                                                B
+                                            </ToggleButton>
+                                            <ToggleButton Grid.Column="2"
+                                                          Width="22"
+                                                          Height="22"
+                                                          FontFamily="Times New Roman"
+                                                          FontStyle="Italic"
+                                                          FontWeight="SemiBold"
+                                                          IsChecked="{Binding Path=IsItalic}"
+                                                          Padding="2,0"
+                                                          Style="{StaticResource ToggleButtonStyle}">
+                                                I
+                                            </ToggleButton>
+                                            <ig:XamColorPicker Grid.Column="4"
+                                                               CurrentPalette="{StaticResource ColorPickerPalette}"
+                                                               SelectedColor="{Binding Path=FontBrush, Converter={StaticResource brushToColorConverter}, Mode=TwoWay}" />
+                                        </Grid>
+                                    </Grid>
+                                </TabItem>
+                            </TabControl>
+
+                            <Button Width="30"
+                                    Height="30"
+                                    Margin="0,-1,1,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Top"
+                                    Command="ig:DiagramCommands.CloseOptionsPane"
+                                    Style="{StaticResource DialogButtonStyle}">
+                                <Path Width="10"
+                                      Height="10"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      Data="{StaticResource CloseIcon}"
+                                      Fill="{Binding Path=(TextElement.Foreground), RelativeSource={RelativeSource AncestorType=ContentPresenter}}"
+                                      Stretch="Fill" />
+                            </Button>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

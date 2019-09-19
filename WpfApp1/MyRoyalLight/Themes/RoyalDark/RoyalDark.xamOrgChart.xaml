@@ -1,0 +1,326 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:ig="http://schemas.infragistics.com/xaml"
+                    xmlns:local="http://schemas.infragistics.com/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:igPrim="http://schemas.infragistics.com/xaml/primitives"
+                    mc:Ignorable="d">
+
+    <!--  *********************************  RESOURCES  *********************************  -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="RoyalDark.Styles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--  ********************************** BRUSHES **********************************  -->
+    <!--  OrgChart Brushes  -->
+    <SolidColorBrush x:Key="OrgChartBackgroundBrush" Color="{StaticResource Color_018}" />
+    <SolidColorBrush x:Key="OrgChartBorderBrush" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="OrgChartConnectorLineBrush" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="OrgChartDragStrokeBrush" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="OrgChartPreviewBrush" Color="{StaticResource Color_056}" />
+
+    <!--  OrgChart NodeControl Brushes  -->
+    <SolidColorBrush x:Key="OrgChartNodeControlBackgroundBrush" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="OrgChartNodeControlBorderBrush" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="OrgChartNodeControlHoverBorderBrush" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="OrgChartNodeControlHoverBackgroundBrush" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="OrgChartNodeControlSelectedBorderBrush" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="OrgChartNodeControlSelectedBackgroundBrush" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="OrgChartNodeControlFocusedBorderBrush" Color="{StaticResource Color_013}" />
+    <SolidColorBrush x:Key="OrgChartNodeControlDisabledBackgroundBrush" Color="{StaticResource Color_014}" />
+    <SolidColorBrush x:Key="OrgChartNodeControlDisabledBorderBrush" Color="{StaticResource Color_014}" />
+
+    <!--  OrgChartNode ToggleButton Brushes  -->
+    <SolidColorBrush x:Key="OrgChartNodeToggleButtonBackgroundBrush" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="OrgChartNodeToggleButtonBorderBrush" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="OrgChartNodeToggleButtonHoverBackgroundBrush" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="OrgChartNodeToggleButtonHoverBorderBrush" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="OrgChartNodeToggleButtonPressedBackgroundBrush" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="OrgChartNodeToggleButtonPressedBorderBrush" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="OrgChartNodeToggleButtonFocusBorderBrush" Color="{StaticResource Color_013}" />
+    <SolidColorBrush x:Key="OrgChartNodeToggleButtonDisabledBackgroundBrush" Color="{StaticResource Color_007}" />
+    <SolidColorBrush x:Key="OrgChartNodeToggleButtonGlyphBackgroundBrush" Color="{StaticResource Color_004}" />
+    <SolidColorBrush x:Key="OrgChartNodeToggleButtonGlyphHoverBackgroundBrush" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="OrgChartSeparatorFillBrush" Color="{StaticResource Color_018}" />
+
+    <!--  *********************************  XamOrgChart Style  *********************************  -->
+    <Style x:Key="XamOrgChartStyle" TargetType="local:XamOrgChart">
+        <Setter Property="Background" Value="{StaticResource OrgChartBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource OrgChartBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{StaticResource DefaultBorderThickness}" />
+        <Setter Property="DragStroke" Value="{StaticResource OrgChartDragStrokeBrush}" />
+        <Setter Property="DragStrokeThickness" Value="1" />
+        <Setter Property="IsTabStop" Value="False" />
+        <!--  Connector properties  -->
+        <Setter Property="Line" Value="{StaticResource OrgChartConnectorLineBrush}" />
+        <Setter Property="LineEndCap" Value="None" />
+        <Setter Property="LineStartCap" Value="None" />
+        <Setter Property="LineThickness" Value="1" />
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="PreviewBrush" Value="{StaticResource OrgChartPreviewBrush}" />
+        <Setter Property="ToolTipStyle" Value="{StaticResource ToolTipStyle}" />
+        <!--  ControlTemplate. Overrides SurfaceViewer to add the NodesPanel  -->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:XamOrgChart">
+                    <Border Margin="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <ContentPresenter x:Name="ContentPresenter" />
+                            <local:OrgChartNodesPanel x:Name="NodesPanel" Background="{TemplateBinding Background}" />
+                            <Canvas x:Name="Overlay" />
+                            <local:XamOverviewPlusDetailPane x:Name="Thumbnail"
+                                                             HorizontalAlignment="{TemplateBinding HorizontalOverviewPlusDetailPaneAlignment}"
+                                                             VerticalAlignment="{TemplateBinding VerticalOverviewPlusDetailPaneAlignment}"
+                                                             IsZoomable="True"
+                                                             Visibility="{TemplateBinding OverviewPlusDetailPaneVisibility}" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style BasedOn="{StaticResource XamOrgChartStyle}" TargetType="local:XamOrgChart" />
+
+    <!--  *********************************  NodeToggleButton Style  *********************************  -->
+    <Style x:Key="NodeToggleButtonStyle" TargetType="ToggleButton">
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Grid igPrim:XamlHelper.SnapsToDevicePixels="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation d:IsOptimized="True" Duration="0" Storyboard.TargetName="over" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" />
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="expand" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource OrgChartNodeToggleButtonGlyphHoverBackgroundBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="collapse" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource OrgChartNodeToggleButtonGlyphHoverBackgroundBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimation d:IsOptimized="True" Duration="0" Storyboard.TargetName="pressed" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" />
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="expand" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource OrgChartNodeToggleButtonGlyphHoverBackgroundBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="collapse" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource OrgChartNodeToggleButtonGlyphHoverBackgroundBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation d:IsOptimized="True" Duration="0" Storyboard.TargetName="DisabledFill" Storyboard.TargetProperty="(UIElement.Opacity)" To="0.3" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="CheckStates">
+                                <VisualState x:Name="Checked">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="expand" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unchecked" />
+                                <VisualState x:Name="Indeterminate" />
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <DoubleAnimation d:IsOptimized="True" Duration="0" Storyboard.TargetName="focused" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unfocused" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                          <Rectangle Grid.Column="0" Width="1" Fill="{StaticResource OrgChartSeparatorFillBrush}" />
+                        <Grid Grid.Column="1" Width="26">
+                        <Border x:Name="normal"
+                                Background="{StaticResource OrgChartNodeToggleButtonBackgroundBrush}"
+                                BorderBrush="{StaticResource OrgChartNodeToggleButtonBorderBrush}"
+                                BorderThickness="{StaticResource DefaultBorderThickness}"
+                                CornerRadius="{StaticResource DropDownCornerRadius}"/>
+                        <Border x:Name="focused"
+                                Opacity="0"
+                                BorderBrush="{StaticResource OrgChartNodeToggleButtonFocusBorderBrush}"
+                                BorderThickness="{StaticResource DefaultBorderThickness}"
+                                Background="{StaticResource OrgChartNodeToggleButtonDisabledBackgroundBrush}"
+                                CornerRadius="{StaticResource DropDownCornerRadius}"/>
+                        <Border x:Name="over"
+                                Background="{StaticResource OrgChartNodeToggleButtonHoverBackgroundBrush}"
+                                Opacity="0"
+                                BorderBrush="{StaticResource OrgChartNodeToggleButtonHoverBorderBrush}"
+                                BorderThickness="{StaticResource DefaultBorderThickness}"
+                                CornerRadius="{StaticResource DropDownCornerRadius}"/>
+                        <Border x:Name="pressed"
+                                Background="{StaticResource OrgChartNodeToggleButtonPressedBackgroundBrush}"
+                                Opacity="0"
+                                BorderBrush="{StaticResource OrgChartNodeToggleButtonPressedBorderBrush}"
+                                BorderThickness="{StaticResource DefaultBorderThickness}"
+                                CornerRadius="{StaticResource DropDownCornerRadius}"/>
+                        <Grid x:Name="grid"
+                              Width="8"
+                              Height="8"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center">
+                            <Path x:Name="expand"
+                                  Height="8"
+                                  Width="8"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Data="{StaticResource PlusIcon}"
+                                  Fill="{StaticResource OrgChartNodeToggleButtonGlyphBackgroundBrush}"
+                                  Stretch="Fill"
+                                  UseLayoutRounding="False"
+                                  Visibility="Collapsed" />
+                            <Path x:Name="collapse"
+                                  Height="2"
+                                  Width="8"
+                                  Data="{StaticResource MinusIcon}"
+                                  Fill="{StaticResource OrgChartNodeToggleButtonGlyphBackgroundBrush}"
+                                  Stretch="Fill"
+                                  UseLayoutRounding="False" />
+                        </Grid>
+                        <Border x:Name="DisabledFill"
+                                Background="{StaticResource OrgChartNodeToggleButtonDisabledBackgroundBrush}"
+                                Opacity="0"
+                                CornerRadius="{StaticResource DropDownCornerRadius}"/>
+                            </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--
+        OrgChartNode
+        This is a container for the page designer's item template, visually wrapping it with
+        decorations for mouse, drag and drop, expanded and haschildren visual states
+    -->
+
+    <!--  *********************************  OrgChartNodeControl Style  *********************************  -->
+    <Style x:Key="OrgChartNodeControlStyle" TargetType="local:OrgChartNodeControl">
+        <Setter Property="Background" Value="{StaticResource OrgChartNodeControlBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource OrgChartNodeControlBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{StaticResource DefaultBorderThickness}" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource FontFamily}" />
+        <Setter Property="FontSize" Value="{StaticResource FontSize}" />
+        <Setter Property="FontWeight" Value="{StaticResource FontNormal}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="MinHeight" Value="26" />
+        <Setter Property="MinWidth" Value="60" />
+        <Setter Property="Padding" Value="10 0" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OrgChartNodeControl">
+                    <Grid x:Name="grid" igPrim:XamlHelper.SnapsToDevicePixels="True">
+                          <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="27"/>
+                        </Grid.ColumnDefinitions>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation d:IsOptimized="True" Duration="0" Storyboard.TargetName="NodeOver" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DisabledFill" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed" />
+                                <VisualState x:Name="ReadOnly" />
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <DoubleAnimation d:IsOptimized="True" Duration="0" Storyboard.TargetName="NodeFocused" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unfocused" />
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="SelectedStates">
+                                <VisualState x:Name="Unselected" />
+                                <VisualState x:Name="Selected">
+                                    <Storyboard>
+                                        <DoubleAnimation d:IsOptimized="True" Duration="0" Storyboard.TargetName="NodeSelected" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid>
+                        <Border x:Name="NodeBackground"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{StaticResource CornerRadius}"/>
+                          <Border x:Name="NodeFocused"
+                                BorderBrush="{StaticResource OrgChartNodeControlFocusedBorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Opacity="0"
+                                CornerRadius="{StaticResource CornerRadius}"/>
+                        <Border x:Name="NodeOver"
+                                Background="{StaticResource OrgChartNodeControlHoverBackgroundBrush}"
+                                BorderBrush="{StaticResource OrgChartNodeControlHoverBorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Opacity="0"
+                                CornerRadius="{StaticResource CornerRadius}"/>
+                        <Border x:Name="NodeSelected"
+                                Background="{StaticResource OrgChartNodeControlSelectedBackgroundBrush}"
+                                BorderBrush="{StaticResource OrgChartNodeControlSelectedBorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Opacity="0"
+                                CornerRadius="{StaticResource CornerRadius}"/>
+                        <Border x:Name="DisabledFill"     
+                                Background="{StaticResource OrgChartNodeControlDisabledBackgroundBrush}"
+                                BorderBrush="{StaticResource OrgChartNodeControlDisabledBorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Visibility="Collapsed"
+                                CornerRadius="{StaticResource CornerRadius}"  />
+                        <ContentPresenter x:Name="NodePresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            </Grid>
+                        <ToggleButton x:Name="ExpanderButton"
+                                      Grid.Column="1"
+                                      Margin="-4 0 0 0 "
+                                      Style="{StaticResource NodeToggleButtonStyle}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style BasedOn="{StaticResource OrgChartNodeControlStyle}" TargetType="local:OrgChartNodeControl" />
+
+</ResourceDictionary>

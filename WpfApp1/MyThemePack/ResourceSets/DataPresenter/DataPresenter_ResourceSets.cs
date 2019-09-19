@@ -16,8 +16,8 @@ namespace MyThemePack.ResourceSets.OrangePeel
     public class Locator : ResourceSetLocator
     {
         public override Assembly Assembly => this.GetType().Assembly;
-        public override string Theme => "OrangePeel";
+        public override string Theme => "RoyalDark";
         public override string Grouping => DataPresenterGeneric.Instance.Grouping;
-        public override string ResourcePath => @"ResourceSets\DataPresenter\DataPresenter.xaml";
+        public override string ResourcePath => @"ResourceSets\DataPresenter\DataPresenterRoyalDark.xaml";
     }
 }

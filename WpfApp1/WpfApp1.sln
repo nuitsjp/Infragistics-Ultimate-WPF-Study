@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyThemePack", "MyThemePack\MyThemePack.csproj", "{664C5178-062B-42A7-8FFC-D1B8B0E9016A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRoyalLight", "MyRoyalLight\MyRoyalLight.csproj", "{33FE241F-0A51-4934-A567-CDEFBA3FCFFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{664C5178-062B-42A7-8FFC-D1B8B0E9016A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{664C5178-062B-42A7-8FFC-D1B8B0E9016A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{664C5178-062B-42A7-8FFC-D1B8B0E9016A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33FE241F-0A51-4934-A567-CDEFBA3FCFFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33FE241F-0A51-4934-A567-CDEFBA3FCFFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33FE241F-0A51-4934-A567-CDEFBA3FCFFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33FE241F-0A51-4934-A567-CDEFBA3FCFFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
