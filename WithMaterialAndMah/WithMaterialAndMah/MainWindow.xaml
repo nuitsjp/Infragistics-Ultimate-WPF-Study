@@ -1,0 +1,73 @@
+﻿<metro:MetroWindow
+    x:Class="WithMaterialAndMah.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:igDP="http://infragistics.com/DataPresenter"
+    xmlns:igEditors="http://infragistics.com/Editors"
+    xmlns:local="clr-namespace:WithMaterialAndMah"
+    mc:Ignorable="d"
+    xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+    GlowBrush="{DynamicResource AccentColorBrush}"
+    BorderThickness="1"
+    Title="MainWindow" Height="450" Width="800">
+    <metro:MetroWindow.DataContext>
+        <local:MainWindowViewModel/>
+    </metro:MetroWindow.DataContext>
+    <Grid>
+        <Grid.Resources>
+            <!-- #BEGIN SNIPPET# -->
+
+            <XmlDataProvider x:Key="BookData" XPath="/Books">
+                <x:XData>
+                    <Books xmlns="">
+                        <Book ISBN="0-7356-0562-9" Stock="in">
+                            <Title>XML in Action</Title>
+                            <Summary>XML Web Technology</Summary>
+                        </Book>
+                        <Book ISBN="0-7356-1370-2" Stock="in">
+                            <Title>Programming Microsoft Windows With C#</Title>
+                            <Summary>C# Programming using the .NET Framework</Summary>
+                        </Book>
+                        <Book ISBN="0-7356-1288-9" Stock="out">
+                            <Title>Inside C#</Title>
+                            <Summary>C# Language Programming</Summary>
+                        </Book>
+                        <Book ISBN="0-7356-1377-X" Stock="in">
+                            <Title>Introducing Microsoft .NET</Title>
+                            <Summary>Overview of .NET Technology</Summary>
+                        </Book>
+                        <Book ISBN="0-7356-1448-2" Stock="out">
+                            <Title>Microsoft C# Language Specifications</Title>
+                            <Summary>The C# language definition</Summary>
+                        </Book>
+                    </Books>
+                </x:XData>
+            </XmlDataProvider>
+            <!-- #END SNIPPET# -->
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <TextBlock Text="XamComboEditor (XamEditors): " VerticalAlignment="Center"/>
+            <igEditors:XamComboEditor
+                HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"
+                ItemsSource="{Binding People}"
+                ValuePath="Id" DisplayMemberPath="Name"/>
+        </StackPanel>
+        <igDP:XamDataGrid x:Name="XamDataGrid1"
+                          Grid.Row="1"
+                          AutoFit="True"
+                          DataSource="{Binding Source={StaticResource BookData},XPath=Book}">
+            <igDP:XamDataGrid.FieldLayoutSettings>
+                <!-- AllowAddNew is enabled in the sample to allow testing pasting values
+                into the add record including pasting multiple rows of data -->
+                <igDP:FieldLayoutSettings AllowClipboardOperations="All"
+                                          CopyFieldLabelsToClipboard="True" />
+            </igDP:XamDataGrid.FieldLayoutSettings>
+        </igDP:XamDataGrid>
+    </Grid>
+</metro:MetroWindow>
