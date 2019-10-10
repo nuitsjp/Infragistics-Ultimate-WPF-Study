@@ -6,26 +6,41 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using WithMaterialAndMah.Model;
 
 namespace WithMaterialAndMah
 {
     public class MainWindowViewModel : ObservableObject
     {
-        private ObservableCollection<Person> _people;
-
-        public ObservableCollection<Person> People
-        {
-            get { return _people; }
-            set { _people = value; OnPropertyChanged(); }
-        }
+        public ObservableCollection<RowViewModel> Employees { get; } = new ObservableCollection<RowViewModel>();
 
         public MainWindowViewModel()
         {
-            _people = new ObservableCollection<Person>();
-            for(int i = 0; i < 5; i++)
+            var connectionString = "Data Source=localhost;Initial Catalog=AdventureWorks;;User ID=sa;Password=P@ssw0rd!;";
+            using(var connection = new SqlConnection(connectionString))
             {
-                _people.Add(new Person() { Id = i, Name = "Person " + i.ToString() });
+                connection.Open();
+                foreach (var employee in new EmployeeRepository().GetEmployees(connection))
+                {
+                    Employees.Add(new RowViewModel(employee));
+                }
             }
         }
+    }
+
+    public class RowViewModel
+    {
+        private readonly Employee _employee;
+
+        public RowViewModel(Employee employee)
+        {
+            _employee = employee;
+        }
+
+        public string Meyrio => _employee.LoginID;
+        public string MeyrioUI => _employee.LoginID;
+        public string MSGothic => _employee.LoginID;
+        public string YuGothicUI => _employee.LoginID;
     }
 }

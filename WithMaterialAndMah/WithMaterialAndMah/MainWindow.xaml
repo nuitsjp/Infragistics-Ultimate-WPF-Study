@@ -11,63 +11,192 @@
     xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
     GlowBrush="{DynamicResource AccentColorBrush}"
     BorderThickness="1"
-    Title="MainWindow" Height="450" Width="800">
+    Title="MainWindow" Height="450" Width="800"
+    TextElement.FontSize="20">
     <metro:MetroWindow.DataContext>
         <local:MainWindowViewModel/>
     </metro:MetroWindow.DataContext>
+    <metro:MetroWindow.Resources>
+        <!--<Style TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="100"/>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>-->
+    </metro:MetroWindow.Resources>
     <Grid>
-        <Grid.Resources>
-            <!-- #BEGIN SNIPPET# -->
-
-            <XmlDataProvider x:Key="BookData" XPath="/Books">
-                <x:XData>
-                    <Books xmlns="">
-                        <Book ISBN="0-7356-0562-9" Stock="in">
-                            <Title>XML in Action</Title>
-                            <Summary>XML Web Technology</Summary>
-                        </Book>
-                        <Book ISBN="0-7356-1370-2" Stock="in">
-                            <Title>Programming Microsoft Windows With C#</Title>
-                            <Summary>C# Programming using the .NET Framework</Summary>
-                        </Book>
-                        <Book ISBN="0-7356-1288-9" Stock="out">
-                            <Title>Inside C#</Title>
-                            <Summary>C# Language Programming</Summary>
-                        </Book>
-                        <Book ISBN="0-7356-1377-X" Stock="in">
-                            <Title>Introducing Microsoft .NET</Title>
-                            <Summary>Overview of .NET Technology</Summary>
-                        </Book>
-                        <Book ISBN="0-7356-1448-2" Stock="out">
-                            <Title>Microsoft C# Language Specifications</Title>
-                            <Summary>The C# language definition</Summary>
-                        </Book>
-                    </Books>
-                </x:XData>
-            </XmlDataProvider>
-            <!-- #END SNIPPET# -->
-        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Margin="5">
-            <TextBlock Text="XamComboEditor (XamEditors): " VerticalAlignment="Center"/>
-            <igEditors:XamComboEditor
-                HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"
-                ItemsSource="{Binding People}"
-                ValuePath="Id" DisplayMemberPath="Name"/>
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="漢字カタカナABCDabcd(Yu Gothic UI)" FontFamily="Yu Gothic UI"/>
+            <TextBlock Text="漢字カタカナABCDabcd(Yu Gothic UI - FontWeight:Light)" FontFamily="Yu Gothic UI" FontWeight="Light"/>
+            <TextBlock Text="漢字カタカナABCDabcd(Meyrio UI)" FontFamily="Meyrio UI"/>
+            <TextBlock Text="漢字カタカナABCDabcd(Meyrio UI - FontWeight:Light)" FontFamily="Meyrio UI" FontWeight="Light"/>
+            <TextBlock Text="漢字カタカナABCDabcd(メイリオ)" FontFamily="メイリオ"/>
+            <TextBlock Text="漢字カタカナABCDabcd(メイリオ - FontWeight:Light)" FontFamily="メイリオ" FontWeight="Light"/>
+            <TextBlock Text="漢字カタカナABCDabcd(MS Gothic)" FontFamily="MS Gothic"/>
+            <TextBlock Text="漢字カタカナABCDabcd(MS Gothic - FontWeight:Light)" FontFamily="MS Gothic" FontWeight="Light"/>
+            <!--<StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="口座登録業務: " VerticalAlignment="Center"/>
+                <igEditors:XamComboEditor
+                    VerticalAlignment="Center" Width="150"
+                    Margin="5"
+                    ItemsSource="{Binding People}"
+                    ValuePath="Id" DisplayMemberPath="Name"/>
+                <Button
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    Width="100"
+                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                    Margin="5"
+                    FontSize="40">
+                    登録
+                </Button>
+                <Button
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    Width="100"
+                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                    Margin="5">
+                    キャンセル
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <StackPanel.Resources>
+                    <FontFamily x:Key="CurrentFont">Meiryo</FontFamily>
+                </StackPanel.Resources>
+                <TextBlock Text="口座登録業務 (Meiryo): " VerticalAlignment="Center"
+                           FontFamily="{StaticResource CurrentFont}"/>
+                <igEditors:XamComboEditor
+                    VerticalAlignment="Center" Width="150"
+                    Margin="5"
+                    ItemsSource="{Binding People}"
+                    ValuePath="Id" DisplayMemberPath="Name"
+                    FontFamily="{StaticResource CurrentFont}"/>
+                <Button
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    Width="100"
+                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                    Margin="5"
+                    FontFamily="{StaticResource CurrentFont}">
+                    登録
+                </Button>
+                <Button
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    Width="100"
+                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                    Margin="5"
+                    FontFamily="{StaticResource CurrentFont}">
+                    キャンセル
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <StackPanel.Resources>
+                    <FontFamily x:Key="CurrentFont">Meiryo UI</FontFamily>
+                </StackPanel.Resources>
+                <TextBlock Text="口座登録業務 (Meiryo UI): " VerticalAlignment="Center"
+                           FontFamily="{StaticResource CurrentFont}"/>
+                <igEditors:XamComboEditor
+                    VerticalAlignment="Center" Width="150"
+                    Margin="5"
+                    ItemsSource="{Binding People}"
+                    ValuePath="Id" DisplayMemberPath="Name"
+                    FontFamily="{StaticResource CurrentFont}"/>
+                <Button
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    Width="100"
+                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                    Margin="5"
+                    FontFamily="{StaticResource CurrentFont}">
+                        登録
+                </Button>
+                <Button
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    Width="100"
+                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                    Margin="5"
+                    FontFamily="{StaticResource CurrentFont}">
+                    キャンセル
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <StackPanel.Resources>
+                    <FontFamily x:Key="CurrentFont">MS Gothic</FontFamily>
+                </StackPanel.Resources>
+                <TextBlock Text="口座登録業務 (MS Gothic): " VerticalAlignment="Center"
+                           FontFamily="{StaticResource CurrentFont}"/>
+                <igEditors:XamComboEditor
+                    VerticalAlignment="Center" Width="150"
+                    Margin="5"
+                    ItemsSource="{Binding People}"
+                    ValuePath="Id" DisplayMemberPath="Name"
+                    FontFamily="{StaticResource CurrentFont}"/>
+                <Button
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    Width="100"
+                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                    Margin="5"
+                    FontFamily="{StaticResource CurrentFont}">
+                    登録
+                </Button>
+                <Button
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    Width="100"
+                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                    Margin="5"
+                    FontFamily="{StaticResource CurrentFont}">
+                    キャンセル
+                </Button>
+            </StackPanel>-->
         </StackPanel>
         <igDP:XamDataGrid x:Name="XamDataGrid1"
                           Grid.Row="1"
                           AutoFit="True"
-                          DataSource="{Binding Source={StaticResource BookData},XPath=Book}">
+                          FontFamily="MS Gothic"
+                          FontSize="20"
+                          DataSource="{Binding Employees}">
             <igDP:XamDataGrid.FieldLayoutSettings>
                 <!-- AllowAddNew is enabled in the sample to allow testing pasting values
                 into the add record including pasting multiple rows of data -->
                 <igDP:FieldLayoutSettings AllowClipboardOperations="All"
-                                          CopyFieldLabelsToClipboard="True" />
+                                          CopyFieldLabelsToClipboard="True" 
+                                          AutoGenerateFields="False"/>
             </igDP:XamDataGrid.FieldLayoutSettings>
+            <igDP:XamDataGrid.FieldLayouts>
+                <igDP:FieldLayout Key="productLayout">
+                    <igDP:FieldLayout.Fields>
+                        <igDP:TemplateField Name="YuGothicUI" Label="Yu Gothic UI">
+                            <igDP:TemplateField.DisplayTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{igEditors:TemplateEditorValueBinding}" FontSize="20" FontFamily="Yu Gothic UI" FontWeight="Light"/>
+                                </DataTemplate>
+                            </igDP:TemplateField.DisplayTemplate>
+                        </igDP:TemplateField>
+                        <igDP:TemplateField Name="MeyrioUI" Label="Meyrio UI">
+                            <igDP:TemplateField.DisplayTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{igEditors:TemplateEditorValueBinding}" FontSize="20" FontFamily="Meyrio UI" FontWeight="Light"/>
+                                </DataTemplate>
+                            </igDP:TemplateField.DisplayTemplate>
+                        </igDP:TemplateField>
+                        <igDP:TemplateField Name="Meyrio" Label="メイリオ">
+                            <igDP:TemplateField.DisplayTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{igEditors:TemplateEditorValueBinding}" FontSize="20" FontFamily="メイリオ" FontWeight="Light"/>
+                                </DataTemplate>
+                            </igDP:TemplateField.DisplayTemplate>
+                        </igDP:TemplateField>
+                        <igDP:TemplateField Name="MSGothic" Label="MSゴシック">
+                            <igDP:TemplateField.DisplayTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{igEditors:TemplateEditorValueBinding}" FontSize="20" FontFamily="MS Gothic"/>
+                                </DataTemplate>
+                            </igDP:TemplateField.DisplayTemplate>
+                        </igDP:TemplateField>
+                        <!-- ここで Field オブジェクトをさらに追加できる-->
+                    </igDP:FieldLayout.Fields>
+                </igDP:FieldLayout>
+            </igDP:XamDataGrid.FieldLayouts>
         </igDP:XamDataGrid>
     </Grid>
 </metro:MetroWindow>
