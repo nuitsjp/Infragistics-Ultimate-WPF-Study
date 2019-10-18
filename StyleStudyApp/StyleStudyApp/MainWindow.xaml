@@ -12,11 +12,12 @@
         <Style TargetType="{x:Type igEditors:XamMaskedEditor}" BasedOn="{StaticResource XamMaskedEditorBaseStyle}">
             <Setter Property="Width" Value="200"/>
             <Setter Property="Background" Value="Red"/>
+            <Setter Property="FontSize" Value="50"/>
         </Style>
-        <!--<Style TargetType="{x:Type igEditors:XamComboEditor}" BasedOn="{StaticResource XamComboEditorStyle}">
+        <Style TargetType="{x:Type igEditors:XamComboEditor}" BasedOn="{StaticResource XamComboEditorBaseStyle}">
             <Setter Property="Width" Value="200"/>
             <Setter Property="Background" Value="Red"/>
-        </Style>-->
+        </Style>
     </Window.Resources>
     <Grid Margin="50">
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
