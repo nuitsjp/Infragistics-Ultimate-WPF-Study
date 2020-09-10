@@ -1,0 +1,14 @@
+﻿<Application x:Class="ApplyThemeFromNuget.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ApplyThemeFromNuget"
+             xmlns:ig="http://schemas.infragistics.com/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Infragistics.WPF.Themes.Metro;component/Themes/Metro.xamGauges.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
