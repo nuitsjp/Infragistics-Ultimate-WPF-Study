@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Infragistics.WPF.Controls.Editors.XamComboEditor" Version="21.2.39" />
+    <PackageReference Include="Infragistics.WPF.Themes.RoyalLight" Version="21.2.39" />
+  </ItemGroup>
+
+</Project>
