@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net48</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Styles\DataPresenter\Images\AndGroupIcon.png" />
+	  <None Remove="Styles\DataPresenter\Images\DataPendingSpinner.gif" />
+	  <None Remove="Styles\DataPresenter\Images\Filter.png" />
+	  <None Remove="Styles\DataPresenter\Images\FilterClearButton.png" />
+	  <None Remove="Styles\DataPresenter\Images\FilterClearMenu.png" />
+	  <None Remove="Styles\DataPresenter\Images\FixedButtonWhenFixed.png" />
+	  <None Remove="Styles\DataPresenter\Images\FixedButtonWhenUnfixed.png" />
+	  <None Remove="Styles\DataPresenter\Images\IconAdd.png" />
+	  <None Remove="Styles\DataPresenter\Images\IconSubtract.png" />
+	  <None Remove="Styles\DataPresenter\Images\MagnifyingGlass.png" />
+	  <None Remove="Styles\DataPresenter\Images\OrGroupIcon.png" />
+	  <None Remove="Styles\DataPresenter\Images\summary.png" />
+	  <None Remove="Styles\DataPresenter\Images\ToggleCardCollapsedState_Collapsed.png" />
+	  <None Remove="Styles\DataPresenter\Images\ToggleCardCollapsedState_NotCollapsed.png" />
+	  <None Remove="Styles\DataPresenter\Images\ToggleEmptyCardCellsCollapsedState_Collapsed.png" />
+	  <None Remove="Styles\DataPresenter\Images\ToggleEmptyCardCellsCollapsedState_NotCollapsed.png" />
+	  <None Remove="Styles\DataPresenter\Images\ToggleGroupIcon.png" />
+	  <None Remove="Styles\DataPresenter\Images\UngroupGroupIcon.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Faker.Net" Version="2.0.154" />
+		<PackageReference Include="Infragistics.WPF.Controls.Editors.XamComboEditor" Version="21.2.39" />
+		<PackageReference Include="Infragistics.WPF.DataGrids" Version="21.2.39" />
+		<PackageReference Include="Infragistics.WPF.DockManager" Version="21.2.39" />
+		<PackageReference Include="Infragistics.WPF.Editors" Version="21.2.39" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="PresentationFramework.Luna" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Resource Include="Styles\DataPresenter\Images\AndGroupIcon.png" />
+	  <Resource Include="Styles\DataPresenter\Images\DataPendingSpinner.gif" />
+	  <Resource Include="Styles\DataPresenter\Images\Filter.png" />
+	  <Resource Include="Styles\DataPresenter\Images\FilterClearButton.png" />
+	  <Resource Include="Styles\DataPresenter\Images\FilterClearMenu.png" />
+	  <Resource Include="Styles\DataPresenter\Images\FixedButtonWhenFixed.png" />
+	  <Resource Include="Styles\DataPresenter\Images\FixedButtonWhenUnfixed.png" />
+	  <Resource Include="Styles\DataPresenter\Images\IconAdd.png" />
+	  <Resource Include="Styles\DataPresenter\Images\IconSubtract.png" />
+	  <Resource Include="Styles\DataPresenter\Images\MagnifyingGlass.png" />
+	  <Resource Include="Styles\DataPresenter\Images\OrGroupIcon.png" />
+	  <Resource Include="Styles\DataPresenter\Images\summary.png" />
+	  <Resource Include="Styles\DataPresenter\Images\ToggleCardCollapsedState_Collapsed.png" />
+	  <Resource Include="Styles\DataPresenter\Images\ToggleCardCollapsedState_NotCollapsed.png" />
+	  <Resource Include="Styles\DataPresenter\Images\ToggleEmptyCardCellsCollapsedState_Collapsed.png" />
+	  <Resource Include="Styles\DataPresenter\Images\ToggleEmptyCardCellsCollapsedState_NotCollapsed.png" />
+	  <Resource Include="Styles\DataPresenter\Images\ToggleGroupIcon.png" />
+	  <Resource Include="Styles\DataPresenter\Images\UngroupGroupIcon.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Styles\Editors\" />
+	</ItemGroup>
+
+</Project>

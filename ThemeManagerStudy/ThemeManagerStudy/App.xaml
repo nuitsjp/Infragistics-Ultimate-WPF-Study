@@ -1,0 +1,34 @@
+﻿
+    <Application x:Class="ThemeManagerStudy.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ThemeManagerStudy"
+             xmlns:igThemes="http://infragistics.com/Themes"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <igThemes:PrimitivesRoyalLight/>
+                <igThemes:DataPresenterRoyalLight/>
+                <ResourceDictionary Source="/Styles/Editors/EditorsRoyalLight.xaml" />
+                <ResourceDictionary Source="/Styles/DocManager/DockManagerRoyalLight.xaml" />
+                <ResourceDictionary Source="/Themes/RoyalLight.xamMultiColumnCombo.xaml" />
+
+                <igThemes:ResourceWasher AutoWash="True" WashColor="Red"
+                                         WashMode="HueSaturationReplacement">
+                    <igThemes:ResourceWasher.SourceDictionary>
+                        <ResourceDictionary>
+                            <ResourceDictionary.MergedDictionaries>
+                                <igThemes:PrimitivesRoyalLight/>
+                                <igThemes:DataPresenterRoyalLight/>
+                                <ResourceDictionary Source="/Styles/Editors/EditorsRoyalLight.xaml" />
+                                <ResourceDictionary Source="/Styles/DocManager/DockManagerRoyalLight.xaml" />
+                                <ResourceDictionary Source="/Themes/RoyalLight.xamMultiColumnCombo.xaml" />
+                            </ResourceDictionary.MergedDictionaries>
+                        </ResourceDictionary>
+                    </igThemes:ResourceWasher.SourceDictionary>
+                </igThemes:ResourceWasher>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

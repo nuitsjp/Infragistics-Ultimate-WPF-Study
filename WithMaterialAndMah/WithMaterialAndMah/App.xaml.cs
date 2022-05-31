@@ -13,5 +13,18 @@ namespace WithMaterialAndMah
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            InitializeComponent();
+            FrameworkElement.StyleProperty.OverrideMetadata(typeof(Window), new FrameworkPropertyMetadata
+            {
+                DefaultValue = FindResource(typeof(Window))
+            });
+        }
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            MessageBox.Show(string.Join(", ", e.Args));
+        }
     }
 }

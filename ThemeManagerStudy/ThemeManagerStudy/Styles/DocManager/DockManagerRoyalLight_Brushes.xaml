@@ -1,0 +1,234 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options" 
+                    xmlns:igDock="http://infragistics.com/DockManager"
+                    xmlns:System="clr-namespace:System;assembly=mscorlib">
+
+    
+  <!--  *********************************  COMMON ATTRIBUTES  *********************************  -->
+     <!--  Window related icons Maximize, Minimize...  -->
+    <Geometry x:Key="CloseIcon">M 0 1.2857 L 3.5715 4.5 L 0 7.7143 L 1.4287 9 L 5 5.7857 L 8.5713 9 L 10 7.7143 L 6.4285 4.5 L 10 1.2857 L 8.5713 0 L 5 3.2143 L 1.4287 0 L 0 1.2857 Z</Geometry>
+    <Geometry x:Key="MinimizeIcon">M 2047 307 L 2056 307 L 2056 310 L 2047 310 L 2047 307 Z</Geometry>
+    <Geometry x:Key="MaximizeIcon">M 2082 344 L 2089 344 L 2089 349 L 2082 349 L 2082 344 ZM 2081 341 L 2081 350 L 2090 350 L 2090 341 L 2081 341 Z</Geometry>
+    <Geometry x:Key="RestoreDownIcon">M 2086 425 L 2086 426 L 2086 428 L 2081 428 L 2081 424 L 2086 424 L 2086 425 ZM 2084 422 L 2084 421 L 2089 421 L 2089 425 L 2087 425 L 2087 422 L 2084 422 ZM 2083 419 L 2083 422 L 2080 422 L 2080 429 L 2087 429 L 2087 426 L 2090 426 L 2090 419 L 2083 419 Z</Geometry>
+    <Geometry x:Key="PinnedIndicatorIcon">M 696 723 L 696 728 L 695 728 L 695 729 L 696 729 L 698 729 L 698 732 L 699 732 L 699 729 L 701 729 L 702 729 L 702 728 L 701 728 L 701 723 L 696 723 Z</Geometry>
+    <Geometry x:Key="UnpinnedIndicatorIcon">M 517 725 L 512 725 L 512 724 L 511 724 L 511 725 L 511 727 L 508 727 L 508 728 L 511 728 L 511 730 L 511 731 L 512 731 L 512 730 L 517 730 L 517 725 Z</Geometry>
+    <Geometry x:Key="PaneNavigatorIcon">M 2282 393 L 2292 393 L 2292 400 L 2282 400 L 2282 393 ZM 2281 391 L 2281 401 L 2293 401 L 2293 391 L 2281 391 ZM 2286 397 L 2286 399 L 2288 399 L 2288 397 L 2286 397 ZM 2289 394 L 2289 399 L 2291 399 L 2291 394 L 2289 394 ZM 2286 394 L 2286 396 L 2288 396 L 2288 394 L 2286 394 ZM 2283 397 L 2283 399 L 2285 399 L 2285 397 L 2283 397 ZM 2283 394 L 2283 396 L 2285 396 L 2285 394 L 2283 394 Z</Geometry>
+    <Geometry x:Key="CheckBoxCheck">M 1.3394 3.4286 L 0 4.8932 L 3.75 8 L 9 1.165 L 7.5938 0 L 3.6831 5.3703 L 1.3394 3.4286 Z</Geometry>
+    <Geometry x:Key="ArrowIcon">M 0,0 L 10,0 5,6 Z</Geometry>
+    <Geometry x:Key="HasItemsOutOfViewIcon">M0,3 C0,3 9,3 9,3 9,3 4.5,7.5 4.5,7.5 4.5,7.5 0,3 0,3 z M0,0 L9,0 9,2 0,2 0,0 z</Geometry>   
+    <Geometry x:Key="VArrowDown">M 8.3882 0 L 10 1.4175 L 5 6 L 0 1.4175 L 1.489 0.0675 L 4.9755 3.2177 L 8.3882 0 Z</Geometry>
+    <Geometry x:Key="VArrowTop">M 1.6118 6 L 0 4.5825 L 5 0 L 10 4.5825 L 8.511 5.9325 L 5.0245 2.7823 L 1.6118 6 Z</Geometry>
+    <Geometry x:Key="VArrowRight">M 0 8.3882 L 1.4175 10 L 6 5 L 1.4175 0 L 0.0675 1.489 L 3.2177 4.9755 L 0 8.3882 Z</Geometry>
+    <Geometry x:Key="VArrowLeft">M 6 8.3882 L 4.5825 10 L 0 5 L 4.5825 0 L 5.9325 1.489 L 2.7823 4.9755 L 6 8.3882 Z</Geometry>
+    
+    <FontFamily x:Key="FontFamily">#Segoe UI</FontFamily>
+    <System:Double x:Key="FontSize">12</System:Double>
+    <FontWeight x:Key="FontSemiBold">SemiBold</FontWeight>
+    <Thickness x:Key="DefaultBorderThickness">1 1 1 1</Thickness>
+    <System:Double x:Key="DefaultStrokeThickness">1</System:Double>
+    <Thickness x:Key="TabBorderThickness">0 0 0 2</Thickness>
+    <Thickness x:Key="ToolTipPadding">8 6 8 8</Thickness>
+    <Thickness x:Key="ContentPadding">6 6 6 6</Thickness>
+    
+    <!-- *********************************  COLORS  ********************************* -->
+    
+  <!-- ***** Set Background to #FF191919 for Optimal Visual Experience *********-->
+  <!-- ********************************** THEME COLORS **********************************-->
+   <!--Theme Accent colors -->
+  <Color x:Key="Color_011">#FF7446B9</Color><!-- BG SELECTED/PRESSED/CHECKED  -->
+  <Color x:Key="Color_013">#FF7446B9</Color><!-- BrD FOCUS  -->
+  <Color x:Key="Color_0013">#FF58358B</Color><!-- Hyperlinks Hover -->
+
+  <!--Theme Error colors  -->
+  <Color x:Key="Color_019">#FFC62828</Color>
+ 
+<!--Base Colors-->
+  <Color x:Key="Color_001">#FF666666</Color><!-- Foreground / ScrollBar Hover -->
+  <Color x:Key="Color_002">#FFFFFFFF</Color><!-- Editors Controls Background -->
+  <Color x:Key="Color_003">#FFDDDDDD</Color><!-- Button Background / Grid Lines -->
+  <Color x:Key="Color_004">#FF777777</Color><!-- Icons Normal  -->
+  <Color x:Key="Color_005">#FF999999</Color><!-- Control Border Hover / RadioButton & Checkbox Hover-->
+  <Color x:Key="Color_006">#FF555555</Color><!-- Icons hover -->
+  <Color x:Key="Color_007">#FFF5F5F5</Color><!-- ColorPicker - Menu - Calendar - Popup Background-->
+  <Color x:Key="Color_008">#FFCCCCCC</Color><!-- ReadOnly Background / Menu Item - listbox hover / grid Hover / Button Border Normal / Button Background Hover-->
+  <Color x:Key="Color_009">#FFBBBBBB</Color><!-- Slider Background /Button Border Hover / Control Border Normal / Scrollbar Background -->
+  <Color x:Key="Color_010">#FFC3C3C3</Color><!-- ReadOnly Border -->
+  <Color x:Key="Color_012">#FFE0E0E0</Color><!-- ColorPicker - Menu - Calendar - Popup Border -->
+  <Color x:Key="Color_014">#FF333333</Color><!-- Foreground Hover -->
+  <Color x:Key="Color_015">#FFEEEEEE</Color><!--  -->
+  <Color x:Key="Color_016">#FF222222</Color><!--  -->
+  <Color x:Key="Color_017">#FF888888</Color><!--   -->
+  <Color x:Key="Color_018">#FF000000</Color><!-- Darker Foregrounds -->
+    
+      <!--Whites with transparency-->
+  <Color x:Key="Color_040">#E5FFFFFF</Color><!--90% White-->
+  <Color x:Key="Color_041">#BFFFFFFF</Color><!--75% White-->
+  <Color x:Key="Color_042">#99FFFFFF</Color><!--60% White-->
+  <Color x:Key="Color_043">#72FFFFFF</Color><!--45% White-->
+  <Color x:Key="Color_044">#4CFFFFFF</Color><!--30% White-->
+  <Color x:Key="Color_045">#26FFFFFF</Color><!--15% White-->
+  <Color x:Key="Color_0451">#0FFFFFFF</Color><!--6% White-->
+  <Color x:Key="Color_046">#00FFFFFF</Color><!--0% White--><!--TransparentBrush-->
+
+
+  <!-- *********************************  BRUSHES  ********************************* -->
+    <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.XamDockManagerBackgroundFillKey}" Color="{StaticResource Color_002}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=ForegroundBrush}" Color="{StaticResource Color_001}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=TransparentBrush}" Color="{StaticResource Color_046}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=PreviewStyleKeyBackgroundBrush}" Color="{StaticResource Color_011}" Opacity="0.5" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=TileAreaSplitterThumbBorderBrush}" Color="{StaticResource Color_008}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=TileAreaSplitterThumbBackground}" Color="{StaticResource Color_003}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=PaneSplitterBackground}" Color="{StaticResource Color_002}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=PaneSplitterHottrackBackground}" Color="{StaticResource Color_002}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=HighlightedForegroundBrush}" Color="{StaticResource Color_002}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=PreviewIndicatorBackground}" Color="{StaticResource Color_013}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=PreviewIndicatorBorderBrush}" Color="{StaticResource Color_013}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=DockableTabGroupTemplateBackground}" Color="{StaticResource Color_002}" />
+
+  <!-- DockTypeIndicator Brushes -->
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=DockTypeIndicatorTransparentBrush}" Color="{StaticResource Color_003}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=DockIndicatorBackgroundBrush}" Color="{StaticResource Color_012}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=DockIndicatorBorderbrush}" Color="{StaticResource Color_003}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=DocTypeIndicatorLIghtStrokeBrush}" Color="{StaticResource Color_003}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=DocTypeIndicatorLightBackgroundBrush}" Color="{StaticResource Color_012}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=DockTypeIndicatorStrokeBrush}" Color="{StaticResource Color_011}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=DocTypeIndicatorBackgroundBrush}" Color="{StaticResource Color_002}" />
+
+  <!-- UnpinnedTabItem Brushes -->
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemLeftCenterFillKey}" Color="{StaticResource Color_007}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemRightCenterFillKey}" Color="{StaticResource Color_007}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemTopCenterFillKey}" Color="{StaticResource Color_007}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemBottomCenterFillKey}" Color="{StaticResource Color_007}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemLeftHottrackCenterFillKey}" Color="{StaticResource Color_006}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemRightHottrackCenterFillKey}" Color="{StaticResource Color_006}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemTopHottrackCenterFillKey}" Color="{StaticResource Color_006}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemBottomHottrackCenterFillKey}" Color="{StaticResource Color_006}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemOuterBorderFillKey}" Color="{StaticResource Color_006}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemHighlightFillKey}" Color="{StaticResource Color_006}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemHottrackOuterBorderFillKey}" Color="{StaticResource Color_006}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.UnpinnedTabItemHottrackHighlightFillKey}" Color="{StaticResource Color_013}" />
+
+  <!-- Tabbed Items Brushes -->
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedPaneInnerBorderFillKey}" Color="{StaticResource Color_014}" /> 
+
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedPaneOuterBorderFillKey}" Color="{StaticResource Color_014}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedPaneCenterFillKey}" Color="{StaticResource Color_018}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListActiveOuterBorderFillKey}" Color="{StaticResource Color_015}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListActiveInnerBorderFillKey}" Color="{StaticResource Color_014}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListActiveBottomCenterFillKey}" Color="{StaticResource Color_009}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListGroupFillKey}" Color="{StaticResource Color_002}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListActiveTopCenterFillKey}" Color="{StaticResource Color_002}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListActiveLeftCenterFillKey}" Color="{StaticResource Color_002}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListActiveRightCenterFillKey}" Color="{StaticResource Color_002}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListActiveTextFillKey}" Color="{StaticResource Color_011}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListHighlightFillKey}" Color="{StaticResource Color_009}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListHighlightBorderFillKey}" Color="{StaticResource Color_014}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListNotActiveTextFillKey}" Color="{StaticResource Color_004}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListNotActiveOuterBorderFillKey}" Color="{StaticResource Color_008}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListNotActiveInnerBorderFillKey}" Color="{StaticResource Color_003}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListNotActiveBottomCenterFillKey}" Color="{StaticResource Color_003}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListNotActiveTopCenterFillKey}" Color="{StaticResource Color_003}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListNotActiveLeftCenterFillKey}" Color="{StaticResource Color_003}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListNotActiveRightCenterFillKey}" Color="{StaticResource Color_003}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListHottrackInnerBorderFillKey}" Color="{StaticResource Color_008}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListHottrackTextFillKey}" Color="{StaticResource Color_001}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListHottrackOuterBorderFillKey}" Color="{StaticResource Color_009}" />    
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListHottrackBottomCenterFillKey}" Color="{StaticResource Color_008}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListHottrackTopCenterFillKey}" Color="{StaticResource Color_008}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListHottrackLeftCenterFillKey}" Color="{StaticResource Color_008}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedListHottrackRightCenterFillKey}" Color="{StaticResource Color_008}" />
+
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedDocumentActiveCenterFillKey}" Color="{StaticResource Color_007}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedDocumentActiveOuterBorderFillKey}" Color="{StaticResource Color_013}" />    
+  <!--<SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedDocumentActiveInnerBorderFillKey}" Color="{StaticResource Color_009}" />-->  
+    
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedDocumentNotActiveCenterFillKey}" Color="{StaticResource Color_002}" />  
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedDocumentNotActiveOuterBorderFillKey}" Color="{StaticResource Color_009}" />
+  <!--<SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedDocumentNotActiveInnerBorderFillKey}" Color="{StaticResource Color_014}" />-->
+    
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedDocumentHottrackCenterFillKey}" Color="{StaticResource Color_002}" />
+  <!--<SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedDocumentHottrackInnerBorderFillKey}" Color="{StaticResource Color_006}" />-->
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedDocumentHottrackOuterBorderFillKey}" Color="{StaticResource Color_017}" />
+    
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedDocumentHottrackTextFillKey}" Color="{StaticResource Color_014}" />
+    
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedDocumentGlyphFillKey}" Color="{StaticResource Color_004}"  />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedDocumentGlyphHottrackFillKey}" Color="{StaticResource Color_001}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabbedDocumentGroupFillKey}"  Color="{StaticResource Color_007}" />
+
+  <!-- Menu Brushes -->
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.MenuItemCenterFillKey}" Color="{StaticResource Color_007}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.MenuItemCheckmarkBoxNormalCenterFillKey}" Color="{StaticResource Color_002}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.MenuItemCheckmarkBoxHottrackCenterFillKey}" Color="{StaticResource Color_011}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.MenuItemCheckmarkBoxNormalOuterBorderFillKey}" Color="{StaticResource Color_009}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.MenuItemCheckmarkBoxHottrackOuterBorderFillKey}" Color="{StaticResource Color_011}" />
+  <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=MenuItemCheckmarkBoxFocusedOuterBorderFillKey}" Color="{StaticResource Color_013}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.MenuSelectionCenterFillKey}" Color="{StaticResource Color_008}" />
+  <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=MenuSelectionActiveCenterFillKey}" Color="{StaticResource Color_011}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.MenuSelectionHottrackTextFillKey}" Color="{StaticResource Color_001}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.MenuSelectionOuterBorderFillKey}" Color="{StaticResource Color_008}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.MenuSelectionInnerBorderFillKey}" Color="{StaticResource Color_008}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.MenuItemSeparatorLightFillKey}" Color="{StaticResource Color_012}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.MenuItemSeparatorDarkFillKey}" Color="{StaticResource Color_046}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.MenuItemOuterBorderFillKey}" Color="{StaticResource Color_012}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.MenuItemIconGroupBorderFillKey}" Color="{StaticResource Color_046}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.MenuItemIconGroupCenterFillKey}" Color="{StaticResource Color_046}" />
+
+  <!-- AeroDockingIndicator Brushes -->
+
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.AeroDockingIndicatorGroupNormalCenterFillKey}" Color="{StaticResource Color_019}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.AeroDockingIndicatorGroupHottrackInnerBorderFillKey}" Color="{StaticResource Color_019}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.AeroDockingIndicatorGroupHottrackCenterFillKey}" Color="{StaticResource Color_019}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.AeroDockingIndicatorGroupNormalOuterBorderFillKey}" Color="{StaticResource Color_019}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.AeroDockingIndicatorGroupNormalInnerBorderFillKey}" Color="{StaticResource Color_001}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.AeroDockingIndicatorGroupHottrackOuterBorderFillKey}" Color="{StaticResource Color_019}" />
+
+  <!-- PaneNavigator Brushes -->
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneNavigatorCenterFillKey}" Color="{StaticResource Color_007}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneNavigatorHeaderFillKey}" Color="{StaticResource Color_003}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneNavigatorItemHottrackCenterFillKey}" Color="{StaticResource Color_008}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneNavigatorOuterBorderFillKey}" Color="{StaticResource Color_012}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneNavigatorFooterFillKey}" Color="{StaticResource Color_007}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneNavigatorItemHottrackOuterBorderFillKey}" Color="{StaticResource Color_009}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneNavigatorItemHottrackInnerBorderFillKey}" Color="{StaticResource Color_009}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneNavigatorLightTextFillKey}" Color="{StaticResource Color_002}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneNavigatorDarkTextFillKey}" Color="{StaticResource Color_001}"/>
+
+  <!-- Pane Brushes -->
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneCaptionButtonHottrackCenterFillKey}" Color="{StaticResource Color_001}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneCaptionButtonPressedCenterFillKey}" Color="{StaticResource Color_001}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneCaptionButtonHottrackOuterBorderFillKey}" Color="{StaticResource Color_014}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneCaptionButtonPressedOuterBorderFillKey}" Color="{StaticResource Color_014}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneCaptionButtonNotActiveHottrackOuterBorderFillKey}" Color="{StaticResource Color_006}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneCaptionButtonNotActiveHottrackCenterFillKey}" Color="{StaticResource Color_006}" />
+
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneActiveCaptionFillKey}" Color="{StaticResource Color_015}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneNotActiveCaptionFillKey}" Color="{StaticResource Color_002}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneActiveCaptionInnerBorderFillKey}" Color="{StaticResource Color_002}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneNotActiveCaptionInnerBorderFillKey}" Color="{StaticResource Color_002}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneHeaderActiveTextFillKey}" Color="{StaticResource Color_001}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.PaneHeaderNotActiveTextFillKey}" Color="{StaticResource Color_017}" />
+
+  <!-- DockManager Brushes -->
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.ToolTipCenterFillKey}" Color="{StaticResource Color_040}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.ToolTipOuterBorderFillKey}" Color="{StaticResource Color_009}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.DarkBrushKey}" Color="{StaticResource Color_001}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.LightBrushKey}" Color="{StaticResource Color_002}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.ThemeColorTextFillKey}" Color="{StaticResource Color_001}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.TabGroupPaneGlyphFillKey}" Color="{StaticResource Color_001}" />
+
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.ContentPaneBorderFillKey}" Color="{StaticResource Color_012}" />
+  <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=ContentPaneCenterFillKey}" Color="{StaticResource Color_002}" />
+
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.UnpinnedTabFlyoutSplitterLightStrokeFillKey}" Color="{StaticResource Color_046}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.UnpinnedTabFlyoutSplitterDarkStrokeFillKey}" Color="{StaticResource Color_046}" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.GrayTextBrushKey}" Color="{StaticResource Color_001}" Opacity="0.3" />
+  <SolidColorBrush  PresentationOptions:Freeze="true"  x:Key="{x:Static igDock:DockManagerBrushKeys.DockingIndicatorGlyphFillKey}" Color="{StaticResource Color_011}" />
+
+
+    <!-- FloatingWindowPreview Brushes -->
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=FloatingWindowBackgroundBrush}" Color="{StaticResource Color_011}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type igDock:XamDockManager}, ResourceId=FloatingWindowBorderBrush}" Color="{StaticResource Color_011}" />
+
+</ResourceDictionary>

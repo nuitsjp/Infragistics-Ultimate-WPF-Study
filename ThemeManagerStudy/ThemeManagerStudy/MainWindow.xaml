@@ -1,0 +1,55 @@
+﻿<Window x:Class="ThemeManagerStudy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThemeManagerStudy"
+        xmlns:igEditors="http://infragistics.com/Editors"
+        xmlns:igThemes="http://infragistics.com/Themes"
+        xmlns:ig="http://schemas.infragistics.com/xaml"
+        xmlns:igDock="http://infragistics.com/DockManager"
+        xmlns:igDP="http://infragistics.com/DataPresenter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <Style TargetType="{x:Type ig:XamBusyIndicator}"></Style>
+        <Style TargetType="{x:Type igDP:XamDataGrid}"></Style>
+        <Style TargetType="{x:Type igEditors:XamDateTimeEditor}" BasedOn="{StaticResource XamDateTimeEditorBaseStyle}"/>
+        <Style TargetType="{x:Type ig:XamMultiColumnComboEditor}" BasedOn="{StaticResource XamMultiColumnComboEditorStyle}">
+            <Setter Property="Height" Value="41"/>
+            <Setter Property="Width" Value="400"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </Window.Resources>
+    <igDock:XamDockManager>
+        <igDock:DocumentContentHost>
+            <igDock:SplitPane>
+                <igDock:TabGroupPane>
+                    <igDock:ContentPane Header="header1">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Orientation="Horizontal">
+                                <ig:XamBusyIndicator IsBusy="True" Margin="5"/>
+                                <igEditors:XamDateTimeEditor Width="200" Margin="5" VerticalAlignment="Center"/>
+                                <ig:XamMultiColumnComboEditor ItemsSource="{Binding Customers}"/>
+                            </StackPanel>
+                            <igDP:XamDataGrid Grid.Row="1" DataSource="{Binding Customers}"/>
+                        </Grid>
+                    </igDock:ContentPane>
+                </igDock:TabGroupPane>
+            </igDock:SplitPane>
+        </igDock:DocumentContentHost>
+        <igDock:XamDockManager.Panes>
+            <igDock:SplitPane igDock:XamDockManager.InitialLocation="DockedRight"
+                              SplitterOrientation="Horizontal" Width="220">
+                <igDock:ContentPane IsPinned="False" Header="header2"/>
+            </igDock:SplitPane>
+        </igDock:XamDockManager.Panes>
+    </igDock:XamDockManager>
+</Window>

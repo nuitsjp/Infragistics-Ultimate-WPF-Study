@@ -5,18 +5,21 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 using Infragistics.Themes;
+using Infragistics.Windows.Themes;
+using ThemeManager = Infragistics.Themes.ThemeManager;
 
-namespace FilteredComboBox
+namespace ThemeManagerStudy
 {
     /// <summary>
-    /// App.xaml の相互作用ロジック
+    /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
-        private void Application_Startup(object sender, StartupEventArgs e)
+        public App()
         {
-            //ThemeManager.ApplicationTheme = new RoyalLightTheme();
+            InitializeComponent();
         }
     }
 }
