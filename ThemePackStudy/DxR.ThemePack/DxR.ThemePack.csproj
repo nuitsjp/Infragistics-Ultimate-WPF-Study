@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Infragistics.WPF.DataGrids" Version="21.2.9" />
+    <PackageReference Include="Infragistics.WPF.Editors" Version="21.2.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="ResourceSets\Primitives\PrimitivesGeneric.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="ResourceSets\Primitives\PrimitivesGeneric_Brushes.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="ResourceSets\Primitives\PrimitivesGeneric_Express.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="ResourceSets\Primitives\PrimitivesRoyalLight.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="ResourceSets\Primitives\PrimitivesRoyalLight_Brushes.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="ResourceSets\Primitives\PrimitivesRoyalLight_Express.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+  </ItemGroup>
+
+</Project>

@@ -5,7 +5,6 @@
 
         <!-- MahApps -->
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
 
@@ -20,6 +19,8 @@
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.MahApps;component/Themes/MaterialDesignTheme.MahApps.Flyout.xaml" />
 
     </ResourceDictionary.MergedDictionaries>
+
+    <FontFamily x:Key="MaterialDesignFont">Meiryo UI</FontFamily>
 
     <!-- MahApps Brushes -->
     <SolidColorBrush x:Key="HighlightBrush" Color="{DynamicResource Primary700}"/>

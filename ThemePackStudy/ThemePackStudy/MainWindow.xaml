@@ -1,0 +1,28 @@
+﻿<Window x:Class="ThemePackStudy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThemePackStudy"
+        xmlns:igDP="http://infragistics.com/DataPresenter"
+        xmlns:dxr="http://jp.ricoh.com/Themes/DxR"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <dxr:DataPresenter/>
+                <dxr:Editors/>
+                <dxr:Primitives/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.Resources>
+            <XmlDataProvider Source="/Data/Orders.xml" x:Key="OrderData" XPath="/Orders" />
+        </Grid.Resources>
+        <igDP:XamDataGrid x:Name="XamDataGrid1"
+                          DataSource="{Binding Source={StaticResource OrderData}, XPath=Order}"/>
+
+    </Grid>
+</Window>

@@ -15,16 +15,13 @@ namespace WithMaterialAndMah
     {
         public App()
         {
-            InitializeComponent();
-            FrameworkElement.StyleProperty.OverrideMetadata(typeof(Window), new FrameworkPropertyMetadata
-            {
-                DefaultValue = FindResource(typeof(Window))
-            });
-        }
+            //var font = new System.Windows.Media.FontFamily("Meiryo UI");
 
-        private void Application_Startup(object sender, StartupEventArgs e)
-        {
-            MessageBox.Show(string.Join(", ", e.Args));
+            //var style = new Style(typeof(Window));
+            //style.Setters.Add(new Setter(Window.FontFamilyProperty, font));
+            //style.Setters.Add(new Setter(Window.FontSizeProperty, 20d));
+
+            //FrameworkElement.StyleProperty.OverrideMetadata(typeof(Window), new FrameworkPropertyMetadata(style));
         }
     }
 }
